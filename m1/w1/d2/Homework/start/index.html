@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/logo.svg">
+    <meta name="description"
+        content="Primi passi operativi per creare un modello di pagina HTML per un post. Scopri come iniziare in modo facile">
+    <title>Sviluppo di una pagina web - Blog Epicode</title>
+</head>
+
+<body>
+
+    <!--CSS illegale-->
+    <style>
+        table {
+            width: 35%;
+
+        }
+
+        td {
+            border: 1px solid black
+        }
+
+    </style>
+
+
+    <!--uso figure per metterci la caption sotto-->
+    <figure>
+        <img src="./assets/img/logo.svg" alt="Logo Epicode School" width="200">
+        <figcaption>Epicode - Il blog dei developers</figcaption>
+    </figure>
+
+    <hr>
+    
+    
+    <nav class="menu">
+        Vai a:
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#correlati">Articoli</a></li>
+          <li><a href="#job">Job</a></li>
+        </ul>
+    </nav>
+    <hr>
+
+      
+    <!--Menu1 a tendina che non funziona-->
+    <!--
+    <select name="menu">
+        <option value="">--seleziona--</option>
+        <option value="home">Home</option>
+        <option value="#correlati">Articoli</option>
+        <option value="Job">Job</option>
+    </select>
+    <button>Vai</button>
+    -->
+
+
+    <figure id="home">
+        <h1><b>Come creare un template per i post</b></h1>
+        <blockquote> di Mario Rossi - pubblicato il 25-10-2020</blockquote>
+
+    </figure>
+    <hr>
+
+
+    <p>
+
+        La prima cosa da fare e` suddividere in blocchi logici la pagina,&nbsp;identificando le parti comuni da
+        applicare a tutte le pagine.
+
+        <br>
+
+    <ul>
+        <li>
+            Le varie aree saranno quindi suddivise in:
+            <ul>
+                <li>Contenuti di intestazione del tag &lt;header&gt;</li>
+                <li>Contenuti centrali variabili&nbsp;del tag &lt;main&gt; (corpo principale)</li>
+                <li>Contenuti di fine pagina comuni,&nbsp;da inserire nel tag &lt;footer&gt;</li>
+                <li>Formattazione del codice</li>
+            </ul>
+        </li>
+        <br>
+        <br>
+        <li>
+            Il testo dell&apos;articolo dovra` essere formattato per identificare&nbsp;tutte le parti da selezionare con
+            i CSS.&nbsp; Percio` i passi saranno:
+            <ul>
+                <li>Progettare su carta il markup finale,&nbsp;assegnando ad ogni specifico testo il&nbsp;tag
+                    appropriato</li>
+                <li>Scrivere l&apos;HTML dai tag esterni a quelli a quelli interni e&nbsp;dall&apos;alto verso il basso
+                </li>
+                <li>Applicare gli stili CSS</li>
+                <li>L&apos;applicazione di stili CSS e`&nbsp;cresciuta negli anni fino a raggiungere la
+                    diffusione&nbsp;pressoche` totale.</li>
+            </ul>
+
+        </li>
+    </ul>
+    </p>
+    <br>
+    <br>
+    <hr>
+
+    <p>
+        <caption>
+            <h3>Diffusione dei CSS</h3>
+        </caption>
+        <table>
+            <tr>
+                <th>Anno</th>
+                <th>% di utilizzo</th>
+                <th>Supporto browser</th>
+            </tr>
+            <tr>
+                <td>2000</td>
+                <td>20%</td>
+                <td>17%</td>
+            </tr>
+            <tr>
+                <td>2002</td>
+                <td>35%</td>
+                <td>22%</td>
+            </tr>
+            <tr>
+                <td>2004</td>
+                <td>45%</td>
+                <td>42%</td>
+            </tr>
+            <tr>
+                <td>2008</td>
+                <td>80%</td>
+                <td>51%</td>
+            </tr>
+            <tr>
+                <td>2012</td>
+                <td>100%</td>
+                <td>76%</td>
+            </tr>
+        </table>
+        <br>
+        Un test di validazione potra` essere fatto tramite il tool online <a href="https://jigsaw.w3.org/css-validator/"
+        target="_blank"><b>-LINK ESTERNO-</b></a>&nbsp;dedicato allo scopo.
+        <br>
+        <br>
+        Una volta ottimizzato il tutto,&nbsp;avremo raggiunto il nostro obbiettivo ed&nbsp;essere stati dei veri developers
+        come loro:
+        <br><br>
+
+        <video src="./assets/vid/Epitalk.mp4" id="job" controls poster="./assets/img/poster.jpg" width="500px"></video> <!--winkl wink-->
+
+    </p>
+    <br>
+    <hr>
+
+    <p>
+        Vuoi rimanere aggiornato su altre novita` del blog?
+        <br>
+        Iscriviti alla nostra newsletter:
+
+        <form action="" method="get">
+
+            <input type="email" name="email" placeholder="email@example.com">
+            <button>Submit</button>
+
+        </form>
+
+
+    </p>
+    <br><hr>
+    <aside>
+        
+        <h4 id="correlati">Articoli correlati:</h4>
+        <ul>
+            <li> Validare il codice HTML <br>
+                Categoria: develop <br>
+                Data: 18-9-2020 <br>
+                <br>
+            </li>
+    
+            <li> Correggere la sintassi <br>
+                Categoria: develop <br>
+                Data: 16-9-2020 <br>
+                <br>
+            </li>
+    
+            <li> Meno Kb nella pagina <br>
+                Categoria: ottimizazzione <br>
+                Data: 30-9-2020 <br>
+                <br>
+            </li>
+        </ul>
+
+        
+    </aside>
+
+    <hr>
+
+    <footer>
+
+        <h4>Blog Epicode &copy;2021</h4>
+        <figure>
+            <figcaption>
+                Testata online di Mario Rossi, registrata con prot.n.213/2018&nbsp;- via Luigi Einaudi 2&nbsp;- Milano. Milano.&nbsp;P.IVA 00112233.&nbsp; 
+            </figcaption>
+        </figure>
+        E-mail: info@epicode.com 
+        <a href="mailto:info@epicode.com" target="_blank"><b>-SCRIVICI-</b></a>
+
+    </footer>
+
+
+
+</body>
+
+</html>
