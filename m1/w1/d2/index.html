@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- style css che non avreio dovuto copiare-->
+    <style>
+        
+        table{
+            width: 100%;
+
+        }
+        td{
+            border: 1px solid black
+        }
+
+    </style>
+
+    <table><!--tag tabella-->
+        <tr><!--table row-->
+            <th>nome</th>
+            <th>cognome</th>
+        </tr>
+        <tr>
+            <td>Davide</td>
+            <td>Dal Santo</td>
+        </tr>
+        <tr>
+            <td>Massimino</td>
+            <td>Di Quarto</td>
+        </tr>
+    </table>
+<hr>
+
+    <!--table>tr*3>td*3{cella} graffe usate per mettere un testo dentro ogni td-->
+    <caption>Intestazione dlla tabella</caption> <!--self explanatory-->
+    <table> 
+        <tr>
+            <td>cella</td>
+            <td>cella</td>
+            <td rowspan="2">cella</td>
+        </tr>
+        <tr>
+            <td>cella</td>
+            <td>cella</td>
+            
+        </tr>
+        <tr>
+            <td>cella</td>
+            <td>cella</td>
+            <td>cella</td>
+        </tr>
+        <tr>
+            <td colspan="2">cella</td>
+            <td>cella</td>
+        </tr>
+    </table>
+    
+</body>
+</html>
