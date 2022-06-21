@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--action specifica dove inviare il file del form se lo lascio vuoto i dati vengono inviati alla pagina in cui sono-->
+    <!--method rappresenta il metodo di invio dei dati puo` essere post o get-->
+    <!--post a differenza di get lascia l`url pulito senza query param ed e` la soluzione migliore se devo inviare una quantita` elevata di dati-->
+
+    <!--
+
+        action => definisce dove inviare i dati inoltre sposta utente all'indirizzo file indicato (ex. file.php)
+
+        method => indica la modalita` di invio dei dati
+
+        metod : post => non sporco l'indirizzo posso inviare grandi quantita` di dati
+
+        method : get => sporca l'url aggiungendo una serie di query params, numero di dati inviabili limitato
+
+    -->
+    <form action="" method="post">
+
+        <label for="nome">Nome</label><!--mi scirve NOme fuori dal campo
+        dentro for devo avere lo stesso id dell'input associato
+        -->
+        <!--input e` autoconclusivo-->
+        <input id="nome" name="nome" type="text" placeholder="Nome">
+        <input name="num" type="number" placeholder="Numero">
+        <input name="email" type="email" placeholder="Email">
+        <input name="psw" type="password" placeholder="Password">
+
+        <select name="city" ><!--menu` a tendina-->
+            <option value="">--seleziona--</option>
+            <option value="Roma">Roma</option><!--attributo tipico dei form e rappresenta il valore scrito nei form value obbligatorio nelle select-->
+            <option value="Milano">MIlano</option>
+        </select>
+
+        <br>
+        <label for="consenso">Acetto policy</label>
+        <input type="checkbox" id="consenso">
+        
+        <button>Invia</button>
+        <!--
+            oppure
+            <input type="submit" value="Salva">
+
+            utilizzo per cambiare l'etichetta del tasto submit
+
+        -->
+
+    </form>
+    
+</body>
+</html>
