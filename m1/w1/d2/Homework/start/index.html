@@ -14,6 +14,8 @@
 <body>
 
     <!--CSS illegale-->
+    <!--update post school-->
+    <!--implementato css per span class test-->
     <style>
         table {
             width: 35%;
@@ -22,6 +24,11 @@
 
         td {
             border: 1px solid black
+        }
+
+        span.test{
+            color: greenyellow;
+            background-color: black;
         }
 
     </style>
@@ -107,42 +114,50 @@
     <hr>
 
     <!--caption usato per titolo tabella-->
+
+    <!--update post school-->
+    <!--semantica tabella implementato thead e tbody-->
+    <!--implementato span per testare span e css-->
     <p>
 
         <table>
-            <caption>
-                <b>Diffusione dei CSS</b> 
-            </caption>
-            <tr>
-                <th>Anno</th>
-                <th>% di utilizzo</th>
-                <th>Supporto browser</th>
-            </tr>
-            <tr>
-                <td>2000</td>
-                <td>20%</td>
-                <td>17%</td>
-            </tr>
-            <tr>
-                <td>2002</td>
-                <td>35%</td>
-                <td>22%</td>
-            </tr>
-            <tr>
-                <td>2004</td>
-                <td>45%</td>
-                <td>42%</td>
-            </tr>
-            <tr>
-                <td>2008</td>
-                <td>80%</td>
-                <td>51%</td>
-            </tr>
-            <tr>
-                <td>2012</td>
-                <td>100%</td>
-                <td>76%</td>
-            </tr>
+            <thead>
+                <caption>
+                    <b>Diffusione dei <span class="test">CSS</span></b> 
+                </caption>
+            </thead>
+            <tbody>   
+                <tr>
+                    <th>Anno</th>
+                    <th>% di utilizzo</th>
+                    <th>Supporto browser</th>
+                </tr>
+                <tr>
+                    <td>2000</td>
+                    <td>20%</td>
+                    <td>17%</td>
+                </tr>
+                <tr>
+                    <td>2002</td>
+                    <td>35%</td>
+                    <td>22%</td>
+                </tr>
+                <tr>
+                    <td>2004</td>
+                    <td>45%</td>
+                    <td>42%</td>
+                </tr>
+                <tr>
+                    <td>2008</td>
+                    <td>80%</td>
+                    <td>51%</td>
+                </tr>
+                <tr>
+                    <td>2012</td>
+                    <td>100%</td>
+                    <td>76%</td>
+                </tr>
+            </tbody> 
         </table>
         <br>
         Un test di validazione potra` essere fatto tramite il tool online <a href="https://jigsaw.w3.org/css-validator/"
@@ -154,9 +169,7 @@
         <br><br>
 
         <!--id job per menu-->
-        <!--controls per comandi video poster per immagine di copertina-->
-        
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/io_5-CxgdGU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="job"></iframe><!--winkl wink-->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/io_5-CxgdGU" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="job"></iframe><!--winkl wink-->
 
     </p>
     <br>
@@ -206,16 +219,14 @@
 
     <hr>
 
+    <!--post school update-->
+    <!--implementato tag footer ed address-->
     <footer>
 
         <h4>Blog Epicode &copy;2021</h4>
-        <figure>
-            <figcaption>
-                Testata online di Mario Rossi, registrata con prot.n.213/2018&nbsp;- via Luigi Einaudi 2&nbsp;- Milano. Milano.&nbsp;P.IVA 00112233.&nbsp; 
-            </figcaption>
-        </figure>
-        E-mail: info@epicode.com 
-        <a href="mailto:info@epicode.com" target="_blank"><b>-SCRIVICI-</b></a>
+            <address>
+                Testata online di Mario Rossi, registrata con prot.n.213/2018&nbsp;- via Luigi Einaudi 2&nbsp;- Milano. Milano.&nbsp;P.IVA 00112233.&nbsp;<br> E-mail:<a href="mailto:info@epicode.com" target="_blank"><b>epicode@epicode.com</b></a>  
+            </address>
 
     </footer>
 
