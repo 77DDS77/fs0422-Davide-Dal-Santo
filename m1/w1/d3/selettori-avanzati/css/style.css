@@ -1,0 +1,42 @@
+
+/*intervieen sul primo tag p dopo ogni blocquote (ADIACENTE SENZA INTERRUZIONI)*/
+blockquote + p{
+    color: red;
+}
+
+span ~ b{
+    color: blue;
+}
+
+button{
+    background-color: red;
+    color: aqua;
+    
+}
+
+button:hover{
+    background-color: yellow;
+    border: none;
+    color: blueviolet;
+    transition: background-color 1s;
+}
+
+
+ul li:last-child{
+    color: purple;
+}
+
+ul li:not(.escluso){
+    text-decoration: overline;
+}
+/*vai dentro ul e il terzo li applica css*/
+ul li:nth-of-type(3){
+    background-color: red;
+}
+
+/*solo il tr pari*/
+table tdS:nth-of-type(even){
+    background-color: grey;
+
+}
+

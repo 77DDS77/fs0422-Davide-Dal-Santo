@@ -1,0 +1,53 @@
+/* tipografia*/
+
+/*
+rem e` l'unita` usata piu` spesso
+rem
+em
+px
+*/
+
+@font-face{
+    font-family: MioFont;/*nome che voglio dare al font esterno*/
+    src: url("../webfont/ufonts.com_tw-cen-mt.ttf") format("truetype");
+}
+
+html{
+    font-size: 20px;/*definisco manualmente il valore di rem*/
+}
+
+h1{
+    font-size: 1rem; /*rem dimensione standard definita dal tag root quindi <html>*/
+}
+
+h2{
+    font-size: 1rem;
+}
+
+h2 span{
+    font-size: 2em;/*con em la dimensione e presa dal genitore quindi h2*/
+}
+
+h3{
+    font-family: MioFont;
+}
+
+h4{
+    font-variant: small-caps;
+    text-align: center;
+}
+
+h5{
+    text-indent: 30px;
+}
+
+p{
+    line-height: 2rem;
+    letter-spacing: 5px;
+    text-shadow: 4px 4px 3px black, 5px 5px 3px red;
+    /*i 3 num, sono gli assi, 
+    il primo orizzontale
+    il secondo vericale
+    terzo dimensione definizione ombra >num meno definita ma piu grande
+    e colore*/
+}

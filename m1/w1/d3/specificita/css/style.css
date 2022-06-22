@@ -1,0 +1,50 @@
+
+/**
+
+*{  <==asterisco seleziona TUTTO, da utilizzare poco perche impreciso
+
+}
+
+!important fa schifo non usarlo, vince su qualsiasi conflitto
+
+*/
+
+/*
+tag peso 1
+classi peso 10
+id peso 100
+stili in line peso 1000
+
+*/
+
+a{/*peso 1*/
+    text-decoration: none;
+    color: blue;
+}
+
+#main-header .list-item a{/* a vale 1 classe 10 id 100 quindi 111 vinco su quello sotto*/
+    text-decoration: none;
+    color: black;
+}
+
+
+#main-header a{/*id ha peso 100, id+tag peso 101 quindi vince su quello sotto*/
+    text-decoration: none;
+    color: red;
+}
+
+
+
+ /* spazio fondo blu funziona su tutti i tag dentro div con class="sfondo-blue"*/
+div .sfondo-blue{
+    background-color: blue;
+}
+
+/*.senza spazio mi riferisco solo allo specifico div con classi sfondo blue e testo grassetto*/
+div.sfondo-blue.testo-grasetto{
+    font-weight: bold;
+}
+
+
+
+
