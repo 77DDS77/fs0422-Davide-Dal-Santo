@@ -1,0 +1,172 @@
+/* IMPOSTAZIONI GENERALI */
+
+html{
+    background-color: rgb(167, 165, 165);
+    font-size: 18px;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.5rem;
+}
+
+h2{
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+h3{
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+
+/* HEADER */
+
+header{
+    padding: 20px;
+    text-align: center;
+    font-size: 2rem;
+    margin: 15px;
+    font-weight: 600;
+    
+}
+
+h1{
+    font-variant: small-caps;
+}
+
+body .intest{
+    background-color: rgb(241, 201, 115);
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 50px;
+}
+
+span.nome{
+    display:block;
+    color: red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h2.endheader{
+    font-size: 1rem;
+    font-style: italic;
+    text-decoration: underline;
+
+}
+
+hr {
+    margin: 20px;
+}
+
+/* MAIN */
+
+
+/*INIZIO CSS FOTO*/
+
+
+figure{
+    text-align: center;
+}
+
+figure > img{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 50px;
+    width: 246px;
+    height: 163px;
+    
+}
+
+figure > figcaption{
+    margin: 10px;
+}
+
+/*FINE CSS FOTO*/
+
+
+/*INIZO CSS MAIN*/
+
+main{
+    margin-left: 20px;
+    line-height: 30px;
+}
+
+
+.contacts{
+    line-height: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+a{
+    color: red;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.about{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+blockquote{
+    text-align: center;
+    font-style: italic;
+    background-color: rgb(241, 201, 115);
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 20px;
+    padding: 10px;
+
+}
+
+cite{
+    display: block;
+}
+
+.pres{
+    margin-top: 30px;
+}
+
+.comp{
+    margin-top: 30px;
+}
+
+ul{
+    margin-left: 30px;
+}
+
+dd{
+    font-style: oblique;
+    text-indent: 15px;
+}
+/* FOOTER */
+
+footer{
+    margin-left: 20px;
+    line-height: 20px;
+    font-style: italic;
+}
+
+footer>p{
+    text-align: center;
+
+}
+
+footer>p>a{
+    line-height: 70px;
+}
+
+p#end{
+    padding: 20px;
+}
