@@ -1,0 +1,36 @@
+/*non c'e bisogno di nessuna intestazione*/
+
+/*per usare rgb con trasparenza dichiaro rgba(r, g, b, a)
+a puo` andare da 0 a 1, gli intermedi vanno scritti con il PUNTO
+quindi 0.1, 0.2, ecc*/
+
+div{/*seleziono attraverso il tag*/
+    color: rgb(255, 0, 0);
+}
+
+#div-blue{/*seleziono atraverso l'ID univoco*/
+    color: blue;
+}
+
+.txt-verde{/*seleziono attraverso la classe*/
+    color: green;
+}
+
+span{
+    font-style: italic;
+}
+
+
+#area-grassetto span{/*cerca tutti gli span che stanno dentro #area-grassetto*/
+    font-weight: 600; /*posso dagli anche un valore da 100 a 700, 600=bold*/
+}
+
+/*
+    #area-grassetto > span{  //con > voglio solo gli span FIGLI DIRETTI #di area-grassetto//
+
+    }
+*/
+
+#area-grassetto div span{
+    background-color: blue;
+}

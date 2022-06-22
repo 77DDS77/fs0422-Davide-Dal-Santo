@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--rel deve essere stylesheet per linkare file css-->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <!--utilizziamo <div> tutte le volte dove dobbiamo fare un raggruppamento di tag senza una specificazione semantica-->
+    <!--  ID oltre ad avere un autilita con lable e ancora <a> allinterno del valore dell id non sono permessi spazi e il valore di id deve essere un valore UNIVOCO-->
+    <!--class permette di fare degli identificatori non uinivoci, posso attribuire due classi ad un tag semplicemente separandoli con uno spazio all'interno dello stesso attributo class="test test 2"-->
+
+    <!--offtopic elementi linea vuoti hanno alt e larg ZERO, elementi blocco vuoti hanno alt zero e larg 100%, prendono tutto lo spazio di lungezza disponibili-->
+
+    <!--
+    <style>
+        div{
+            color: rgb(255, 0, 0); /*per fare commenti in css*/
+        }
+    </style>
+    -->
+
+
+    <div>Ciao</div>
+    <div id="div-blue">Ciao</div>
+    <div class="txt-verde">Ciao</div>
+    <div>Ciao</div>
+    <div class="txt-verde">Ciao</div>
+<hr>
+
+    <span>testo corsivo</span>
+    <div id="area-grassetto">
+        <span>testo grassetto</span> <!--span figlio di div eredita il colore-->    
+        <span>testo grassetto</span>
+        <div>
+            <span>sfondo blu</span>
+        </div>   
+    </div>
+
+
+
+
+    </div>
+    
+</body>
+</html>
