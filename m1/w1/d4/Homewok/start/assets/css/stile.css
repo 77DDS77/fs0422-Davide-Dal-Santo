@@ -47,11 +47,11 @@ li > a{
     list-style-type: none;
 }
 
-li:before{
+.ulheader>li:before{
     content:"❯ ";
 }
 
-li:after{
+.ulheader>li:after{
     content: " ❮";
 }
 
