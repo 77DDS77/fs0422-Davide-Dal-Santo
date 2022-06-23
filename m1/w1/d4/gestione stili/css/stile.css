@@ -1,0 +1,42 @@
+body{
+    font-size: 1.2rem;
+}
+
+#blocco-trasparente{
+    opacity: 0.5;
+}
+
+button{
+    opacity: 1; /*non funziona per ereditarieta*/
+}
+
+/*OVERFLOW*/
+
+#sezione-1{
+    height: 200px;
+    overflow: auto; /*auto   se e solo se il contenuto eccede dalla 
+                    height fa comparire le barre di scorrimento*/
+                    /*le barre di scorrimento occupano spazio*/
+    
+}
+
+#sezione-2{
+    margin-top: 20px;
+    word-wrap: break-word; /*le parole lunghe vengono interrotte*/
+    word-break: break-all; /*spezza tautte le parole da usare solo in
+                            casi estremi*/
+    hyphens: auto; /*quando manda a capo aggiunge il trattino 
+                    adesso non funziona perche' word wrap e word break
+                    interferiscono*/
+}
+
+/* width scrollbar sopra */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: red; 
+  }
+  

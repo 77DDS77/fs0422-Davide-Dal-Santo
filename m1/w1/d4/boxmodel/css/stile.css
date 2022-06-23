@@ -1,0 +1,72 @@
+
+
+/*box model*/
+
+.quadrato{
+    background-color: red;
+    height: 200px;/*min-height altezza minima, se ti serve allungati*/
+                 /*50 vh meta' della finestra, si modifica se modifico dimensioni finestra*/
+    width: 200px;
+    padding: 15px; /*disatnza dal bordo interno al contenuto del
+                    contenitore*/
+                    /*padding aumenta la dimensione del contenitore
+                    qui avro' il quadrato 200x200 + il padding attorno
+                    */
+                    /*padding ha varianti top bottom left e right*/
+
+    box-sizing: border-box; /*con questo comando il podding non sforma 
+                            le dimensionoe del box*/
+    
+    border: 1px solid black; /*altro elemento che aggiunge le sue 
+                                dimensioni al contenitore (verso l'interno*/
+                                /*border ha varianti top bottom left e right*/
+    
+    border-radius: 5px; /*idem ha top bottom lft rgt*/
+                        /*arrontonda gli angoli del box e posso giocarci
+                        per fare figure*/
+    
+    margin: 50px 100px; /*con due valori dichiarati prende il primo 
+                        per top e bottom e il secondo per sx e dx*/
+                        /*con 4 valori dichiarati parte dal top in senso orario*/
+   
+    outline: 5px solid yellowgreen; /*altro bordo esterno
+                                        comportamenti ???*/
+}
+
+.quadrato:nth-of-type(1){  /*solo il primo quadrato*/
+
+    width: 50%;
+    margin: 0 25%;
+
+}
+
+.quadrato:nth-of-type(2){  /*solo il primo quadrato*/
+
+    margin: 20px auto;
+
+}
+
+.center-text{
+    text-align: center; /*agisce sul contenuto non sul contenitore*/
+}
+
+
+/*  SFONDI*/
+#blocco-sfondo{
+
+    height: 300px;
+    background-image: url("../img/sfondo.png");
+    background-size: cover; /*dimensioni prima larg e poi alt*/
+                            /*cover prendere tutta la larghezza*/
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed; /*fa una cosa fica non so come
+                                    spiegarla lol*/
+}
+
+body{
+
+    background-image: url(https://picsum.photos/200/300);
+    background-attachment: fixed;
+
+}

@@ -1,0 +1,23 @@
+input[type="text"], input[type="password"]{
+
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    height: 40px;
+    width: 300px;
+}
+
+input:not([type="radio"]):focus{ /*focus=quando ci ho cliccato sopra*/
+
+    outline: 5px solid green;
+
+}
+
+
+input:required{
+    border: 1px solid red;
+}
+
+input:checked{ /*checkbox sono POCO editabili*/
+    background-color: red;
+}

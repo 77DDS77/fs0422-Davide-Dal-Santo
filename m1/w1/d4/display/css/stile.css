@@ -1,0 +1,28 @@
+
+.container{
+    text-align: center;
+    margin: 0 auto;
+    width: 90%;
+    
+}
+
+.colonna{
+    background-color: yellow;
+    width: calc(100% / 3);
+    height: 200px;
+    display: inline-block;
+    margin-left: -4px;
+}
+
+.colonna:last-of-type{ /*display none SULL'ULTIMO ELEMENTO*/
+    display: none;     /*display none l'elemento scompare del tutto*/
+}
+
+.colonna:nth-of-type(4){ /*opacity SUL QUARTO ELEMENTO*/
+    opacity: 0;          /*opacity 0 nasconde l'elemento ma e' ancora 
+                        presente e visualizzabile sul dev tool*/
+}
+
+.colonna:target{
+    background-color: red;
+}
