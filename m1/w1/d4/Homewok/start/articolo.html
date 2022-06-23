@@ -5,21 +5,32 @@
         <title>Sviluppo di una pagina web - Blog Epicode</title>
         <meta name="description" content="Primi passi operativi per creare un modello di pagina HTML per un post. Scopri come iniziare in modo facile.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+        <link rel="stylesheet" href="./assets/css/reset.css">
+        <link rel="stylesheet" href="./assets/css/all.css">
+        <link rel="stylesheet" href="./assets/css/stile.css">
+
+
     </head>
     <body>
         <header>
-            <div>
-                <img src="assets/img/logo.svg" alt="logo del blog" width="250" height="60">
-                <p>Epicode - Il blog dei developers</p>
+            <div class="contenuto">
+                <div>
+                    <img src="assets/img/logo.svg" alt="logo del blog" width="250" height="60">
+                    <p>Epicode - Il blog dei developers</p>
+                </div>
+                <nav>
+                    <ul class="ulheader">
+                        <li><a href="index.html" title="Home Page">Home</a></li>
+                        <li><a href="articoli.html" title="Elenco degli articoli tecnici pubblicati">Articoli</a></li>
+                        <li><a href="contatti.html" title="Candidati inviando un tuo cv">Lavora con noi</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html" title="Home Page">Home</a></li>
-                    <li><a href="articoli.html" title="Elenco degli articoli tecnici pubblicati">Articoli</a></li>
-                    <li><a href="contatti.html" title="Candidati inviando un tuo cv">Lavora con noi</a></li>
-                </ul>
-            </nav>
-
         </header>
 
         <hr>
@@ -27,20 +38,20 @@
         <main>
             <article>
                 <h1>Come creare un template per i post</h1>
-                <p>di Mario Rossi - <span> pubblicato il 25-10-2020</span></p>
+                <p class="p1">di Mario Rossi - <span class="s1"> pubblicato il 25-10-2020</span></p>
     
-                <p>La prima cosa da fare è suddividere in blocchi logici la pagina, identificando le <strong>parti comuni</strong> da applicare a tutte le pagine</p>
+                <p>La prima cosa da fare è suddividere in blocchi logici la pagina, identificando le <strong id="strong1">parti comuni</strong> da applicare a tutte le pagine</p>
     
                 <p>Le varie aree saranno quindi suddivise in:</p>
-                <ul>
-                    <li>Contenuti di intestazione del tag <code>&lt;header&gt;</code></li>
-                    <li>Contenuti centrali variabili del tag <code>&lt;main&gt;</code> (corpo principale)</li>
-                    <li>Contenuti di fine pagina comuni, da inserire nel tag <code>&lt;footer&gt;</code></li>
+                <ul class="ul-main">
+                    <li>Contenuti di intestazione del tag <code id="code-style">&lt;header&gt;</code></li>
+                    <li>Contenuti centrali variabili del tag <code id="code-style">&lt;main&gt;</code> (corpo principale)</li>
+                    <li>Contenuti di fine pagina comuni, da inserire nel tag <code id="code-style">&lt;footer&gt;</code></li>
                 </ul>
     
                 <h2>Formattazione del codice</h2>
-                <p>Il testo dell'articolo dovrà essere formattato per identificare tutte le parti da <strong>selezionare con i CSS</strong>. Perciò i passi saranno:</p>
-                <ol>
+                <p>Il testo dell'articolo dovrà essere formattato per identificare tutte le parti da <strong id="strong2">selezionare con i CSS</strong>. Perciò i passi saranno:</p>
+                <ol class="ol1">
                     <li>Progettare su carta il markup finale, assegnando ad ogni specifico testo il tag appropriato</li>
                     <li>Scrivere l'HTML dai tag esterni a quelli interni e dall'alto verso il basso</li>
                     <li>Applicare gli stili CSS</li>
@@ -48,7 +59,7 @@
     
                 <p>L'applicazione di stili CSS è cresciuta negli anni fino a raggiungere la diffusione pressoché totale.</p>
     
-                <table>
+                <table class="tab1">
                     <caption>Diffusione dei CSS</caption>
                     <thead>
                         <tr>
@@ -88,10 +99,10 @@
     
                 <p>Un test di validazione potrà essere fatto tramite il <a href="https://jigsaw.w3.org/css-validator/" target="blank" title="Validatore CSS online del W3C">tool online</a> dedicato allo scopo. Una volta ottimizzato il tutto, avremo raggiunto il nostro obiettivo ed essere stati dei veri developers come loro:</p>
 
-                <iframe width="300" height="300" src="https://www.youtube.com/embed/dvOvHXruEDM" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe id="yt" src="https://www.youtube.com/embed/dvOvHXruEDM" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     
-                <section>
-                    <h2>Novità</h2>
+                <section class="news">
+                    <h2 class="h2-news">Novità</h2>
                     <p>Vuoi rimanere aggiornato su altre novità del blog? Iscriviti alla nostra newsletter:</p>
                     
                     <form method="POST" action="elabora_form.php">
@@ -105,23 +116,23 @@
             </article>
     
             <aside>
-                <h2>Articoli correlati</h2>
-                <div>
-                    <a href="post2.html" title="Passaggi guidati per validare correttamente tutto il codice sviluppato">Validare il codice HTML</a>
-                    <p>Categoria: develop</p>
-                    <p>Data: 18-9-2020</p>
+                <h2 id="h2-aside">Articoli correlati</h2>
+                <div class="correlati">
+                    <a href="post2.html" class="link-corr" title="Passaggi guidati per validare correttamente tutto il codice sviluppato">Validare il codice HTML</a>
+                    <p class="categoria">Categoria: develop</p>
+                    <p class="data">Data: 18-9-2020</p>
                 </div>
     
-                <div>
-                    <a href="post3.html" title="Passaggi guidati per controllare e correggere tutto il codice sviluppato">Correggere la sintassi</a>
-                    <p>Categoria: develop</p>
-                    <p>Data: 16-9-2020</p>
+                <div class="correlati">
+                    <a href="post3.html" class="link-corr" title="Passaggi guidati per controllare e correggere tutto il codice sviluppato">Correggere la sintassi</a>
+                    <p class="categoria">Categoria: develop</p>
+                    <p class="data">Data: 16-9-2020</p>
                 </div>
     
-                <div>
-                    <a href="post4.html" title="Consigli ed approcci per ridurre il peso della pagina">Meno Kb nella pagina</a>
-                    <p>Categoria: ottimizzazione</p>
-                    <p>Data: 30-9-2020</p>
+                <div class="correlati">
+                    <a href="post4.html" class="link-corr" title="Consigli ed approcci per ridurre il peso della pagina">Meno Kb nella pagina</a>
+                    <p class="categoria">Categoria: ottimizzazione</p>
+                    <p class="data">Data: 30-9-2020</p>
                 </div>
             </aside>
         </main>
@@ -129,8 +140,12 @@
         <hr>
 
         <footer>
-            <p>Blog Epicode &copy;2021</p>
-            <address>Testata online di Mario Rossi, registrata con prot. n.213/2018 - via Luigi Einaudi 2 - Milano. P.IVA 00112233. <a href="mailto:info@epicode.school" title="contattami per informazioni/lavoro/privacy">info@epicode.school</a></address>
+            <div class="foot">
+                <p>Blog Epicode &copy;2021</p>
+                <address id="address">Testata online di Mario Rossi, registrata con prot. n.213/2018 - via Luigi Einaudi 2 - Milano. P.IVA
+                    00112233. <a href="mailto:info@epicode.school"
+                        title="contattami per informazioni/lavoro/privacy">info@epicode.school</a></address>
+            </div>
         </footer>
                 
     </body>
