@@ -94,13 +94,6 @@ article > h1{
     text-align: center;
 }
 
-.p1:before{
-    content: "📝";
-}
-
-.s1:before{
-    content: "🕑";
-}
 
 
 p{
