@@ -101,7 +101,7 @@ header > img{
     padding: 0.8rem;
     width: 9rem;
     transition: all 0.4s;
-    cursor: pointer;
+  
   }
   
   .btn-animation span {
@@ -262,6 +262,11 @@ a{
 }
 
 .copy{
-    margin-top: 3rem;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 0.7rem;
+    
+    border-top: 1px solid white;
 }
 
