@@ -1,0 +1,221 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.65;
+    color: #393d41;
+}
+
+
+/*--da il margin bottom che voglio su tutti i p tranne quelli del footer con id pls-wrk */
+p:not(#pls-wrk){
+    margin-bottom: 2rem;
+}
+
+
+
+/*------HEADINGS------*/
+
+h1{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.5;
+
+    color: #25a2c3;
+    text-shadow: 1px 1px 1px 2px grey;
+}
+
+h2{ /*heading box arancione*/
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.9rem;
+    line-height: 1.5;
+}
+
+h3{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #25a2c3;
+    text-shadow: 1px 1px 1px grey;
+    line-height: 1.5;
+}
+
+#foothead{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: white;
+}
+
+
+/*-----------impaginazione blocchi--------------*/
+
+
+/*-------intestazione-------*/
+header{
+    background-color: black;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+header > img{
+    padding: 1rem;
+    background-color: black;
+    max-width: 100%;
+}
+
+.intest{
+    background-image: url(../images/banner.jpg);
+    background-size: cover;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 3rem;
+    
+    
+    max-width: 100%;
+    max-height: 100%;
+    padding: 10%;
+}
+
+
+/*----button-----*/
+button{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #f04c2f;
+    color: white;
+
+    width: 9rem;
+    height: 3rem;
+    border: none;
+    border-radius: 10px;
+
+
+
+    
+}
+
+button > a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+/*------starter-------*/
+
+#start{
+    margin-top: 5%;
+    margin-bottom: 1rem;
+
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    text-align: center;
+    padding: 10%;
+    border: 3px solid #dee1e3;
+    box-shadow: 1px 1px 20px rgba(128, 128, 128, 0.37);
+    
+}
+
+#notebook{
+    max-width: 100%;
+    margin-bottom: 3rem;
+    border-radius: 90px;
+}
+
+
+/*-----seconda coppia------*/
+
+#second{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+    padding: 10%;
+    border: 3px solid #dee1e3;
+    box-shadow: 1px 1px 20px rgba(128, 128, 128, 0.37);
+}
+
+
+/*------------blocco arancione--------*/
+
+#orange-box{
+    /*background-color: #e22d0e;   eliminato e aggiunto gradient per tocco di stile */
+
+    background: rgb(226,45,14);
+    background: linear-gradient(0deg, rgba(226,45,14,1) 0%, rgba(217,94,57,1) 56%, rgba(255,202,158,1) 100%);
+
+    color: white;
+    text-align: center;
+
+    box-sizing: border-box;
+    padding: 10%;
+
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    
+}
+
+#orange-box > div > blockquote{
+    font-style: italic;
+}
+
+
+/*------tripletta finale-------*/
+
+.final-pics{ /*styking di tutte le pics con un unica classe*/
+    max-width: 100%;
+    margin-bottom: 3rem;
+}
+
+.final-div{ /*styling di tutti i div con un unica classe*/
+    text-align: center;
+    padding: 10%;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border: 3px solid #dee1e3;
+    box-shadow: 1px 1px 20px rgba(128, 128, 128, 0.37);
+}
+
+
+
+/*------footer-----*/
+
+footer{
+    margin-top: 1rem;
+    background-color: #25a2c3;
+    text-align: center;
+    padding: 5%;
+    color: #c8e7f0;
+}
+
+#address-style{
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    line-height: 1px;
+}
+
+a{
+    color: #c8e7f0;
+}
+
+#pls-wrk{
+    margin-bottom: 0.3rem;
+    
+}
+
+.copy{
+    margin-top: 3rem;
+}
+
