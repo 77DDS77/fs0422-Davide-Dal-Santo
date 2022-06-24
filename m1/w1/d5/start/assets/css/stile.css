@@ -83,6 +83,55 @@ header > img{
 
 
 /*----button-----*/
+
+.btn-test {
+    margin-left: 30px;
+    margin-top: 60px;
+  }
+  
+  .btn-animation {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 10px;
+    background: rgb(226,45,14);
+    background: linear-gradient(0deg, rgba(226,45,14,1) 0%, rgba(217,94,57,1) 56%, rgba(255,202,158,1) 100%);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.7rem;
+    padding: 0.8rem;
+    width: 9rem;
+    transition: all 0.4s;
+    cursor: pointer;
+  }
+  
+  .btn-animation span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.4s;
+  }
+  
+  .btn-animation span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .btn-animation:hover span {
+    padding-right: 25px;
+  }
+  
+  .btn-animation:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+
+
+/* funzionante ma lasciato tra commenti per testare bottone animato
 button{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
@@ -95,15 +144,12 @@ button{
     border: none;
     border-radius: 10px;
 
-
-
-    
 }
 
 button > a {
     color: white;
     text-decoration: none;
-}
+}*/
 
 
 
