@@ -1,0 +1,20 @@
+.container{
+    width: 100%;
+}
+
+
+.col{
+    background-color: red;
+    height: 300px;
+    margin-bottom: 15px;
+}
+
+.test{ /*bo mi sono dimenticato qualcosa ma non e' rilevante*/
+    background-color: purple;
+    height: 30px;
+}
+
+.solo-desktop{ /*in mobile non lo faccio vedere, vai a responsive.css*/
+    display: none;
+}
+
