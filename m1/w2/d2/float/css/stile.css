@@ -1,0 +1,29 @@
+img{
+    float: left;
+    padding-right: 15px;
+    padding-bottom: 5px;
+}
+
+.blog article{
+    width: 30%;
+    height: 300px;
+    background-color: red;
+    float: left;
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+}
+
+.blog article:last-child{
+    clear: right;
+} /* posso ometterlo grazie al clearfix*/
+
+.clearfix{
+    clear: both;
+    visibility: hidden;
+}/*trucco da strada per andare a capo dopo un float, se non lo metto #foto si posizionerebbe sotto (in prospettiva) a .blog*/
+
+#foto{
+    background-image: url(https://picsum.photos/1000/300);
+    height: 300px;
+}

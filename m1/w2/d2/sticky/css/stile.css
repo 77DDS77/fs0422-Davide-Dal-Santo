@@ -1,0 +1,28 @@
+#top-bar{
+    height: 50px;
+    background-color: red;
+}
+
+
+#main-header{
+    height: 70px;
+    background-color: purple;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    
+}
+
+
+/* metto il padding perche
+l'elemento con pos fixed se
+ne sbatte del contenuto sotto quindin 
+non potrei vederlo */
+
+/* NB con sticky non mi serve
+fare quello scritto sopra
+perche' si posiziona sopra al content area sullasse X */
+/* sticky ha come punto di origine il primo 
+pixel sotto all'elemento che lo precede */
+
+

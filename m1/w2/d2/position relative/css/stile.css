@@ -1,0 +1,23 @@
+.fascia{
+    background-color: #ccc;
+    height: 100px;
+    border: 1px solid black;
+    margin: 10px 0;
+    text-align: center;
+}
+
+
+/* top da non confondere con margin top
+gioca sulla posizione dell'elemento rispetto
+al PUNTO DI ORIGINE
+quindi, gli rimane il margintop 10px
+MA rispetto al punto di origine del div 3
+il TOP me lo sposta in basso di 50px */
+/* top left right e bottom funzionano
+solamente con position che non sia 
+static */
+#elemento-relative{
+    position: relative;
+    top: 50px;
+    left: 20px;
+}
