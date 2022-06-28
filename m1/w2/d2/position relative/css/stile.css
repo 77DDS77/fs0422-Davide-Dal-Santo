@@ -10,7 +10,7 @@
 /* top da non confondere con margin top
 gioca sulla posizione dell'elemento rispetto
 al PUNTO DI ORIGINE
-quindi, gli rimane il margintop 10px
+quindi, gli rimane il margintop 10px (margin: 10px 0;)
 MA rispetto al punto di origine del div 3
 il TOP me lo sposta in basso di 50px */
 /* top left right e bottom funzionano

@@ -26,6 +26,7 @@
     color: #fff;
     text-decoration: none;
     padding: 0 10px;
+
     /* le due linee sotto
     servono a dare agli a
     un area cliccabile alta come
@@ -49,7 +50,9 @@
 /* sottomenu chi siamo */
 
 
-
+/* !!!!!DOMANDARE PERCHE' POSITION ABSOLUTE!!!!
+ COME SI METTONO UNO SOTTO L'ALTRO 
+ EREDITARIETA' COME FUNZIONA IN QUESTO CASO*/
 #menu li > ul{
     height: 0;
     overflow: hidden;
