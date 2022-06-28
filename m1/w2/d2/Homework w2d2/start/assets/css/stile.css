@@ -103,6 +103,7 @@ header {
     /* --HW-- header sticky */
     position: sticky;
     top: 5px;
+    z-index: 5;
     
 }
 
