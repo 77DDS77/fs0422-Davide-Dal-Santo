@@ -1,0 +1,241 @@
+h3{
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-top: 1px solid black;
+}
+
+.container{
+    display: flex;
+}
+
+.blocco{
+    height: 100px;
+    width: 150px;
+    background-color: #ccc;
+    border: 1px solid white;
+    box-sizing: border-box;
+}
+
+.blocchi-auto .blocco{
+    height: auto;
+}
+
+
+/* index.html */
+
+#n2{
+    flex-direction: column;
+}
+
+#n3{
+    flex-direction: row-reverse;
+}
+
+#n4{
+    flex-direction: column-reverse;
+}
+
+
+
+/* posizioni.html */
+
+#n6{
+    flex-wrap: wrap;
+}
+
+#n7{
+    flex-wrap: wrap-reverse;
+}
+
+#n8{
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+#n9{
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+#n10{
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#n11{
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#n12{
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#n13{
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
+/* align items star li mette all'inizio dell asse verticale
+
+gli elementi di dimensione differente non si adatteranno in base alle dimensioni degli altri elementi della riga*/
+#n14{
+    height: 200px;
+    align-items: flex-start;
+    background-color: aquamarine;
+}
+
+#n14 .blocco:first-child{
+    height: 100px;
+    
+}
+
+#n15{
+    height: 200px;
+    align-items: flex-end;
+    background-color: aquamarine;
+}
+
+#n15 .blocco:first-child{
+   height: 100px;
+    
+}
+
+#n16{
+    height: 200px;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+#n16 .blocco:first-child{
+    height: 100px;
+    
+}
+
+#n17{
+    height: 200px;
+    align-items: stretch;
+    background-color: aquamarine;
+}
+
+#n18{
+    height: 200px;
+    align-items: baseline;
+    background-color: aquamarine;
+}
+
+#n18 .blocco:first-child{
+    height: 100px;
+    
+}
+
+#n19{
+    height: 400px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    background-color: aquamarine;
+}
+
+#n20{
+    height: 400px;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    background-color: aquamarine;
+}
+
+#n21{
+    height: 400px;
+    flex-wrap: wrap;
+    align-content: center;
+    background-color: aquamarine;
+}
+
+#n21 .blocco:nth-child(2){
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#n21 .blocco:nth-child(2) div{
+    height: 20px;
+}
+
+#n22{
+    display: flex;
+    align-content: stretch;
+    flex-wrap: wrap;
+    height: 400px;
+}
+
+#n23{
+    display: flex;
+    align-content: space-around;
+    flex-wrap: wrap;
+    height: 400px;
+}
+
+#n24{
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+    height: 400px;
+}
+
+#n24{
+    display: flex;
+    flex-wrap: wrap;
+}
+#n25{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#n25 .blocco:nth-child(1){
+    order: 1;
+}
+#n25 .blocco:nth-child(2){
+    order: 2;
+}
+#n25 .blocco:nth-child(3){
+    order: 3;
+}
+#n25 .blocco:nth-child(4){
+    order: 4;
+}
+#n25 .blocco:nth-child(5){
+    order: 5;
+}
+#n25 .blocco:nth-child(6){
+    order: 6;
+}
+
+/* FOGLIO DIMENSIOINi.html */
+
+/* grow 1, tutti gli elementi si prendono un amisura uguale
+in questo caso sono tre quindi 1/3, 1/3, 1/3*/
+/* pero' io sotto gli dico che il primo si prende 2 misure
+quindi il primo e' piu' grande e gli altri due uguali */
+#n26 .blocco{
+    flex-grow: 1; 
+}
+
+#n26 .blocco:nth-child(1){
+    flex-grow: 2;
+}
+
+/* funziona un po coem width */
+#n28 .blocco{
+    flex-basis: auto;
+    flex-grow: 1;
+}
+
+#n29 .blocco{
+    flex: 1 1 auto;
+    /* sintax [grow. shrink, basis] */
+}
+

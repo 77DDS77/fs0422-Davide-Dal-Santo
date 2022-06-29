@@ -28,13 +28,19 @@ body {
         }
 
 
-        /* NON FUNZIONA :(  
+        
+        /* circa funziona */
+
+        .box-aside div{ /*provare ad usare flex grow*/
+            flex: 1, 1, auto;
             
-        .box-aside {
+            margin-left: 5px;
+        }
+
+        .box-aside { 
             display: flex;
-            justify-content: space-around ;
-            width: calc(100%/3 - 5px);
-        }*/
+            justify-content: space-evenly ; 
+        }
 
 
         /* ===================================== */
@@ -291,7 +297,7 @@ button {
     }
 
 /* ELEMENTI NELL' ASIDE */
-aside h2 {
+.aside-title {  /*<--------H2 ASIDE MODIFICATO*/
     text-align: center;
     color: #333;
     font-size: 2rem;
