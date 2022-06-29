@@ -65,34 +65,10 @@
         font-size: 1rem;
     }
 
-
-    header{
+    header, iframe, .news, aside, footer, .social, .toTop{
         display: none;
     }
 
-    iframe{
-        display: none;
-    }
-
-    .news{
-        display: none;
-    }
-
-    aside{
-        display: none;
-    }
-
-    footer{
-        display: none;
-    }
-
-    .social{
-        display: none;
-    }
-
-    .toTop{
-        display: none;
-    }
 
     main, footer{
         box-shadow: none;
