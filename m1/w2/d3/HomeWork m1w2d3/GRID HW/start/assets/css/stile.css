@@ -118,7 +118,7 @@ header nav li a::before {
 /* MAIN */
 
 /* ---------HW GRID TEST AREA----------- */
-@media screen and (min-width: 530px) {
+@media screen and (min-width: 545px) {
     #main-grid {
         display: grid;
     }
