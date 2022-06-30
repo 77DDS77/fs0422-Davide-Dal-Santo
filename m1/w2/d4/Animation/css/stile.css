@@ -1,0 +1,191 @@
+#transform-area {
+    background-color: black;
+    height: 100vh;
+    perspective: 400px;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    
+}
+
+.quadrato {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    margin-bottom: 1rem;
+}
+
+#n1 {
+    animation-name: animazione1;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+
+}
+
+@keyframes animazione1 {
+    from {
+        background-color: red;
+    }
+
+    to {
+        background-color: yellow;
+    }
+}
+
+#n2 {
+    animation-name: animazione2;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes animazione2 {
+    from {
+        background-color: red;
+    }
+
+    50% {
+        background-color: yellow;
+    }
+
+    to {
+        background-color: red;
+    }
+}
+
+#n3 {
+    animation-name: animazione3;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+}
+
+#n4 {
+    animation-name: animazione3;
+    animation-delay: 3s;
+    animation-duration: 3.3s;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes animazione3 {
+    0% {
+        transform: translate(0%, 0%) rotateY(0);
+        background-color: red;
+    }
+
+    25% {
+        transform: translate(20%, 10%) rotateY(30deg);
+        background-color: blue;
+    }
+
+    75% {
+        transform: translate(80%, 50%) rotateY(300deg);
+        background-color: white;
+    }
+
+    100% {
+        transform: translate(0%, 0%) rotateY(0);
+        background-color: red;
+    }
+}
+
+#n5 {
+    animation-name: animazione5;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    transform: translateZ(-100px);
+
+}
+
+@keyframes animazione5{
+    0%{margin-left: 0;}
+    50%{margin-left: 70%;}
+    100%{margin-left: 0;}
+}
+
+#n6 {
+    animation-name: animazione6;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    
+
+}
+
+@keyframes animazione6{
+    0%{transform: translateZ(0px);}
+    50%{transform: translateZ(-500px);}
+    100%{transform: translateZ(0px);}
+}
+
+
+/* ESPERIMENTO.html */
+
+/* CUBO */
+
+#area-trasformazione{
+    perspective: 1000000px;
+    height: 100vh;
+    transform-style: preserve-3d;
+}
+
+#cubo{
+    animation-name: cubo;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+
+    position: relative;
+    margin-left: 200px;
+    margin-top: 200px;
+    /* perspective: 1000px; */
+    height: 200px;
+    width: 200px;
+    transform-style: preserve-3d;
+}
+
+.faccia{
+    background-color: #ccc;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border: 1px solid black;
+}
+
+
+/* transform origin right mi serve per dirgli
+che lasse Y sul quale ruota non e' al centro ma sul lato destro */
+#dx{
+    left: -200px;
+    transform-origin: right;
+    transform: rotateY(90deg);
+}
+
+#sx{
+    right: -200px;
+    transform-origin: left;
+    transform: rotateY(-90deg);
+}
+
+#top{
+    top: -200px;
+    transform-origin: bottom;
+    transform: rotateX(-90deg);
+}
+#bottom{
+    bottom: -200px;
+    transform-origin: top;
+    transform: rotateX(90deg);
+}
+
+#front{
+    transform: translateZ(200px);
+    z-index: 1;
+}
+
+@keyframes cubo{
+    0%{transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg)};
+    5%{transform: rotateZ(360deg) rotateX(360deg) rotateY(360deg)};
+    100%{transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg)};
+}
+

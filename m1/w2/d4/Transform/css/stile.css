@@ -1,0 +1,47 @@
+#transform-area{
+    perspective: 400px;
+    background-color: black;
+    height: 100vh;
+}
+
+.quadrato{
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    font-size: 3rem;
+    margin-left: 4rem;
+}
+
+
+/* rotate di default fa ruotare
+sull'asse Z ma posso dare
+rotateX o rotateY per
+gli altri asssi */
+#n1{
+    transform: rotate(45deg);
+}
+#n2{
+    transform: rotateX(45deg);
+}
+#n3{
+    transform: rotateY(45deg);
+}
+
+/* scale per trasformazione in scala
+ viene trasformato ANCHE il contenuto*/
+#n4{
+    transform: scale(0.5) ;
+}
+#n5{
+    transform: skew(10deg);
+}
+
+#n6{
+    transition: transform 1s, background-color 1.2s;
+    transition-delay: 0.2s, 0s;
+}
+
+#n6:hover{
+    transform: skew(10deg) scale(1.5) rotate(45deg);
+    background-color: yellow;
+}

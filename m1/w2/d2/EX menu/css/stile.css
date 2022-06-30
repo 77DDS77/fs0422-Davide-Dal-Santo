@@ -70,3 +70,41 @@
 }
 
 
+/* dai tablet in giu */
+@media screen and (max-width:768px){
+    #menu{
+        height: 0;
+        overflow: hidden;
+        transition: all 1s; /*non va animazione*/
+    }
+    #main-header{
+        height: auto;
+    }
+    #menu li{
+        display: block;
+    }
+
+    #menu > li{
+        height: 50px;
+    }
+
+    #menu li > ul{
+        display: none;
+    }
+
+    input[type="checkbox"]{
+        display: none;
+    }
+
+    /* il + dice che PRIMA del checkbox che #menu */
+    input[type="checkbox"]:checked + #menu{
+        height: auto;
+    }
+
+    label[for="toggle"]{
+        cursor: pointer;
+    }
+
+}
+
+

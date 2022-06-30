@@ -77,3 +77,12 @@ h3{
 #n3 .blocco:nth-child(4){
     grid-area: footer;
 }
+/* ------------------ */
+/* fractional o fr mi divide tutto lo spazio al posto di fare tipo 33% per tre parti o 50% per due ecc */
+
+#n4{
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 100px);
+    gap: 10px;
+    
+}
