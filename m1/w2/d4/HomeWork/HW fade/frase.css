@@ -23,13 +23,16 @@ main{
     width: 600px;
     border: 2px solid black;
     padding: 2rem;
+}
+
+.parole{
     position: relative;
 }
 
 #f1, #f2, #f3{
-    width: 100%;
+    width: 210px;
     position: absolute;
-    left: 390px;
+    left: 20px;
 
     color: rgb(0, 174, 255);
     
