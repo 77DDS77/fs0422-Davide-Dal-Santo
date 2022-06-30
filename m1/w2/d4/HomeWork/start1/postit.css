@@ -1,0 +1,67 @@
+#canvas{
+    position: relative;
+
+    height: 100vh;
+    background-color: #53565B;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+}
+
+.postit{
+
+    font-family: 'Gloria Hallelujah', cursive;
+
+    width: 300px;
+    height: 250px;
+    border: 1px solid black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition: 1s;
+    transform-style: preserve-3d;
+    box-shadow: 2px 2px 20px black;
+}
+
+#pi1, #pi3, #pi6{
+    background: rgb(254,255,156);
+background: linear-gradient(180deg, rgba(254,255,156,1) 0%, rgba(96,97,49,1) 100%);
+}
+
+#pi2, #pi5, #pi8{
+    background: rgb(255,126,185);
+background: linear-gradient(180deg, rgba(255,126,185,1) 0%, rgba(96,51,71,1) 100%);
+}
+
+#pi4, #pi7{
+    background: rgb(122,252,255);
+background: linear-gradient(180deg, rgba(122,252,255,1) 0%, rgba(35,77,78,1) 100%);
+}
+
+.postit h3{
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2.5rem;
+}
+
+.postit:hover{
+    transform: scale(1.2) rotateZ(5deg);
+    transition: all 0.7s;
+    animation-name: shake;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+}
+
+@keyframes shake{
+    0%{transform: rotateZ(0deg) scale(1);}
+    100%{transform: rotateZ(5deg) scale(1.2);}
+    
+}
