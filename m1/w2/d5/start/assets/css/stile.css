@@ -1,0 +1,319 @@
+/* IMPOSTAZIONI GENERALI */
+body{
+    color: #000;
+    font-size: 1.5rem;
+    font-family: 'Fira Sans', sans-serif;
+    line-height: 1.8;
+}
+
+h1{
+    font-size: 4rem;
+    line-height: 1.1;
+}
+
+h2{
+    font-size: 3.5rem;
+}
+
+h3{
+    font-size: 2.8rem;
+}
+
+h4{
+    font-size: 2.2rem;
+}
+
+a{
+    color: #e42424;
+    text-decoration: none;
+    
+}
+
+.fa-solid, .fa-regular, .fa-brands{
+    color: #e42424;
+}
+
+/* HEADER */
+
+#nav-area{
+    background-color: white;
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .1);
+    position: sticky;
+    top: 2px;
+    z-index: 1;
+}
+
+#nav-area ul{
+    margin: 0;
+    padding: 0; /*probabilmente non serve*/
+    list-style-type: none;
+    overflow: hidden;
+    background-color: white;
+}
+
+#nav-area ul a{
+    display: block;
+    padding: 20px;
+}
+
+#nav-area ul a:hover{
+    background: rgb(59, 56, 123);
+    background: linear-gradient(275deg, rgba(59, 56, 123, 1) 0%, rgba(122, 178, 219, 1) 100%);
+}
+
+#nav-area #logo{
+    float: left;
+    padding: 10px 20px;
+
+}
+
+#nav-area .menu{
+    clear: both; /*evito che il float mi sposti il menu*/
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+}
+
+#nav-area .menu-icon{
+    
+    padding: 28px 20px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+#nav-area .menu-icon .nav-icon{
+    background-color: #e42424;
+    display: block;
+    width: 18px;
+    height: 2px;
+    position: relative;
+    transition: background-color 0.2s ease-out;
+}
+
+#nav-area .menu-icon .nav-icon:before,
+#nav-area .menu-icon .nav-icon:after{
+    background-color: #e42424;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    transition: all 0.2s ease-out;
+    position: absolute;
+    
+}
+#nav-area .menu-icon .nav-icon:before{
+    top: 5px;
+}
+#nav-area .menu-icon .nav-icon:after{
+    top: -5px;
+}
+
+#nav-area .menu-btn{
+    display: none;
+}
+
+#nav-area .menu-btn:checked ~ .menu{
+    max-height: 240px;
+}
+
+#nav-area .menu-btn:checked ~ .menu-icon .nav-icon{
+    background-color: transparent;
+}
+#nav-area .menu-btn:checked ~ .menu-icon .nav-icon::before{
+    transform: rotate(-45deg);
+    top: 0;
+}
+#nav-area .menu-btn:checked ~ .menu-icon .nav-icon:after{
+    transform: rotate(45deg);
+    top: 0;
+}
+
+
+
+/* -----epic-div------- */
+#epic-div{
+    background-image: url(../images/banner.jpg);
+    background-position: center center;
+    background-size: cover;
+    color: white;
+    text-shadow: 2px 2px 5px #020202;
+    padding: 3%;
+  
+
+   
+}
+
+#info-btn{
+    background: rgb(59, 56, 123);
+    background: linear-gradient(275deg, rgba(59, 56, 123, 1) 0%, rgba(122, 178, 219, 1) 100%);
+    font-size: 1.2rem;
+    border-radius: 5px;
+    padding: 0.3rem;
+    margin-top: 1rem;
+    text-align: center;
+    width: 12rem;
+}
+
+#info-btn a {
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+#info-btn:hover{
+    box-shadow: 0px 0px 20px 5px #d3d3d3;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* ----------------- */
+
+/* -----article----- */
+
+#main-art, #chi-siamo-art, #main-contacts{
+   text-align: center;
+   padding: 2rem;
+}
+
+span .fa-solid{
+    font-size: 3rem;
+}
+
+.article-txt{
+    margin-top: 4rem;
+}
+
+/* ----------------- */
+
+/* ---sezione blu---- */
+
+#blu-bg{
+    background-color: #0c0633;
+    color: white;
+    text-align: center;
+    padding: 3rem;
+}
+
+#txt-us-btn{
+    background: rgb(59, 56, 123);
+    background: linear-gradient(275deg, rgba(59, 56, 123, 1) 0%, rgba(122, 178, 219, 1) 100%);
+    font-size: 1.2rem;
+    border-radius: 5px;
+    padding: 0.3rem;
+    margin: 1rem auto 0;
+    text-align: center;
+    width: 12rem;
+}
+
+#txt-us-btn a {
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+/* ----------------- */
+
+/* ---tripletta--- */
+#tripletta{
+    text-align: center;
+}
+
+
+        /*we-code e double-div in chisiamo.html  */
+.triple-div, #we-code, #double-div{
+    margin-top: 3rem;
+}
+
+/* ----------------- */
+
+
+/* FOOTER */
+
+#foot-info{
+    background-color: rgb(238, 238, 238);
+    padding: 4rem;
+    margin-top: 3rem;
+
+}
+
+#foot-info .fa-brands{
+    font-size: 3rem;
+}
+
+#social{
+    margin-top: 3rem;
+}
+
+#news{
+    margin-top: 7rem;
+}
+
+#submit-input{
+    height: 3rem;
+    width: 80%;
+    box-sizing: border-box;
+    
+}
+
+#submit-btn, #send-btn{
+    display: block;
+    width: 80%;
+    height: 3rem;
+    color: white;
+
+    background: rgb(59, 56, 123);
+    background: linear-gradient(275deg, rgba(59, 56, 123, 1) 0%, rgba(122, 178, 219, 1) 100%);
+    font-size: 1.2rem;
+    border: none;  
+    cursor: pointer;
+}
+
+address{
+    text-align: center;
+    margin: 2rem auto 0;
+}
+
+/* ========================================== */
+
+/* -----pagina chi siamo---- */
+
+.pic-txt img{
+    
+    width: 60%;
+}
+
+#tbl-mobile, #tbl-big, .pic-txt img {
+    margin: 3rem auto;
+
+}
+
+#tbl-mobile .table-blue-bg, #tbl-big .table-blue-bg{
+    background-color: #d2dce7;
+    
+}
+
+.thead-big{
+    background-color: #66819F;
+}
+
+#tbl-mobile caption, #tbl-big caption{
+    font-size: 2rem;
+}
+
+/* ========================================== */
+
+/* -----pagina ccontatti---- */
+#form-contacts input{
+    display: block;
+    margin: 0 auto 2rem;
+    height: 3rem;
+    width: 20rem;
+    text-align: center;
+
+}
+
+#send-btn{
+    margin: 0 auto 3rem; 
+}

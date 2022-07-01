@@ -1,0 +1,124 @@
+@media screen and (max-width:639px){
+    #tbl-big {
+        display: none;
+    
+    }
+
+    #tripletta img{
+        max-width: 60%;
+    }
+}
+
+
+
+@media screen and (min-width: 640px){
+    #tbl-mobile{
+        display: none;
+    }
+
+    #triple-div{
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.2rem;
+        
+    }
+
+    .article-txt{
+        padding: 1rem;
+    }
+
+    h4{
+        font-size: 2rem;
+    }
+
+    #tripletta, #main-contacts{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    #tripletta .triple-div{
+        padding: 2rem;
+        
+        box-sizing: border-box;
+    }
+
+    #img-triple-div {
+        width: 350px;
+        
+    }
+
+    #foot-sect, #double-div{
+        display: flex;
+        justify-content: space-around;
+        
+    }
+
+    #foot-sect div{
+        margin-top: 0px;
+        padding: 1rem;
+    }
+
+    #double-div, .pic-txt{
+        padding: 1rem;
+    }
+
+    #contacts{
+        box-sizing: border-box;
+        margin-left: 1rem;
+    }
+
+    .pic-txt img{
+        min-width: 300px;
+        max-width:450px;
+
+    }
+}
+
+@media screen and (min-width: 1024px){
+    
+    #img-triple-div{
+        width: 500px;
+        
+    }
+
+    #chi-siamo-art, #foot-info{
+        padding: 4rem 10% 5% 10%;
+    }
+
+    #form-contacts input{
+        width: 45rem;
+    }
+
+        /* nav bar su desktop */
+
+        #nav-area ul{
+            display: flex;
+            justify-content: flex-end;
+         } 
+    
+        #nav-area li{
+            float: left;
+        }
+    
+        #nav-area li a{
+            padding: 20px 30px;
+        }
+    
+        #nav-area .menu{
+            /* display: flex;
+            justify-content: center; */
+            clear:none;
+            /* float: right; */
+            max-height: 100%;
+    
+        }
+    
+        #nav-area .menu-icon{
+            display: none;
+        }
+
+        #logo{
+            margin: auto 0;
+        }
+}
