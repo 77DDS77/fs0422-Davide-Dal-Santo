@@ -37,7 +37,7 @@ a{
 
 #nav-area{
     background-color: white;
-    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 1px 1px 4px 0 #d3d3d3;
     position: sticky;
     top: 2px;
     z-index: 1;
@@ -53,7 +53,7 @@ a{
 
 #nav-area ul a{
     display: block;
-    padding: 20px;
+    padding: 10px 20px 10px 20px;
 }
 
 #nav-area ul a:hover{
@@ -63,19 +63,19 @@ a{
 
 #nav-area #logo{
     float: left;
-    padding: 10px 20px;
+    padding: 20px 20px;
 
 }
 
 #nav-area .menu{
     clear: both; /*evito che il float mi sposti il menu*/
     max-height: 0;
-    transition: max-height 0.2s ease-out;
+    transition: max-height .6s ease-out;
 }
 
 #nav-area .menu-icon{
     
-    padding: 28px 20px;
+    padding: 38px 20px;
     position: relative;
     float: right;
     cursor: pointer;
@@ -84,10 +84,10 @@ a{
 #nav-area .menu-icon .nav-icon{
     background-color: #e42424;
     display: block;
-    width: 18px;
-    height: 2px;
+    width: 25px;
+    height: 3px;
     position: relative;
-    transition: background-color 0.2s ease-out;
+    transition: background-color .2s ease-in;
 }
 
 #nav-area .menu-icon .nav-icon:before,
@@ -97,15 +97,15 @@ a{
     display: block;
     height: 100%;
     width: 100%;
-    transition: all 0.2s ease-out;
+    transition: all .2s ease-out;
     position: absolute;
     
 }
 #nav-area .menu-icon .nav-icon:before{
-    top: 5px;
+    top: 8px;
 }
 #nav-area .menu-icon .nav-icon:after{
-    top: -5px;
+    top: -8px;
 }
 
 #nav-area .menu-btn{
@@ -138,9 +138,6 @@ a{
     color: white;
     text-shadow: 2px 2px 5px #020202;
     padding: 3%;
-  
-
-   
 }
 
 #info-btn{
@@ -270,6 +267,10 @@ span .fa-solid{
     cursor: pointer;
 }
 
+#submit-btn a{
+    color: white;
+}
+
 address{
     text-align: center;
     margin: 2rem auto 0;
@@ -311,7 +312,6 @@ address{
     height: 3rem;
     width: 20rem;
     text-align: center;
-
 }
 
 #send-btn{

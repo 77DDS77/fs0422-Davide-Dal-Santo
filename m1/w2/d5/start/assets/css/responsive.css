@@ -37,21 +37,21 @@
         justify-content: space-evenly;
     }
 
+    #tripletta .triple-div, #contacts{
+       box-sizing: border-box; 
+    }
+
     #tripletta .triple-div{
         padding: 2rem;
-        
-        box-sizing: border-box;
     }
 
     #img-triple-div {
-        width: 350px;
-        
+        width: 350px;  
     }
 
     #foot-sect, #double-div{
         display: flex;
         justify-content: space-around;
-        
     }
 
     #foot-sect div{
@@ -64,61 +64,64 @@
     }
 
     #contacts{
-        box-sizing: border-box;
         margin-left: 1rem;
     }
 
     .pic-txt img{
         min-width: 300px;
         max-width:450px;
-
     }
 }
 
-@media screen and (min-width: 1024px){
-    
-    #img-triple-div{
+@media screen and (min-width: 1024px) {
+
+    #img-triple-div {
         width: 500px;
-        
+
     }
 
-    #chi-siamo-art, #foot-info{
+    #chi-siamo-art,
+    #foot-info {
         padding: 4rem 10% 5% 10%;
     }
 
-    #form-contacts input{
+    #form-contacts input {
         width: 45rem;
     }
 
-        /* nav bar su desktop */
+    #form-contacts #msg{
+        height: 6rem;
+    }
 
-        #nav-area ul{
-            display: flex;
-            justify-content: flex-end;
-         } 
-    
-        #nav-area li{
-            float: left;
-        }
-    
-        #nav-area li a{
-            padding: 20px 30px;
-        }
-    
-        #nav-area .menu{
-            /* display: flex;
+    /* nav bar su desktop */
+
+    #nav-area ul {
+        display: flex;
+        justify-content: right;
+    }
+
+    #nav-area li {
+        float: left;
+    }
+
+    #nav-area li a {
+        padding: 20px 30px;
+    }
+
+    #nav-area .menu {
+        /* display: flex;
             justify-content: center; */
-            clear:none;
-            /* float: right; */
-            max-height: 100%;
-    
-        }
-    
-        #nav-area .menu-icon{
-            display: none;
-        }
+        clear: none;
+        /* float: right; */
+        max-height: 100%;
 
-        #logo{
-            margin: auto 0;
-        }
+    }
+
+    #nav-area .menu-icon {
+        display: none;
+    }
+
+    #logo {
+        margin: auto 0;
+    }
 }
