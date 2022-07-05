@@ -28,4 +28,7 @@ console.log(c);
 
 var d = moltiplicazione(6, 7);
 console.log(d);
+
+
+console.log(moltiplicazione(numero, numero2));
  
