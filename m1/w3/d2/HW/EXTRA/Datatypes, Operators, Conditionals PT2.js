@@ -25,11 +25,11 @@ console.log('EX 2')
 let num1 = 130;
 let num2 = 9;
 
-if(num1 == 8 || num2 == 8){
+if(num1 === 8 || num2 === 8){
     console.log('one of the given number equals to 8');
-}else if((num1 + num2) == 8){
+}else if((num1 + num2) === 8){
     console.log('num1 + num2 equals to 8');
-}else if((num1 - num2) == 8){
+}else if((num1 - num2) === 8){
     console.log('num1 - num2 equals to 8');
 }else{
     console.log('given numbers mean nothing to this script');
