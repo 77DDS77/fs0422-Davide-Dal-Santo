@@ -151,4 +151,9 @@ if(h == l){  //'trabocchetto', ricordarsi il doppio == e no =singolo
     console.log('vero');
 }
 
+let str = '';
+if(str){//stringa vuota mappa false, num = 0 mappa false
+    console.log('verooooo');
+};
+
 
