@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/stile.css">
+    <link rel="stylesheet" href="./responsive/responsive.css">
+
+    <title>Animazioni</title>
+</head>
+<body>
+    
+    <div id="quadrato"></div>
+
+
+    <script>
+        let quadrato = document.querySelector('#quadrato');
+        let x = 0;
+
+        //setInterval syntax (funzione, tempo in ms)
+        //function messa cosi si chiama call back ma posso anche
+        //fare rifare la stessa function esternamente e richiamarla sulla 
+        //sintassi di set interval SENZA PARENTESI (funz esterna) se no la 
+        //esegue solo una volta
+        let timer = setInterval(function(){
+            quadrato.style.marginLeft = x + 'px';
+            if(x<=300){
+               x+=2 
+            }else{
+                clearInterval(timer);
+            }
+            
+        }, 10)
+
+
+
+    </script>
+</body>
+</html>

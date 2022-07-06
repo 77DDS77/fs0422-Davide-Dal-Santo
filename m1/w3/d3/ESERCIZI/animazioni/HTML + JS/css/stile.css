@@ -1,0 +1,28 @@
+#main-header{
+    background-color: blue;
+}
+
+.menu{
+    height: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.menu.open{
+    height: auto;
+}
+
+.menu li{
+    height: 50px;
+   
+}
+
+.menu li a{
+    display: block;
+    height: 100%;
+    line-height: 50px;
+    padding: 0 15px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
