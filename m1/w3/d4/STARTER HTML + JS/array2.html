@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
+    <link rel="stylesheet" href="./css/stile.css">
+    <link rel="stylesheet" href="./responsive/responsive.css">
+
+    <title>Array2</title>
+</head>
+<body>
+    
+ 
+
+    <script>
+    
+
+        let lettere = ['a', 'c', 'b', 'e', 'd', 'i', 'f', 'h'];
+        //riordino l'array modificandolo direttamente
+        lettere.sort();
+
+        console.log(lettere);
+
+
+        let frase = 'ciao come stai?'
+        console.log(frase.indexOf('come'))
+        
+        if(frase.indexOf('come') != -1){
+            console.log('parola trovata');
+        }else{
+            
+        }
+
+        //ricerca NON case sensitive
+
+        let frase2 = 'CiAo mI ChIaMo mArIo';
+        let parolaCercata = 'ciao';
+
+        if(frase.toLowerCase()
+        .indexOf(parolaCercata.toLowerCase()) != -1){
+            console.log('toLowerCase parola trovata');
+        }else{
+            console.log('toLowerCase parola non trovata');
+        }
+
+
+    </script>
+</body>
+</html>

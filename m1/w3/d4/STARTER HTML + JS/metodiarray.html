@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
+    <link rel="stylesheet" href="./css/stile.css">
+    <link rel="stylesheet" href="./responsive/responsive.css">
+
+    <title>Metodi degli array</title>
+</head>
+<body>
+    
+    <!-- QUESTO FILE E QUESTI METODI SONO IMPORTANTI -->
+
+    <script>
+
+        let fiori = ['rosa', 'geranio', 'tulipano'];
+
+        //aggiunge un valore in coda all'array
+        fiori.push('margherita');
+        console.log(fiori)
+        //rimuove l'ultimo valore dall'array
+        let fioreEliminato = fiori.pop();
+        console.log(fiori, fioreEliminato);
+
+        // shift() e unshift() fanno la stessa cosa di 
+        //pop() e push() ma lavorano all'inizio dell'array
+        //poco consigliati perche forzano la
+        //rigenerazione di tutti gli indici dell'array
+
+        //SPLICE
+        
+
+        let inizioElim = 0;
+        let quantiElim = 1;
+        //cancello da indice 0, elimino un elemento
+        fiori.splice(inizioElim,quantiElim)//ovviamente qui posso metterci due numeri e basta
+        console.log(fiori)
+
+        //sostituire usando SPLICE
+        fiori = ['rosa', 'geranio', 'tulipano'];
+        //cancello da indice 2, elimino un elemento MA al suo posto
+        //aggiungo 'margherita'
+        fiori.splice(2,1,'margherita');
+        console.log(fiori)
+
+
+        //concat
+
+        fiori = ['rosa', 'geranio', 'tulipano'];
+        let fiori2 = ['margherita', 'peonia', 'calendula'];
+        //i due array ceh verranno concatenati non subiranno modifiche
+        //praticamente viene generato un terzo array che sara' il risultato
+        //della concatenazone
+        console.log(fiori.concat(fiori2))
+
+
+
+
+
+
+    </script>
+</body>
+</html>

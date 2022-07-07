@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
+    <link rel="stylesheet" href="./css/stile.css">
+    <link rel="stylesheet" href="./responsive/responsive.css">
+
+    <title>Array</title>
+</head>
+<body>
+    
+    <div id="test"></div>
+    <div id="test2"></div>
+
+    <script>
+    
+        let array =[2,'a'];
+
+        console.log(array);
+        console.log(array.length);//lunghezza array
+        console.log(array[1]);//leggo valore in posizione 1 (quindi il secondo)
+        array[1] = 'b';//sovrascrivo il valore in pos 1
+        console.log(array);
+        console.log(array[1]);
+        console.log(array[2]);//spazio array vuoto 'undefined'
+
+        //utilizzo dei valori
+
+        //imparare a scrivere cosi per occupare meno spazio sulla riga
+        //IMPORTANTE
+        document.querySelector('#test')
+        .innerHTML = '<b>' + array[1] + '</b>';
+
+        document.querySelector('#test2')
+        .innerHTML = array.join('');
+
+
+        
+    
+    </script>
+</body>
+</html>

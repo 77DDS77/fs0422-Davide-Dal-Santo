@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
+    <link rel="stylesheet" href="./css/stile.css">
+    <link rel="stylesheet" href="./responsive/responsive.css">
+
+    <title>DOM</title>
+</head>
+<body>
+    
+    <input id="display" placeholder="0" type="text">
+    <button data-simbolo="1" onclick="aggiungiSimbolo(this)">1</button>
+    <button data-simbolo="2" onclick="aggiungiSimbolo(this)">2</button>
+    <button data-simbolo="3" onclick="aggiungiSimbolo(this)">3</button>
+    <button data-simbolo="4" onclick="aggiungiSimbolo(this)">4</button>
+    <button data-simbolo="5" onclick="aggiungiSimbolo(this)">5</button>
+    <button data-simbolo="6" onclick="aggiungiSimbolo(this)">6</button>
+    <button data-simbolo="7" onclick="aggiungiSimbolo(this)">7</button>
+    <button data-simbolo="8" onclick="aggiungiSimbolo(this)">8</button>
+    <button data-simbolo="9" onclick="aggiungiSimbolo(this)">9</button>
+    <button data-simbolo="0" onclick="aggiungiSimbolo(this)">0</button>
+    <button data-simbolo="+" onclick="aggiungiSimbolo(this)">+</button>
+    <button data-simbolo="-" onclick="aggiungiSimbolo(this)">-</button>
+    <button data-simbolo="*" onclick="aggiungiSimbolo(this)">X</button>
+    <button data-simbolo="/" onclick="aggiungiSimbolo(this)">/</button>
+    
+    <button onclick="calcola('=')">=</button>
+
+    <script>
+
+        let calcolo = '2 + 2';
+        console.log(eval(calcolo));
+
+        // ottenere totale da un input contenente
+        //operazioni matimatiche
+
+        function calcola(){
+           let display = document.querySelector('#display');
+           let totale = eval(display.value);
+            display.value = totale;
+        }
+
+        function aggiungiSimbolo(simbolo){
+            let simbolo = console.log(simbolo.getAttribute('data-simbolo'));
+            let display = document.querySelector('#display');//potevo metterlo come variabile globale
+            
+            if(!isSymbol()){
+               display.value += simbolo.getAttribute('data-simbolo'); 
+            }
+
+        }
+
+        function isSymbol(carattere){
+            const SIMBOLI = ['+','-','*','/'];
+            if(SIMBOLI.includes(carattere)){
+                return true;
+            }return false;
+        }
+
+        console.log(isSymbol('+'))
+        console.log(isSymbol(6))
+        
+
+    </script>
+</body>
+</html>

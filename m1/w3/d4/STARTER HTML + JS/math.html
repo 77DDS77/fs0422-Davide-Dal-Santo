@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
+    <link rel="stylesheet" href="./css/stile.css">
+    <link rel="stylesheet" href="./responsive/responsive.css">
+
+    <title>Math</title>
+</head>
+<body>
+    
+
+    <script>
+        //arrotonda
+        console.log(Math.round(10.3));
+        console.log(Math.round(10.8));
+
+        //arrotonda per eccesso
+        console.log(Math.ceil(10.3));
+
+        //arrotonda per difetto
+        console.log(Math.floor(10.8));
+
+        //elimina il decimale
+        console.log(Math.trunc(14.36258723));
+
+        //Math.random
+        //di default da un numero da 0 a 10
+        //se lo moltiplico per 10 mi dara' un numero da 0 a 10
+        console.log(Math.random()*10);
+        console.log();
+
+
+        let parole = ['grazie', 'grazie mille', 'tante grazie'];
+        let punteggiature = ['','!','!!'];
+        let smile = ['',':)',':))'];
+
+        let rand = Math.floor(Math.random()*3);
+        let rand2 = Math.floor(Math.random()*3);
+        let rand3 = Math.floor(Math.random()*3);
+
+        console.log(parole[rand] + '' + smile[rand2] + '' + punteggiature[rand3]);
+        console.log(`AUGURI RANDOM: ${parole[rand]} ${smile[rand2]} ${punteggiature[rand3]}`);
+
+        
+    </script>
+</body>
+</html>

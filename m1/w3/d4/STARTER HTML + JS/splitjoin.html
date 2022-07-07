@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
+    <link rel="stylesheet" href="./css/stile.css">
+    <link rel="stylesheet" href="./responsive/responsive.css">
+
+    <title>SplitJoin</title>
+</head>
+<body>
+    
+ 
+
+    <script>
+        //csv coma separated values
+        let csv = 'nome,cognome,eta';
+        //splitta la stringa dove trova il parametro indicato
+        //cerca ',' e dove la trova divide
+        console.log(csv.split(','))
+
+        let persona = ['mario','rossi',30]
+        //unisce gli elementi di un array utilizzando 
+        //',' come separatore tra un elemento e l'altro
+        console.log(persona.join(','));
+
+    </script>
+</body>
+</html>
