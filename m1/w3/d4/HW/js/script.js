@@ -24,11 +24,11 @@ console.log(`Lunghezza Array: ${pArr.length} elementi`);
 
 //PUNTO 5
 
-let numArr = [1, 2, 3, 4];
+let numArr = [1, 2, 3, 4, 17];
 
 function sommaArr(){
-    let num1 = numArr[Math.floor(Math.random()*4)];
-    let num2 = numArr[Math.floor(Math.random()*4)];
+    let num1 = numArr[Math.floor(Math.random()*5)];
+    let num2 = numArr[Math.floor(Math.random()*5)];
     console.log(`Sto sommando ${num1} e ${num2}`);
     return num1 + num2;
 }
