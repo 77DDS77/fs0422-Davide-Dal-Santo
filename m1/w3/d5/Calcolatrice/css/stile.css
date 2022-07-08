@@ -1,0 +1,277 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    background-color: #df8200;
+    background-image: linear-gradient(315deg, #df8200 0%, #ffe692 74%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.calculator{
+    height: auto;
+    width: 400px;
+    border-radius: 10px;
+    
+    text-align: right;
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
+    background-color: rgb(0, 0, 0);
+    display: block;
+    
+}
+
+.display{
+    width: auto;
+    height: 20vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.client-text{ /*user input text scrollbar*/
+    overflow-x: scroll;
+    font-size: 2.5rem;
+    padding: 25px; 
+}
+.result{ /*result scrollbar*/
+    overflow-x: scroll;
+    font-size: 2rem;
+    padding: 21px; 
+}
+
+/* scrollbar styling */
+.calculator ::-webkit-scrollbar{
+    height: 5px;
+}
+.calculator ::-webkit-scrollbar-track {
+    background: black;
+}
+.calculator ::-webkit-scrollbar-thumb {
+    background: #4C4C4C;
+    border-radius: 20px;
+}
+.calculator ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    cursor: pointer !important; /*why no work?*/
+}
+
+.input{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 5px;
+}
+
+button{
+    background-color: #4C4C4C;
+    color: rgb(220, 220, 220);
+    border: none;
+    padding: 1rem;
+    font-size: 33px;
+    border-radius: 15px;
+    margin: 2px;
+}
+
+.orange-btn{
+    color: rgb(52, 52, 52);
+    background-color: #df8200;
+    margin: 2px;
+}
+
+.grey-button{
+    color: rgb(52, 52, 52);
+    background-color: #C9C9C7;
+    border-radius: 15px;
+}
+
+.orange-btn:hover{
+    color: black;
+    background-color: #b66a00;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover{
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    color: black;
+    background-color: #6e6e6e;
+}
+
+
+
+/*----vanish styling----*/
+
+.calculator.vanish{
+    height: auto;
+    background-color:#707372;
+}
+
+.calculator.vanish .display{
+    background-color: #b5c99a;
+    border: 20px solid black;
+    color: black;
+    font-family: 'VT323', monospace;
+}
+
+.calculator.vanish .input{
+    gap: 5px;
+}
+
+.calculator.vanish button{
+    background-color: #a7a4e0;
+    color: #514689;
+    box-shadow: 1px 2px 1px black;
+}
+
+.calculator.vanish .grey-button{
+    color: #a7a4e0;
+    background-color: #514689;
+}
+
+.calculator.vanish .orange-btn{
+    color: #a7a4e0;
+    background-color:#54585a;
+    
+}
+
+.calculator.vanish button:active{
+    box-shadow: none;
+    transform: translateY(3px);
+    
+}
+
+.calculator.vanish button:hover{
+    transition: all 0.3s ease-in-out;
+    background-color: #8c88db;
+    color: #2d274c;
+    
+}
+
+.calculator.vanish .orange-btn:hover{
+    color: #7471aa;
+    background-color:#474a4c;
+    transition: all 0.3s ease-in-out;
+}
+
+.calculator.vanish .grey-button:hover{
+    color: #8b88b6;
+    background-color: #443783;
+}
+
+.calculator.vanish .client-text{ /*user input text scrollbar*/
+    overflow: hidden;
+    overflow-x: scroll; 
+    font-size: 2.3rem;
+    padding: 15px;
+}
+.calculator.vanish .result{ /*result scrollbar*/
+    overflow: hidden;
+    overflow-x: scroll; 
+    font-size: 3.5rem;
+    padding: 15px;
+}
+
+/* vanish scrollbar styling */
+.calculator.vanish ::-webkit-scrollbar{
+    height: 10px;
+}
+.calculator.vanish .client-text::-webkit-scrollbar{
+    height: 5px;
+}
+.calculator.vanish ::-webkit-scrollbar-track {
+    background: #b5c99a;
+}
+.calculator.vanish ::-webkit-scrollbar-thumb {
+    background: #54585a;
+    border-radius: 0px;
+}
+.calculator.vanish ::-webkit-scrollbar-thumb:active {
+    background: #8c88db;    
+}
+
+/* ---------------- */
+
+/* animation for client-text e result text */
+@keyframes big{
+    0%{
+        font-size: 100%;
+    }
+    100%{
+        font-size: 300%;
+    }
+}
+
+@keyframes small{
+    0%{
+        font-size: 100%;
+    }
+    100%{
+        font-size: 110%;
+    }
+}
+
+/* rounded switch */
+/* box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    top: 0px;
+    left: -8%;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    transition: .4s;
+    border-radius: 34px; /* to make them look round */
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #e38500;
+    transition: .4s;
+    border-radius: 34px; /* to make them look round */
+}
+
+/* slider effect when focused */
+input:focus + .slider {
+    box-shadow: 5px 9px 7px rgba(0, 0, 0, 0.5);
+}
+
+/* color change when checked */
+input:checked + .slider {
+    background-color: #707372;
+}
+
+input:checked + .slider:before {
+    background-color: #a7a4e0;
+    transform: translateX(26px);
+}

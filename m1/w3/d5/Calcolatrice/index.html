@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/stile.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=VT323&display=swap" rel="stylesheet">
+
+    <title>Calculator</title>
+</head>
+<body>
+  
+  <!-- Rounded switch -->
+  <label class="switch">
+    <input type="checkbox">
+    <span class="slider" onclick="change('.calculator')"></span>
+  </label>
+
+  <!---->
+
+    <div class="calculator">
+        
+        <div class="display">
+            <div class="client-text"></div>
+            <div class="result"></div>
+        </div>
+        <div class="input">
+            <button class="calcbtn grey-button">AC</button>
+            <button class="calcbtn grey-button">(</button>
+            <button class="calcbtn grey-button">)</button>
+            <button class="calcbtn orange-btn">+</button>
+
+            <button class="calcbtn" >7</button>
+            <button class="calcbtn">8</button>
+            <button class="calcbtn">9</button>
+            <button class="calcbtn orange-btn">-</button>
+            
+            <button class="calcbtn">4</button>
+            <button class="calcbtn">5</button>
+            <button class="calcbtn">6</button>
+            <button class="calcbtn orange-btn">X</button>
+
+            <button class="calcbtn">1</button>
+            <button class="calcbtn">2</button>
+            <button class="calcbtn">3</button>
+            <button class="calcbtn orange-btn">/</button>
+
+            <button class="calcbtn" class="calcbtn grey-button">DEL</button>
+            <button class="calcbtn">0</button>
+            <button class="calcbtn">.</button>
+            <button class="calcbtn orange-btn">=</button>
+
+        </div>
+    </div>
+
+
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
