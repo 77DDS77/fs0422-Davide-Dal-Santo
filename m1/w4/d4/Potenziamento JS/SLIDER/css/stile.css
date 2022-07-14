@@ -1,0 +1,30 @@
+#slider{
+    
+}
+
+#slider .wrapper{
+    white-space: nowrap;
+    height: 100px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+#slider .wrapper img{
+    margin-right: -0.3rem; /*tolgo spazio tra le immagini*/
+    
+}
+
+#slider .control-wrapper{
+    position: relative;
+    
+}
+
+#slider .slider-control{
+    border: none;
+    padding: 20px;
+    background-color: tomato;
+    position: absolute;
+}
+
+#slider .control-right{
+    right: 0;
+}

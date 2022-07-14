@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cicli</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+
+        for(let i = 0; i < 10; i++){
+            document.write(i);
+        }
+
+        document.write('<hr>');
+
+        let arr = ['mele', 'pere', 'banane'];
+
+        for(let i = 0; i < arr.length; i++){
+            document.write(arr[i] + ' ');
+        }
+
+        document.write('<hr>');
+
+        for(let frutto of arr){
+            document.write(frutto);
+        }
+
+        document.write('<hr>');
+
+        // forEach() e un metodo DEGLI ARRAY
+        arr.forEach(function(frutto){
+            document.write(frutto + ' ')
+        });
+
+        document.write('<hr>');
+
+        let numeri = [0,1,2,3,4,5,6,7,8,9]
+        // map genera un nuov arrai quindi lo metto dentro una variabile
+        let numeri2 = numeri.map((n) => n*2);
+        document.write(numeri2);
+    </script>
+</body>
+</html>
