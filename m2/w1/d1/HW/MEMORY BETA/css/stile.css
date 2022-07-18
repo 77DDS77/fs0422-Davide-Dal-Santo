@@ -1,0 +1,10 @@
+#container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    font-size: 8rem;
+    width: 200px;
+    height: 200px;
+}
