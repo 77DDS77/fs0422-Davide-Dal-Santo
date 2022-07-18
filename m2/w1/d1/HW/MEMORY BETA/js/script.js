@@ -1,8 +1,6 @@
 
-let emoji = ['😀','🤣','😃','😎','😴',
-'🤑','👽','😀','🤣','😃','😎','😴','🤑','👽'];
-
-let position = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+let emoji = ['😀','🤣','😎','😴',
+'🤑','👽','😀','🤣','😎','😴','🤑','👽'];
 
 let container = document.querySelector('#container');
 
@@ -22,22 +20,17 @@ let container = document.querySelector('#container');
 
 // console.log(position.splice(numRand, 1), position);
 
+let i = emoji.length;
 
-
-
-emoji.forEach(element => {
+while (i != 0 ){
     let card = document.createElement('div');
     card.classList.add('card');
 
-    while(position.length != 0) {
-        let numRand = Math.floor(Math.random() * (position.length - 1));
-        console.log(position);
-        
-        card.innerText = emoji[numRand];
-        console.log(emoji[numRand]);
-        container.appendChild(card);
-        position.splice(numRand, 1);
+    let numRand = Math.floor(Math.random() * i);
 
-    }
-
-});
+    card.innerText = emoji[numRand];
+    container.appendChild(card);
+    emoji.splice(numRand, 1);
+    console.log(emoji);
+    i--
+}
