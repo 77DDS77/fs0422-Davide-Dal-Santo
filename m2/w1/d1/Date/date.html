@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>STARTER js</title>
+</head>
+<body>
+    
+    <h1>L'ora esatta</h1>
+    <div id="orologio">
+
+    </div>
+
+
+    <script>
+
+        let now = new Date();
+
+        console.log(now);
+        console.log(now.getDate());//numero del giorno del mese
+        console.log(now.getMonth());//numero del pmese partendo da genneaio = 0
+        console.log(now.getFullYear());// numero dell'anno
+        console.log(now.getDay());// numero del giorno della settimana da 0 a 6, domenica e' 0!
+
+        /*
+        timestamp e' il numero in millisecondi passati dal 1 gennaio 1970
+        */
+
+        let millisecondi = now.getTime();
+        console.log(millisecondi, new Date(millisecondi));
+
+
+        //metodi set
+
+        now.setFullYear(2021)
+        console.log(now);
+
+        //ex
+
+        let future = new Date();
+        future.setMonth(future.getMonth() + 1);
+        console.log(future);
+
+        //ex2 orologio che si aggiorna
+
+        setInterval(() =>{
+
+            let time = new Date();
+            let clock = document.getElementById('orologio');
+
+            //posso usare innerHTML se volessi tip oscriverlo in grassetto 
+            //scrivendo '<b>' e '</b>' a inizio e fine
+            clock.innerText = time.getHours() + ' ' + time.getMinutes() 
+            + ' ' + (time.getSeconds() + 1);
+
+            //ovviamente ora questo sovrascrive quello sopra ma fa la stesa cosa senza fare nulla
+            clock.innerText = time.toLocaleTimeString();
+           
+        },1000);
+        
+
+
+    </script>
+</body>
+</html>

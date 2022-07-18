@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+
+<body>
+
+    <button id="start">Start</button>
+    <div id="timer"></div>
+
+
+
+    <script>
+
+        //non funziona lo start e stop
+
+        //mostra il tempo trascorso dal click su un bottone
+        let button = document.querySelector('#start')
+        let timer = document.querySelector('#timer');
+
+        button.addEventListener('click', () => {
+            let time = new Date();
+            if (button.innerText == 'Start') {
+                time.setSeconds(0);
+                time.setMinutes(0);
+                time.setHours(0);
+
+                setInterval(() => {
+
+                    time.setSeconds(time.getSeconds() + 1);
+                    timer.innerHTML = time.toLocaleTimeString()
+
+                }, 1000);
+
+                button.innerText = 'Stop';
+                
+
+            }else if(button.innerText == 'Stop'){
+
+                    time.setSeconds(0);
+                    time.setMinutes(0);
+                    time.setHours(0);
+                    timer.innerHTML = time.toLocaleTimeString()
+                    button.innerText = 'Start';
+                    
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

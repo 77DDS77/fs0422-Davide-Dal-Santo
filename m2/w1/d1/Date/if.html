@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IF</title>
+</head>
+<body>
+
+
+
+    <script>
+        //sto if scritto cosi non funziona da me per qualche motivo
+        function controllaEta(eta){
+
+            if(eta < 18)
+            document.write('sei minorenne'); debugger;
+            return false; //deve esserci il return per interropere la funzione
+            
+            document.write('sei maggiorenne');
+            //if senza graffe esegue tutto quello che trova attaccato sotto fino alla
+            //riga vuota
+        }
+
+        console.log(controllaEta(19))
+
+
+    </script>
+</body>
+</html>
