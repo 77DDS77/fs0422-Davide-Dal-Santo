@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For In e For Of</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        //For of lo uso SOPRATUTTO per ciclare gli array, anche meglio di forEach
+        //si puo usare anche per le stringhe
+
+        let nome = 'Mario';
+        for( let lettera of nome){
+
+            document.write(lettera + '<br>');
+
+        }
+
+        document.write('<hr>');
+
+        let pizze = ['Margherita', 'Diavola', 'Capricciosa'];
+
+        for(let pizza of pizze){
+            document.write(pizza + '<br>');
+        }
+
+        document.write('<hr>');
+
+        //for In e' un ciclo specifico per ciclare un SINGLO oggetto
+
+        let margherita = {
+            gusto: 'Margherita',
+            tipo: 'napoletana',
+            prezzo: 5
+        }
+
+        for( let prop in margherita){
+
+            document.write(prop + ': ' + margherita[prop] + '<br>');
+
+        }
+
+
+    </script>
+</body>
+</html>

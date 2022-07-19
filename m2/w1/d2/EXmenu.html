@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex Menu</title>
+</head>
+<body>
+    
+
+    <table id="lista">
+
+    </table>
+
+    <script>
+        
+
+        // ESERCIZIO
+
+        let menu = [
+            {
+                gusto: 'Margherita',
+                tipo: 'napoletana',
+                prezzo: 5  
+            },
+            {
+                gusto: 'Diavola',
+                tipo: 'cracker',
+                prezzo: 8  
+            },
+            {
+                gusto: 'Cazzo e pepe',
+                tipo: 'teglia',
+                prezzo: 10  
+            }
+        ]
+
+        let lista = document.querySelector('#lista');
+
+        for(let pizza of menu) { //ciclo ogni elemento dell'array
+
+            let tr = document.createElement('tr');
+
+            for(let prop in pizza){//ciclo ogni oggetto di ogni elemento dell'array
+
+                let td = document.createElement('td')
+                td.innerHTML = pizza[prop];
+                tr.appendChild(td);
+
+            }
+            lista.appendChild(tr);
+        }
+
+    </script>
+</body>
+</html>

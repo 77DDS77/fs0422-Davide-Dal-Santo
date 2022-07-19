@@ -1,0 +1,176 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodi Ciclici</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        //forEach
+        let pizze = ['Margherita', 'Diavola', 'Capricciosa'];
+
+        pizze.forEach((pizza, indice) => {
+            document.write(indice + ' ' + pizza + '<br>');
+        })
+
+
+        document.write('<hr>')
+
+
+        //map SERVE A MODIFICARE GLI ARRAY
+        //non modifico l'array originale ma ne crea un altro modificato
+        let pizzeBold = pizze.map(pizza => `<b>${pizza}</b>`);
+
+        pizzeBold.forEach((pizza, indice) => {
+            document.write(indice + ' ' + pizza + '<br>');
+        })
+
+
+        document.write('<hr>')
+        //se uso map con le graffe e non in una singola riga DEVO usare il return
+        let numeri = [12,54,645,23];
+
+        let numeriMoltiplicati = numeri.map(numero => {
+            return numero * 2
+        });
+
+        document.write(numeriMoltiplicati);
+
+
+        document.write('<hr>')
+
+
+        //filter e find
+
+        //filter mi filtra i dati di un array secondo la condiazione che impongo
+        numeri = [12,54,645,23];
+
+        let numeriFiltrati = numeri.filter(numero => numero > 50);
+
+        document.write('Risultati filtro: ' + numeriFiltrati)
+
+        document.write('<hr>')
+
+        
+        //find
+        //mi restituisce il primo elemento dell'array che soddisfa la condizione che impongo
+
+        let numeroTrovato = numeri.find(numero => numero > 50);
+
+        document.write('Numero Trovato: ' + numeroTrovato)
+
+        document.write('<hr>')
+        
+        
+        //piccola prova filter e find con oggetti
+
+        let menu = [
+            {
+                gusto: 'Margherita',
+                tipo: 'napoletana',
+                prezzo: 5  
+            },
+            {
+                gusto: 'Diavola',
+                tipo: 'napoletana',
+                prezzo: 8  
+            },
+            {
+                gusto: 'Cazzo e pepe',
+                tipo: 'teglia',
+                prezzo: 10  
+            }
+        ]
+
+        let pizzaEconomica = menu.find(pizza => pizza.prezzo < 8);
+        console.log(pizzaEconomica);
+
+        let pizzaNapoletana = menu.filter(pizza => pizza.tipo == 'napoletana')
+        console.log(pizzaNapoletana)
+
+        //reduce
+        //controllo tra due parametri (p e c) previous e current
+        //RITORNA UN ARRAY
+        numeri = [12,54,645,23, 1];
+
+        let sommaNum = numeri.reduce((previous, current) => previous + current)
+
+        console.log(sommaNum);
+
+
+        let numeriPiccoli = numeri.reduce((previous, current) => {
+            return previous < current ? previous : current;
+        })
+
+        console.log(numeriPiccoli);
+        
+    
+        //
+        //... operatore di spread, all'interno di sommaPro posso mettre infiniti numeri 
+        //mi creera' un array con tutte i numeri inseriti
+        function sommaPro(...numbers){
+            return numbers.reduce((p,c) => p+c);
+        }
+
+        console.log(sommaPro(213,423,2,5,2,334))
+
+
+        //every() se TUTTO l'array soddisfa la condizione che imnpogno ritorna ture
+
+        //some() se ALMENO UNO degli elementi dell'array soddisfa
+        //la condizione che impongo ritorna true
+
+
+
+        //ricerca indici degli Array
+        //indexOf()
+
+
+        menu = [
+            {
+                gusto: 'Margherita',
+                tipo: 'napoletana',
+                prezzo: 5  
+            },
+            {
+                gusto: 'Diavola',
+                tipo: 'napoletana',
+                prezzo: 8  
+            },
+            {
+                gusto: 'Cazzo e pepe',
+                tipo: 'teglia',
+                prezzo: 10  
+            }
+        ]
+        
+        let margherita = {
+                gusto: 'Margherita',
+                tipo: 'napoletana',
+                prezzo: 5  
+            }
+
+        let indice = menu.indexOf(margherita)
+        
+        console.log(indice); //-1 sul return vuol dire che non lo trova
+        //non funziona perche' non e' fatto per gli array di oggetti
+
+        //metodo ciclico
+        let veroIndice = menu.findIndex(pizza => pizza.gusto == margherita.gusto);
+        console.log(veroIndice)//ritorna 0 che e' l'indice di quello che so cercando dentro
+        //l'array di oggetti
+
+        menu.splice(veroIndice,1);
+        console.log(menu);
+
+
+
+
+    </script>
+</body>
+</html>

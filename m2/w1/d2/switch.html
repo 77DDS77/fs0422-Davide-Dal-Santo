@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch</title>
+</head>
+
+<body>
+
+    <select id="frutta">
+        <option value="">Scegli il frutto</option>
+        <option value="pere">Pere</option>
+        <option value="mele">Mele</option>
+        <option value="banane">Banane</option>
+        <option value="limoni">Limoni</option>
+        <option value="motoscafi">Motoscafi</option>
+    </select>
+
+    <h3 id="prezzo"></h3>
+
+
+    <script>
+
+        let frutta = document.getElementById("frutta");
+
+        //change e' l'evento di cambiamento di una select
+        frutta.addEventListener('change', function () {
+            let prezzo = document.querySelector('#prezzo')
+            let frutto = frutta.value;
+            switch (frutto) {
+                case 'pere'.toLowerCase():
+                    prezzo.innerHTML = 'le  pere costano 3dimmadollaroni';
+                    break; // mi serve per terminare l'esecuzione e non fargli eseguire anche la roba sotto
+                case 'mele'.toLowerCase():
+                    prezzo.innerHTML = 'Mele finite signora';
+                    break;
+                case 'banane'.toLowerCase():
+                    prezzo.innerHTML = 'banane solo per le donne';
+                    break;
+                case 'limoni'.toLowerCase():
+                    prezzo.innerHTML = 'I LIMONI SIGNORAAAA';
+                    break;
+                //default e' il caso true se tutti gli altri false    
+                default: prezzo.innerHTML = `Non abbiamo ${frutto}`
+            }
+
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>
