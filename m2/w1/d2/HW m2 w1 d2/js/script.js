@@ -2,9 +2,10 @@ let budget = document.querySelector('#budgetStart'); //input budget
 const budgetButton = document.querySelector('#budgetSet');
 const lista = document.querySelector('#listaSpese');//lista UL
 
-let manuBdg = document.querySelector('#spesaManuale');//spesa manuale
-const manuBgt = document.querySelector('#manualBudget');//budget manuale
+let spesaManu = document.querySelector('#spesaManuale');//input spesa manuale
+const manuBgt = document.querySelector('#manualBudget');//button set budget manuale
 const manuBtn = document.querySelector('#spendiManuale');//bottone spesa manuale
+
 let soldiRimasti = document.querySelector('#soldiRimasti');//soldi rimasti
 
 
@@ -62,9 +63,63 @@ function getBudgetManu() {
 
 }
 
+
+
 function spendiConsapevolmente(){
-    let sordi = soldiRimasti.innerHTML;
-    let spesa = manuBdg.value;
+    let sordi = budget.value;
+    let spesa = spesaManu.value;
     console.log(spesa);
+
+    if(sordi && spesa){
+        if(sordi > spesa){
+            
+            if(soldiRimasti.innerHTML < sordi/2 && soldiRimasti.innerHTML > sordi/4){
+
+                let transazione = sordi - spesa;
+                soldiRimasti.innerHTML = transazione;
+                let listItem = document.createElement('li');
+                listItem.classList.add('listItemStyle');
+                listItem.innerHTML =
+                    `Transazione eseguita: -${spesa} soldini \n 
+                    Ti e' rimasto meno di meta' del budget'`;
+                    lista.append(listItem);
+                    soldiRimasti.classList.add('soldiRimastiAlert');
+
+            }else if(soldiRimasti.innerHTML < sordi/4){
+
+                let transazione = sordi - spesa;
+                soldiRimasti.innerHTML = transazione;
+                let listItem = document.createElement('li');
+                listItem.classList.add('listItemStyle');
+                listItem.innerHTML =
+                    `Transazione eseguita: -${spesa} soldini \n 
+                    Ti e' rimasto meno di un quarto del budget'`;
+                    lista.append(listItem);
+                    soldiRimasti.classList.add('soldiRimastiWarning'); 
+
+            }else{
+
+                let transazione = sordi - spesa;
+                soldiRimasti.innerHTML = transazione;
+                let listItem = document.createElement('li');
+                listItem.classList.add('listItemStyle');
+                listItem.innerHTML =
+                    `Transazione eseguita: -${spesa} soldini`;
+                    lista.append(listItem);
+
+            }
+
+        }else{//se soldi < spesa
+            let listItem = document.createElement('li');
+            listItem.classList.add('listItemStyle');
+            listItem.innerHTML =
+                `Non ti puoi perfmettere questa spesa, il tuo saldo e' 
+                ${sordi} soldini, la spesa e' ${spesa} soldini`;
+                lista.append(listItem); 
+        }
+    }else{//se soldi e spesa non sono stati inseriti
+        alert('INSERIRE BUDGET E SPESA');
+    }
+    
 }
 

@@ -1,6 +1,19 @@
+body{
+    background-color: rgb(37, 0, 104);
+}
+
+h3{
+    color: white;
+}
+
 .listItemStyle, #budgetStart, #budgetSet, #manualBudget,
 #spesaManuale, #spendiManuale, h3{
     margin: 1rem;
+    
+}
+
+.listItemStyle{
+    color: white;
 }
 
 .listItemWarning{
@@ -15,4 +28,15 @@
     background-color: black;
     color: crimson;
     text-align: center;
+    padding: 1rem;
+}
+
+
+/* manual cash flow*/
+.soldiRimastiAlert{
+    color: rgb(255, 200, 0);
+}
+
+.soldiRimastiWarning{
+    color: crimson;
 }
