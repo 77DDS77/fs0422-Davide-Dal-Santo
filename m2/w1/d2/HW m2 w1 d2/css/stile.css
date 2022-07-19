@@ -1,5 +1,5 @@
 .listItemStyle, #budgetStart, #budgetSet, #manualBudget,
-#spesaManuale, #spendiManuale{
+#spesaManuale, #spendiManuale, h3{
     margin: 1rem;
 }
 

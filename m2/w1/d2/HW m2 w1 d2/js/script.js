@@ -65,8 +65,6 @@ function getBudgetManu() {
 function spendiConsapevolmente(){
     let sordi = soldiRimasti.innerHTML;
     let spesa = manuBdg.value;
-    
-    //logica 
-    
+    console.log(spesa);
 }
 
