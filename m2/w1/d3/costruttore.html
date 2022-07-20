@@ -1,0 +1,92 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costruttore</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        // let pizza = {
+        //     gusto: 'Margherita',
+        //     tipo: 'Napoletana',
+        //     prezzo: 5,
+        //     mostraPrezzo: function () {
+        //         console.log(`Il prezzo della pizza ${this.gusto} di tipo ${this.tipo}
+        //             e' di ${this.prezzo}$`); //this si riferisce all'oggetto sul quale il metodo viene chiamato
+
+        //     }
+
+        // }
+
+        //costruttore sempre prima letera maiuscola
+        function Pizza(){
+            this.gusto = 'Margherita'; //non e' un oggetto quindi tornano = e ;
+            this.tipo = 'Napoletana';
+            this.prezzo = 5;
+            //mostraprezzo e' un metodo
+            this.mostraPrezzo = function () {
+                console.log(`Il prezzo della pizza ${this.gusto} di tipo ${this.tipo}
+                    e' di ${this.prezzo}$`); //this si riferisce all'oggetto sul quale il metodo viene chiamato
+
+            }
+
+            this.mostraThis = function(){ console.log(this);}
+        }
+
+        let margherita = new Pizza();
+
+        let diavola = new Pizza();
+        diavola.gusto = 'Diavola';
+        diavola.prezzo = '1';
+        diavola.tipo = 'Romana'
+
+        console.log(margherita);
+        console.log(diavola);
+
+        //sul console log vedo riga 39 che e' dove ho dichiarato il
+        //console.log su mostraThis
+        diavola.mostraThis(); 
+
+
+        //costruttore dell'oggetto con parametri
+        function PizzaPRO(_gusto, _tipo, _prezzo){
+            this.gusto = _gusto;
+            this.tipo = _tipo;
+            this.prezzo = _prezzo;
+            this.mostraPrezzo = function () {
+                console.log(`Il prezzo della pizza ${this.gusto} di tipo ${this.tipo}
+                    e' di ${this.prezzo}$`); //this si riferisce all'oggetto sul quale il metodo viene chiamato
+
+            }
+
+            this.mostraThis = function(){ console.log(this);}
+        }
+
+        let margheritaPRO = new PizzaPRO('Margherita', 'Romana', 18);
+        let diavolaPRO = new PizzaPRO('Diavola', 'Teglia', 10);
+        console.log(margheritaPRO);
+        
+        margheritaPRO.mostraPrezzo();
+        diavolaPRO.mostraPrezzo();
+
+        //con solo una riga usando prototype posso aggiungere a tutti gli ogetti creati
+        //con PizzaPRO una proprieta
+        //VA usato sul nome del costruttore cosi che tutti gli oggetti generati
+        //vengano chiamati
+        PizzaPRO.prototype.disponibilita = true;
+        console.log(margheritaPRO);
+        console.log(diavolaPRO);
+        console.log(margheritaPRO.disponibilita);
+
+
+    </script>
+</body>
+
+</html>

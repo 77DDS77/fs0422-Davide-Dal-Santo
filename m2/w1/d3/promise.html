@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        //timer e' fittizio
+        //nel senso che fa come uin afetch, restituisce una promise
+
+        //dentro success e error smetto quello che mi verra' restituito dal then
+        function timer() {
+            return new Promise(function (success, error) {
+
+                let password = 'password'
+                if (password == 'password') {
+                    success('successp');
+                } else {
+                    error('errore');
+                }
+
+            });
+        }
+
+        //tiemr restituisceuna promise quindi 
+        //l'unico modo per leggere la promise e' con il then
+        timer()
+        .then(
+            function (data) {
+                console.log(data);
+            }, function (dataError) {
+                console.log(dataError);
+            });
+
+
+
+        //versione 2 hja solo success
+        function timer2() {
+            return new Promise(function (success) {
+                success('successp');
+            });
+        }
+
+        timer2()
+        .then(data => {
+            console.log(data);
+        })
+
+    </script>
+</body>
+
+</html>

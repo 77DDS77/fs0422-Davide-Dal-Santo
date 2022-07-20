@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASSI JS</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        /*
+        function PizzaPRO(_gusto, _tipo, _prezzo) {
+            this.gusto = _gusto;
+            this.tipo = _tipo;
+            this.prezzo = _prezzo;
+            this.mostraPrezzo = function () {
+                console.log(`Il prezzo della pizza ${this.gusto} di tipo ${this.tipo}
+                    e' di ${this.prezzo}$`); //this si riferisce all'oggetto sul quale il metodo viene chiamato
+
+            }
+
+            this.mostraThis = function () { console.log(this); }
+        }
+        */
+
+        class Pizza{
+            //metodo preesistente
+            //si scatena in automatico quando creo istanza della classe
+            //le parentesi tonde di construcor sosstituiscono le parentesi
+            //quadre del costruttore
+            constructor(_gusto, _tipo, _prezzo){
+                this.gusto = _gusto;
+                this.tipo = _tipo;
+                this.prezzo = _prezzo;
+
+            }
+
+            //per definire un metodo mi basta fare cosi
+            //piu veloce e codice piu pulito
+            //i metodi possono essere PARAMETRIZZATI 
+            mostraPrezzo(){
+                console.log(`Il prezzo della pizza ${this.gusto} di tipo ${this.tipo}
+                    e' di ${this.prezzo}$`);
+            }
+
+            mostraThis(){
+                console.log(this);
+            }
+
+        }
+
+        //le parentesi di new Pizza corrispondo a quelle del constructor
+        let margherita = new Pizza('Margherita', 'Teglia', '8');
+        console.log(margherita)
+
+        margherita.mostraPrezzo();
+        margherita.mostraThis();
+
+
+    </script>
+</body>
+
+</html>

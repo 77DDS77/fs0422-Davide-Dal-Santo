@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function timer() {
+            return new Promise(function (success) {
+                success('successp');
+            });
+        }
+
+        //FUNZIONI ASINCRONE PERMETTONO L'USO DI AWAIT
+        //tanti await uno dietro l'altro possono generare un collo di bottiglia
+        //perche' se uno aspetta che quello prima venga eseguito la processione si ingruma
+
+
+        //se la funzione timer e' asincrona
+        //gestisciDati mi gestisce le promise
+        //gli dico che per dare il valore alla variabiule dati
+        //devi aspettare che timer() abbia finito
+        //questo glielo dico con await
+        async function gestisciDati(){
+            let dati = await timer();
+            console.log(dati);
+        }
+
+        gestisciDati();
+
+
+    </script>
+</body>
+
+</html>

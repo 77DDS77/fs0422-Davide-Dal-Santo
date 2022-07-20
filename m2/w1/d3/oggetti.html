@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oggetti</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        let obj = {}
+
+        //pizza e' OGGETTO
+        //gusto tipo prezzo sono PROPRIETA'
+        let pizza = {
+            gusto: 'Margherita',
+            tipo: 'Napoletana',
+            prezzo: 5,
+            mostraPrezzo : function(){
+                console.log(`Il prezzo della pizza ${this.gusto} di tipo ${this.tipo}
+                    e' di ${this.prezzo}$`); //this si riferisce all'oggetto sul quale il metodo viene chiamato
+
+            }
+
+        }
+
+        //mostraPrezzo(); //questo non puo funzionare
+        pizza.mostraPrezzo(); //questo funziona
+
+        //interagire con le proprieta'
+
+        //leggere
+        console.log(pizza.gusto); 
+
+        //scrivere
+        pizza.gusto = 'Diavola';
+
+        //dichiarare nuova proprieta'
+        pizza['disponibilita'] = true;
+
+        console.log(pizza);
+
+        pizza['0'] = 'test';
+
+        //console.log(pizza.0); non lo posso fare perche' .0 mi da errore
+        console.log(pizza['0']);//funziona ma da usare poco, meglio usare sintassi corretta 
+                                //dove posso
+        console.log(pizza['tipo']);//posso leggere dentro un oggetto anche cosi ma non ha senso
+
+        //parentesi quadre per leggere da usare solo in caso l'oggetto contenga
+        //proprieta con nomi che la sintassi normale con il punto non accetta
+
+
+        
+
+
+    </script>
+</body>
+</html>

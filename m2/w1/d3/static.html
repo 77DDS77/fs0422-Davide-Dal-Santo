@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static method</title>
+</head>
+<body>
+    
+    <form id="myForm"></form>
+
+    <script>
+
+        class Form{
+            //lo static non devo mai istanziarlo tipo new genera input
+            //la massima espressione di queste static class
+            //la raggiungio creando tipo una cartella dove
+            //dentro ho diverse static class per generare cose
+            //, le importo nei miei scriptX di sitoY
+            //e posso riusarle senza doverle ridefinire.
+            //dove avro' la mia classe originale prima di class
+            //scrivero' export
+            //export class Form{...}
+            //sul file dove devo importare scrivero'
+            //import {classe} from "./percorsoFile"
+            //sull'html dove linko lo script generale specificando l'SRC e poi
+            //aggiungo type=" module" che praticamente mi permette di usare import
+            //dentro allo script
+            static generaInput(type, placeholder){
+                let input = document.createElement("input");
+                input.type = type;
+                input.placeholder = placeholder;
+                return input;
+            }
+        }
+
+        let form = document.querySelector('#myForm');
+
+        let nome = Form.generaInput('text','inserisci il tuo nome')
+        let password = Form.generaInput('password','inserisci la password')
+        form.append(nome, password);
+    </script>
+</body>
+</html>

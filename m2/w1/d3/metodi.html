@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodi</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        function prova(){
+            console.log('funzoine');
+        }
+
+        let obj = {
+            prova: function(){
+                console.log('metodo obj');
+            }
+        }
+
+        let obj2 = {
+            prova: function(){
+                console.log('metodo obj2');
+            }
+        }
+
+        prova(); //lancio la funzione prova
+
+        obj.prova(); //lancio il metodo prova appartenente all'oggetto obj
+        obj2.prova();//lancio il metodo prova appartenente all'oggetto obj 
+
+        //questa cosa delle funzioni relative agli oggetti e' praticamente il funzionamneto 
+        //di cose tipo classList.add/classList.remove
+        //add e remove sono funzioni relative all'oggetto classlist
+
+        
+
+    </script>
+</body>
+</html>
