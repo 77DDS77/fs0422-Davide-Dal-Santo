@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nodi</title>
+</head>
+<body>
+
+
+    <ul>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul>
+
+
+    <script>
+
+        let ul = document.querySelector('ul');
+
+        //seleziono il primo ELEMENTO li dentro ul
+        //firstChild mi selezione il primo nodo figlio quindi il text node 
+        //realativo al primo li
+        console.log(ul.firstElementChild);
+        console.log(ul.firstChild);
+        
+        //partendo dal primo li figlio di ul vai al li successivo
+        //sibling di li
+        //syle color red solo per visualizzare
+        console.log(ul.firstElementChild.nextElementSibling.style.color = 'red');
+        
+        //partendo dall'ultimo prendimi quello prima
+        console.log(ul.lastElementChild.previousElementSibling.style.color = 'red');
+
+        
+    </script>
+</body>
+</html>

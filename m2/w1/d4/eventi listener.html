@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENT LISTENER</title>
+</head>
+<body>
+    
+    <button id="click">Click</button>
+
+    <script>
+
+        let click = document.querySelector("#click");
+
+        click.addEventListener("click",function(){
+            console.log('cliccato');
+            click.removeEventListener('moseout', log)
+        });
+
+        click.addEventListener('mouseover', function(){
+            console.log('entrato');
+        })
+        click.addEventListener('mouseout', log);
+
+
+        function log(){
+            console.log('uscito');
+        }
+
+
+    </script>
+</body>
+</html>

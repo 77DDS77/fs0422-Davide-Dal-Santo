@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    
+    <form id="myForm">
+        <div>
+            <input type="text" data-error="devi inserire il nome" class="valida" id="nome" placeholder="nome">
+            <span></span>
+        
+        </div>
+        <div>
+            <input type="email" data-error="devi inserire la mail" class="valida" id="email" placeholder="email">
+            <span></span>
+        
+        </div>
+        <div>
+            <input type="password" data-error="devi inserire la password" class="valida" id="password" placeholder="password">
+            <span></span>
+        
+        </div>
+        <div>
+            <input type="password" data-error="devi reinserire la password" class="valida" id="conferma-password" placeholder="conferma password">
+            <span></span>
+        
+        </div>
+        <div>
+            <select id="citta">
+        
+                <option value="">Seleziona la citta'</option>
+                <option value="roma">Roma</option>
+                <option value="milano">Milano</option>
+                <option value="napoli">Napoli</option>
+        
+            </select>
+            <span></span>
+        </div>
+
+        <button>Registrati</button>
+
+    </form>
+
+    <script>
+
+        let formButton = document.querySelector('#myForm button');
+
+        //submit e' un evento specifico adatto per i form
+        formButton.addEventListener('click', function(e){
+            e.preventDefault();//blocca l'esecuzione degli eventi di default sull'elemento su cui lo scateno (fermati, non inviare il form)
+            
+            /*
+            let nome = document.querySelector('#nome');
+            let email = document.querySelector('#email');
+            let password = document.querySelector('#password');
+            let confermaPassword = document.querySelector('#conferma-password');
+            let citta = document.querySelector('#citta');
+            */
+
+
+            //ottimizzazione validazione 2.0
+            let campi = document.querySelectorAll('.valida');
+            //destrutturo guardando un log sulla console di queso arr campi
+            
+            let [nome, email, pasword, confermaPassword] = campi
+
+            let valid = true;
+
+                //qusto fa la stessa cosa della pappardella sotto
+            for(let campo of campi){
+                if(!campo.value){
+                    campo.style.border = '1px solid red'
+                    let error = campo.getAttribute('data-error');
+                    campo.nextElementSibling.innerHTML = error;
+                    valid = false;
+                }else{
+                    campo.style.border = '';
+                    campo.nextElementSibling.innerHTML = '';
+                }
+            }
+
+            //validazione crappy spaghetti code
+
+            /*
+            let valid = true;
+
+            if(!nome.value){
+                nome.style.border = '1px solid red'
+                valid = false;
+            }else{
+                nome.style.border = '';
+            }
+
+            if(!email.value){
+                email.style.border = '1px solid red'
+                valid = false;
+            }else{
+                email.style.border = '';
+            }
+
+            if(!password.value){
+                password.style.border = '1px solid red'
+                valid = false;
+            }else{
+                password.style.border = '';
+            }
+
+            if(!confermaPassword.value){
+                confermaPassword.style.border = '1px solid red'
+                valid = false;
+            }else{
+                confermaPassword.style.border = '';
+            }
+
+            if(!citta.value){
+                citta.style.border = '1px solid red'
+                valid = false;
+            }else{
+                citta.style.border = '';
+            }
+            */
+
+            if(password.value != confermaPassword.value){
+                password.style.border = '1px solid red'
+                confermapassword.style.border = '1px solid red'
+                valid = false;
+            }else{
+                password.style.border = '1px solid red'
+                confermapassword.style.border = '1px solid red'
+            }
+
+            /*
+            if(valid){
+                //invia il form
+                console.log('inviato')
+            }
+            */
+            
+        
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validity</title>
+</head>
+<body>
+    
+    <form action="">
+
+        <input type="text" pattern="[A-Z]{0,10}" id="prova">
+        <button>Click</button>
+
+    </form>
+
+    <script>
+
+        let btn = document.querySelector('button');
+        let input = document.querySelector('input');
+
+        btn.addEventListener("click",(e) => {
+            e. preventDefault();
+
+            if(input.checkValidity()) {
+                console.log('valido');
+            }else{
+                console.log(input.validationMessage);
+            }
+        })
+
+    </script>
+</body>
+</html>

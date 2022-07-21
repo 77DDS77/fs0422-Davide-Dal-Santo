@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let xhr = new XMLHttpRequest();
+
+        //imposto metodo e indirizzo da visitare
+        xhr.open('GET', 'https://jsonplaceholder.typicode.com/users');
+
+        //decido cosa fare con la risposta
+        xhr.onload = function(res){
+            console.log(res);
+
+            //xhr.responseText e' il contenuto della pagina che
+            //abbiamo richiesto in formato stringa
+            //JSON.parse della roba sopra mi converte
+            //la pagina richiesta, ricevuta in stringa, in un
+            //OGGETTO
+            let data = JSON.parse(xhr.responseText)
+            console.log(data);
+        }
+
+        //invio la chiamata
+        xhr.send();
+
+
+        //questa e' la versioen moderna del malloppone sopra
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(res => res.json())
+        .then(res => console.log(res))
+    </script>
+</body>
+</html>
