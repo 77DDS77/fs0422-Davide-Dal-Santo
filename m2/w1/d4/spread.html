@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spread</title>
+</head>
+<body>
+    
+
+
+    <script>
+        //RICORDATI CHE SPREAD LO PUOI USARE DENTRO UNA FUNZIONE PER DIRE 
+        //CHE IL NUMERO DI PARAMETRI NON E' DEFINITO
+
+
+        const gatto = {
+            zampe: 4 ,
+            verso: 'miao',
+            test: 'prova'
+        }
+
+        const cane ={
+            ...gatto, //"clona" le proprieta' di gatto, sotto sovrascrivo il verso
+            verso: 'bau'
+        }
+
+        console.log(cane);
+
+        //operatore di spread per concatenamento
+
+        let num = [1,2,3,4,5]
+        let num2 = [6,7,8,9,10]
+
+        //concateno i due array, come concat ma piu pulito
+        console.log(...num,...num2);
+    </script>
+</body>
+</html>
