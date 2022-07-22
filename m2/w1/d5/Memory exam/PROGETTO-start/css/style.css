@@ -2,6 +2,10 @@
     font-family: 'Lexend', sans-serif;
 }
 
+html{
+    height: 100vh;
+}
+
 .container {
     width: 900px;
     margin: auto;
@@ -161,4 +165,23 @@ justify-content: center;
 /* EXTRA */
 #nickname{
     margin: 1rem;
+}
+
+#leaderboardContainer{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+#leaderboard{
+    font-size: 1.5rem;
+}
+
+tbody tr:nth-of-type(even){
+    background-color: #b80adb80;
+    color:#388ac4;
+}
+tbody tr:nth-of-type(odd){
+    background-color: #388ac49c;
+    color:#b80adbdc;
 }
