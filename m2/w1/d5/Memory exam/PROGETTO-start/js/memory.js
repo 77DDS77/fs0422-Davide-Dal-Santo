@@ -87,8 +87,6 @@ function startGame(){
     //invoco la funzione timerStart per far partire il timer
     timerStart();
 
-
-
     var cardGroup = document.querySelectorAll(".icon");
   
     //non so come non mettere il doppio addeventlistener
@@ -169,24 +167,22 @@ function popUpModal(){
         modal.classList.add('active');
         document.getElementById('tempoTrascorso').innerHTML = 
         timer.innerHTML;
-
-        //local storage try
-        nicknameSet.addEventListener('click', () => {
-            let nickname = document.querySelector('#nickname');
-            console.log(nickname, nickname.value);
-            let newScore = new User(nickname.value , timer.innerHTML)
-            console.log(newScore);
-
-            set_Score('Scores', newScore);
-            modal.classList.remove('active');
-            startGame();
-        });
-        
+ 
     }
 
 }
-//generatore leaderboard da local storage
 
+nicknameSet.addEventListener('click', () => {
+    let nickname = document.querySelector('#nickname');
+    console.log(nickname, nickname.value);
+    let newScore = new User(nickname.value , timer.innerHTML)
+    console.log(newScore);
+
+    set_Score('Scores', newScore);
+
+    modal.classList.remove('active');
+    startGame();
+});
 
 // una funzione che nasconde la modale alla fine e riavvia il gioco
 
@@ -195,14 +191,16 @@ function playAgain(){
         startGame();
 };
 
-/*
+
+/*-------------------------------
 Se non volessi usare l'Onclick dentro il tagHTML potrei usare lo script seguente:
 
 let playAgainBtn = document.querySelector('p .button')
 
 playAgainBtn.addEventListener('click', playAgain);
 
-*/
+----------------------------------*/
+
 
 // una funzione che calcola il tempo e aggiorna il contenitore sotto
 
@@ -249,6 +247,7 @@ class User{
 
 
 function leaderboardGenerator(){
+    tbody.innerHTML = '';
     for(let score of scores){
         let tr = document.createElement('tr');
         for(let prop in score){
