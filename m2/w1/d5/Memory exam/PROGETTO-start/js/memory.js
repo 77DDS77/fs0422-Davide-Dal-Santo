@@ -67,12 +67,9 @@ function startGame(){
 
     //aggancio div id griglia
     let griglia = document.querySelector('#griglia');
+
     //pulisco il suo contenuto
-    
-    while(griglia.hasChildNodes()){
-        griglia.removeChild(griglia.firstChild);//vedere se funziona
-        
-    }
+    griglia.innerHTML ='';
 
     //creazione della griglia
     //24 card quindi limite ciclo for = 24
@@ -91,12 +88,11 @@ function startGame(){
     timerStart();
 
 
-    //prendo tutte le icon create e ciclandole invoco displayicon() per mostrarle
-    //e popUpModal() quando tutte le coppie sonon state trovate
-    var singleCard = document.getElementsByClassName("icon");
-    var cardGroup = [...singleCard];
+
+    var cardGroup = document.querySelectorAll(".icon");
   
-    for(singleCard of cardGroup){
+    //non so come non mettere il doppio addeventlistener
+    for(let singleCard of cardGroup){
       singleCard.addEventListener("click", displayIcon);
       singleCard.addEventListener("click", popUpModal);
      
@@ -175,8 +171,7 @@ function popUpModal(){
         timer.innerHTML;
 
         //local storage try
-        nicknameSet.addEventListener('click', (e) => {
-            e.preventDefault();
+        nicknameSet.addEventListener('click', () => {
             let nickname = document.querySelector('#nickname');
             console.log(nickname, nickname.value);
             let newScore = new User(nickname.value , timer.innerHTML)
