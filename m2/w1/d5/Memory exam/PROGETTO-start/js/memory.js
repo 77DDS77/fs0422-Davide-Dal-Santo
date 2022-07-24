@@ -17,8 +17,6 @@ let nicknameSet = document.querySelector('#nicknameSet');
 
 document.body.onload = startGame();
 
-// mi serviranno alcune variabili 1. interval 2. una agganciata alla classe find 
-// 3. una agganciata al'id modal 4. una agganciata alla classe timer
 
 var interval; //var globale fuori dalla funct per resettarla ad ogni avvio
 
@@ -28,10 +26,7 @@ var modal = document.querySelector('#modal');//win message DIV
 
 var timer = document.querySelector('.timer');//timer DIV
 
-
-
-//una funzione che serve a mescolare in modo random gli elementi dell'array che viene passato 
-// (l'array contiene le icone degli animali)
+//card shuffle
 function shuffle(a) {
     var currentIndex = a.length;
     var temporaryValue, randomIndex;
@@ -45,14 +40,8 @@ function shuffle(a) {
     }
     return a;
 }
-// una funzione che rimuove la classe active e chiama la funzione startGame()
 
-// la funzione startGame che pulisce il timer, dichiara un array vuoto, mescola casualmente l'array degli animali
-// (var arrayShuffle = shuffle(arrayAnimali);), aggancia il contenitore con id griglia, 
-// pulisce tutti gli elementi che eventualmente contiene
-// poi fa ciclo per creare i 24 div child -> aggiunge la class e l'elemento dell'array in base all'indice progressivo
-// chiama la funzione timer e associa a tutti gli elementi (div) di classe icon l'evento click e le due funzioni definit sotto
-
+//function to start the game
 
 function startGame(){
 
@@ -72,8 +61,8 @@ function startGame(){
     griglia.innerHTML ='';
 
     //creazione della griglia
-    //24 card quindi limite ciclo for = 24
-    for(let z = 0; z < 24; z++){ //justice for the 'i' variable
+    //sistemato limite iterazione per miglior scalabilita'
+    for(let z = 0; z < arrayAnimali.length; z++){ //justice for the 'i' variable
         let cardContainer = document.createElement('div');
         let card = document.createElement('div');
         card.classList.add('icon');
@@ -81,49 +70,24 @@ function startGame(){
 
         griglia.append(cardContainer);
         cardContainer.append(card)
+        card.addEventListener("click", displayIcon);
+        card.addEventListener("click", popUpModal);
     }
     
 
     //invoco la funzione timerStart per far partire il timer
     timerStart();
 
-    var cardGroup = document.querySelectorAll(".icon");
-  
-    //non so come non mettere il doppio addeventlistener
-    for(let singleCard of cardGroup){
-      singleCard.addEventListener("click", displayIcon);
-      singleCard.addEventListener("click", popUpModal);
-     
-    }
-
+    //creazione della leadeboard
     leaderboardGenerator();
 
 }
 
 // =============================================================================================
 
-let iconClick = document.querySelectorAll('.icon');
-
-for(let singleIcon of iconClick){
-   singleIcon.addEventListener('click', displayIcon); 
-}
-
-
-
 function displayIcon() {
     var icon = document.getElementsByClassName("icon");
     var icons = [...icon];
-
-    /*
-    var icon = document.getElementsByClassName("icon");
-    var icons = [...icon];
-    è uguale a 
-    var icons = document.getElementsByClassName("icon");
-    //var icons = [...icon];
-    è un operatore che serve per passare un array come argomento:
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax 
-    https://www.tutorialspoint.com/es6/es6_operators.htm (cerca spread nella pagina)
-    */
 
     //mette/toglie la classe show
     this.classList.toggle("show");
@@ -152,8 +116,10 @@ function displayIcon() {
                     for (var i = 0; i < iconsFind.length; i++) {
                         iconsFind[i].classList.add("disabled");
                     }
+                    
                 });
                 arrayComparison = [];
+                
             }, 700);
         }
     }
@@ -172,17 +138,6 @@ function popUpModal(){
 
 }
 
-nicknameSet.addEventListener('click', () => {
-    let nickname = document.querySelector('#nickname');
-    console.log(nickname, nickname.value);
-    let newScore = new User(nickname.value , timer.innerHTML)
-    console.log(newScore);
-
-    set_Score('Scores', newScore);
-
-    modal.classList.remove('active');
-    startGame();
-});
 
 // una funzione che nasconde la modale alla fine e riavvia il gioco
 
@@ -228,6 +183,8 @@ function timerStart(){
 }
 
 
+//================================================EXTRA
+
 
 //-----------------Local Storage test area
 function set_Score(key,value){
@@ -236,6 +193,8 @@ function set_Score(key,value){
     localStorage.setItem(key, JSON.stringify(scores));
 }//End set_LocalStorage
 
+
+//Defining User obj construction 
 class User{
     constructor(username, score){
         this.username = username;
@@ -243,8 +202,7 @@ class User{
     }
 }
 
-        //leaderboard generator test
-
+//HTML leaderboard generator
 
 function leaderboardGenerator(){
     tbody.innerHTML = '';
@@ -258,3 +216,19 @@ function leaderboardGenerator(){
         tbody.append(tr);
     }
 }
+
+//setting the user input for his nickname to be stored in local storage
+//and creating his user (nickname + timer)
+
+nicknameSet.addEventListener('click', () => {
+    let nickname = document.querySelector('#nickname');
+    let newScore = new User(nickname.value , timer.innerHTML)
+    //volevo un console log pulito, interpolazxione e concatenamento non funzionavano
+    console.log('New user has been stored in local storage:'); 
+    console.log(newScore);
+
+    set_Score('Scores', newScore);
+
+    modal.classList.remove('active');
+    startGame();
+});
