@@ -1,0 +1,18 @@
+BOOTSTRAP	1
+
+https://sweetalert2.github.io/
+libreria pop-up
+
+CDN: content delivery network
+servizi che si occupano di fare un backup di librerie cosi che possano 
+essere linkate da remoto
+
+JsDelivr e' un servizio CDN
+
+
+reset e' inutile con bootstrap
+
+se devo fare modifiche su css non modifico le classi di 
+bootstrap (Esempio 'container') perche' crea una criticita'
+ogni volta che uso container verra' fuckuppata dal css
+
