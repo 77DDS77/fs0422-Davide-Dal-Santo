@@ -1,0 +1,36 @@
+/* impostare variabili colore gia lo sai davide */
+
+:root{
+    --colore-primario : #970000;
+    --colore-secondario: #6e0303;
+
+
+}
+
+.btn-danger{
+    --bs-btn-bg: #80dc35;
+}
+
+
+
+/* alcuni elementi si prestano maggiormente alla modifica definitiva ( una volta per tutti) */
+
+.btn-primary{
+    background-color: var(--colore-primario);
+}
+
+
+
+.btn:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: var(--colore-secondario);
+    border-color: var(--colore-secondario);
+}
+
+
+/* constainer e' una classe default di BS e deve restare intatta quindi per 
+modificare lo style devo creare una classe mia apposita e aggiungerla
+cosi non incorro in criticita' */
+.container.container-diverso{
+    background: blue;
+}
