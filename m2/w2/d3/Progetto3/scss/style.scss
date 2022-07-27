@@ -1,0 +1,38 @@
+//importo questo per modificarmi su _variables le variabili di default di bootstrap.scss
+//IMPORTANTE IMPORTARLO PRIMA DI IMPORTARE BOOTSTRAP
+//variablesBKP mi serve solo per comodita per cercare le variabili che voglio modificare
+@import 'variables'; 
+
+@import 'functions';
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+
+.bg-primary{
+    color: contrast($blue);
+}
+.bg-success{
+    color: contrast($yellow);
+}
+
+.standard-section{
+    height: 200px;
+    border: 1px solid black;
+    @media screen and (max-width: 768px){
+        background-color: red;
+    }
+}
+
+.special-section{
+    @extend .standard-section;
+    background-color: $purple;
+}
+
+$misure: 40px, 50px, 80px;
+
+@each $misura in $misure{
+    .quadrato-#{$misura}{
+        height: $misura;
+        width: $misura;
+    }
+}

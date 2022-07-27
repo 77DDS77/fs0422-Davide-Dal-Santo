@@ -1,0 +1,42 @@
+/* line 3, scss/_header.scss */
+header ul {
+  display: flex; }
+  /* line 5, scss/_header.scss */
+  header ul li {
+    margin: 0 2rem; }
+    /* line 7, scss/_header.scss */
+    header ul li a {
+      color: black; }
+
+/* line 15, scss/style.scss */
+h1 {
+  background-color: red;
+  color: white;
+  font-size: 4rem; }
+
+/* line 20, scss/style.scss */
+p {
+  background-color: red; }
+
+/* line 35, scss/style.scss */
+.blocco {
+  background-color: green;
+  width: 100px;
+  height: 100px; }
+  /* line 38, scss/style.scss */
+  .blocco:hover {
+    background-color: #1aff1a; }
+
+/* line 43, scss/style.scss */
+.quadrato {
+  background-color: blue;
+  width: 200px;
+  height: 200px; }
+  /* line 46, scss/style.scss */
+  .quadrato:hover {
+    background-color: #000066; }
+
+/* line 51, scss/style.scss */
+p {
+  font-size: 2rem;
+  font-family: "arial"; }

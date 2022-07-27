@@ -1,0 +1,56 @@
+
+
+// LE VARIABILI VANNO IMPORTATE PRATICAMENTE PER PRIME ALTRIMENTI PER IL 
+//RESTO DEL CODICE NON ESISTONO
+@import 'variables';
+
+
+// gli faccio importare il partial _header
+//se io faccio l'import in alto sul css vedro' header in alto
+//QUIDNI IMPORTARE COSE SUL POSTO GIUSTO
+@import 'header';
+
+
+
+h1{
+    background-color: $colore_primario;
+    color: white;
+    font-size: 4rem;
+}
+p{
+    background-color: $colore_primario;
+}
+
+// mixin
+
+@mixin quadrato($dimensione){
+    width: $dimensione;
+    height: $dimensione;
+}
+
+@mixin font($prop, $val){
+    font-#{$prop} : $val;
+}
+
+.blocco{
+    background-color: green;
+    @include quadrato(100px);
+    &:hover{//cosi gli dico subito cosa fare sull' hover di quadrato
+        background-color: lighten(green, 30%);
+    }
+}
+
+.quadrato{
+    background-color: blue;
+    @include quadrato(200px);
+    &:hover{ 
+        background-color: darken(blue, 30%);
+    }
+}
+
+p{
+    @include font('size', 2rem);
+    @include font('family', 'arial');
+}
+
+@import 'footer'
