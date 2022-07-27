@@ -1,0 +1,33 @@
+npm init
+-> crea il package.json
+
+sul package json scrivo su scripts
+"compile:sass": "node-sass scss/style.scss css/style.css -watch"
+
+npm run compile:sass
+-> per lanciare il comando
+
+e mi inizializza file e cartella css
+-watch lascia il compilatore aperto e ogni volta
+che salvo sul scss mi aggiorna il css
+
+
+"compile:prod": "node-sass scss/style.scss css/style.min.css --output-style compressed"
+se lo lancio mi crea un .min.css compresso, lo uso per mandare in produzione un sito
+
+
+npm i bootstrap
+-> installazione bootstrap
+
+SU HTML
+linko lo stylesheet bootstrap.min.css
+
+OPPURE
+
+su style.scss @import '../node_modules/bootstrap/scss/bootstrap.scss';
+-> importo l'scss di bootstrap cosi mi spara tutto dentro il css
+
+
+linko lo script bootstrap.bundle.min.js
+-> importo il bootstrap.bundle.min.js per avere tutto quello che mi serve in un colpo
+senza dover importare due script separati
