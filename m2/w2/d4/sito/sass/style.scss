@@ -1,0 +1,137 @@
+@import 'function';
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../node_modules/bootstrap-icons/font/bootstrap-icons.scss';
+
+
+$bg_scuro :rgb(62, 62, 62);
+$bg_chiaro :rgb(181, 181, 181);
+$testo_chiaro: contrast($bg_scuro);
+$testo_scuro: contrast($bg_chiaro);
+
+// e' un po come min width/height e max width/height con 
+//extra steps
+.clamp{
+   width: clamp(500px, 100%, 800px);
+   height: 100px;
+}
+
+.bg-scuro, .bg-chiaro{
+    height: 100px;
+}
+
+.bg-scuro{
+    background-color: $bg_scuro;
+    color: $testo_chiaro;
+}
+.bg-chiaro{
+    background-color: $bg_chiaro;
+    color: $testo_scuro;
+}
+
+.rettangolo{
+    height: 100px;
+    background-color: blue;
+    margin-bottom: 10px;
+}
+
+.quadrato{
+    @extend .rettangolo;
+    width: 100px;
+    background-color: yellow;
+}
+
+.altro{
+    @extend .quadrato;
+    background-color: black;
+}
+
+@mixin set-color($prop, $color){
+    @if(lightness($color) < 50){ //se e' un colore scuro allora 
+        #{$prop}-color: lighten($color, 15%);//imposta color se stesso ma 15% piu chiaro
+    }@else{
+        #{$prop}-color: darken($color, 15%);
+    }
+}
+
+.mixin-color{
+    @include set-color('background',red)
+}
+
+
+
+//Each   equivalente di forEac ma piu simile ad un for of
+
+.item{
+    background-color: gray;
+}
+
+$misure: 40, 80, 120, 180;
+
+@each $misura in $misure{
+    .quadrato-#{$misura}{
+        width: $misura + px;
+        height: $misura + px;
+    }
+    .rettangolo-h-#{$misura}{
+        height: $misura + px;
+        width: ($misura * 2) + px;
+    }
+    .rettangolo-w-#{$misura}{
+        width: $misura + px;
+        height: ($misura * 2) + px;
+    }
+}
+
+
+//For  
+
+//i partiamo da 1 perche non cc'e tanta roba che parte da 0
+//il limite che definisco e' come se fosse strettamente minore, quindi se metto 3 si ferma a 2
+
+
+//sul css mi ha creato le classi se vuoi guardare
+@for $i from 1 to 3{
+    .m-#{$i}{
+        margin-left: 0;
+        margin-right: 0;
+        @media screen and (min-width:480px) and (min-width: 768px) {
+            margin-left: 15px * $i;
+            margin-right: 15px * $i;
+        }
+        @media screen and (min-width:769px) and (min-width: 1280px) {
+            margin-left: 20px * $i;
+            margin-right: 20px * $i;
+        }
+    }
+}
+
+
+//media queries
+
+@mixin breakpoint($misura){
+
+    @if($misura == desktop){
+        @media screen and (min-width: 1440px){
+            width: 1600px;
+        }
+    }@else if($misura == laptop){
+        @media screen and (min-width:768px){
+            width: 1170px;
+        }
+    }@else{
+        @media screen and (min-width:480px){
+            width: 768px;
+        }
+    }
+
+}
+
+.test{
+    width: 100%;
+    @include breakpoint('desktop');
+    @include breakpoint('laptop');
+}
+
+
+

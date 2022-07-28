@@ -1,3 +1,7 @@
+ls
+-> per vedere che cartelle ci sono dentro alla cartella sulla quale lo lancio
+
+
 npm init
 -> crea il package.json
 
@@ -10,6 +14,13 @@ npm run compile:sass
 e mi inizializza file e cartella css
 -watch lascia il compilatore aperto e ogni volta
 che salvo sul scss mi aggiorna il css
+
+-----------------------------------------
+"compile:sass": "node-sass -r sass -o css -w"
+
+-> con questo posso salvare su qualsiasi file dentro la cartella sass
+e non devo salvare lo style.scss per aggiornare la pagina
+------------------------------------------
 
 
 "compile:prod": "node-sass scss/style.scss css/style.min.css --output-style compressed"
