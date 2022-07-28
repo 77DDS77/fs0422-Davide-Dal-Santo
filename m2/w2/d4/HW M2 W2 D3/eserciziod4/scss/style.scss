@@ -1,7 +1,11 @@
 @import "variables";
 
 *, a {
-    @include font("family","Open Sans")
+    @include font("family","Open Sans");
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body {

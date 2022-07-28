@@ -20,6 +20,7 @@ che salvo sul scss mi aggiorna il css
 
 -> con questo posso salvare su qualsiasi file dentro la cartella sass
 e non devo salvare lo style.scss per aggiornare la pagina
+-> OCCHIO ALLA CARTELLA CHE SCRIVO DOPO -R!!!
 ------------------------------------------
 
 
