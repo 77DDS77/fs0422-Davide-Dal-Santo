@@ -8,10 +8,10 @@
     }
     .nav-link{
         transition: .3s ease-in-out;
-        &:hover{
-            transform: scale(1.05);
+            &:hover{
+                transform: scale(1.05);
+            }
         }
-    }
     .socialImg{
     font-size: 2rem;
     }
