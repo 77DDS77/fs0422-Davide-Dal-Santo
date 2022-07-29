@@ -1,0 +1,16 @@
+#myFooter{
+    border-top: 4px solid $secondary;
+
+    #companyInfo{
+        width: 100%;
+    }
+    #socialFooter{
+        font-size: 2rem;
+        li{
+          transition: .3s ease-in-out;
+            &:hover{
+                transform: scale(1.1);
+            }  
+        }
+    }
+}

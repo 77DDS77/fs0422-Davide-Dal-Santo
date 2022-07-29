@@ -1,0 +1,17 @@
+
+@mixin myMargin($prop, $val) {
+    margin-#{$prop}: $val;
+}
+
+
+// function that takes as a parameter the background colo
+//basically if the bg-color is dark sets the text-color on white
+//and on black if bg-color is light
+@function textContrast($bg-color){
+
+    @if(lightness($bg-color) < 50){
+        @return white;
+    }@else{
+        @return black;
+    }
+}

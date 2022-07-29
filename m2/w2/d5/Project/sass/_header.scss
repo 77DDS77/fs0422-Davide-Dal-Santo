@@ -1,0 +1,22 @@
+#myNavbar{
+    font-size: 2rem;
+    .navbar-brand{
+        transition: .3s ease-in-out;
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+    .nav-link{
+        transition: .3s ease-in-out;
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+    .socialImg{
+    font-size: 2rem;
+    }
+    .navbar-brand{
+        font-size: 2rem;
+    }
+}
+

@@ -1,0 +1,35 @@
+#carusSect{
+    @include myMargin('top', 20rem);
+    @include myMargin('bottom', 10rem);
+    max-width: 100%;
+    h2{
+        font-size: 2rem;
+        @media screen and (max-width: 300px){
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.testContainer{
+    height: 100%;
+    background-color: $secondary;
+    border-radius: 15px;
+    
+    .testName{
+        font-size: 2.6rem;
+        color: $primary;
+        padding: 2rem;
+    }
+    .testImg{
+        max-height: 120px;
+        width: auto;
+        border-radius: 100%;
+    }
+    .testPhrase{
+        padding: 2rem;
+        font-size: 1.4rem;
+        color: textColor($secondary);
+    }
+
+}
+

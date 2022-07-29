@@ -1,0 +1,64 @@
+@import 'variables';
+
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "functions";
+
+
+*{
+    font-family: 'MuseoModerno', cursive;
+}
+body{
+    background-image: url(../assets/imgs/background.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+// HEAder
+@import "header";
+
+
+// HIGLIHLIGHT AREA
+
+#introPara{
+    color: textContrast($primary);
+    font-size: 1.4rem;
+}
+
+
+
+// PARTNERSHIPS
+
+#partnerships{
+    @include myMargin('top', 10rem);
+    h2{
+        @include myMargin('bottom', 2rem);
+        font-weight: bold;
+        font-size: 2rem;
+        @media screen and (max-width: 300px){
+            font-size: 1.2rem;
+        }
+    }
+    .myRow{
+        .myCol{
+            display: flex;
+            img{
+                min-width: 80px;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+    
+    }
+}
+
+
+// CARUSEL
+
+@import 'carusel';
+
+
+// FOOTER
+
+@import "footer";

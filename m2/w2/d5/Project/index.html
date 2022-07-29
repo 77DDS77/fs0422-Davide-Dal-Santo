@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/app.css">
+
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <title>Project</title>
+</head>
+
+<body>
+
+    <!-- NAV BAR -->
+
+    <nav id="myNavbar" class="navbar navbar-expand-md navbar-primary bg-primary sticky-top shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand text-secondary" href="#">MyCompany</a>
+            <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link text-secondary mx-3" aria-current="page" href="#">Home</a>
+                    <a class="nav-link text-secondary mx-3" href="#partnerships">Partners</a>
+                    <a class="nav-link text-secondary mx-3" href="#carusSect">Feedback</a>
+                    <!-- social icons -->
+                    <div class="d-flex text socialImg">
+                        <a class="nav-link text-secondary mx-2"><i class="bi bi-linkedin"></i></a>
+                        <a class="nav-link text-secondary mx-2"><i class="bi bi-whatsapp"></i></a>
+                        <a class="nav-link text-secondary mx-2"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- HIGLIHLIGHT AREA -->
+    <div class="container bg-primary mt-5 p-5 text-center rounded-2 shadow">
+
+        <h1 id="introTitle" class="text-secondary">Turning excellence into perfection</h1>
+        <p id="introPara" class="mt-4">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt architecto eligendi ad odit commodi
+            asperiores modi recusandae. Vel optio assumenda suscipit nemo eaque. Modi repellat amet provident quod velit
+            labore?
+        </p>
+
+    </div>
+
+    <!-- PARTNERSHIP -->
+    <div id="partnerships" class="container row-cols">
+
+        <h2 class="col-6 offset-3 text-center bg-primary text-secondary p-2 rounded">Our Partners</h2>
+
+        <div class="row myRow align-items-center">
+
+            <div class="myCol col-6 col-md-3"><img src="./assets/imgs/logo1.png" alt=""></div>
+            <div class="myCol col-6 col-md-3"><img src="./assets/imgs/logo2.jpg" alt=""></div>
+            <div class="myCol col-6 col-md-3"><img src="./assets/imgs/logo3.png" alt=""></div>
+            <div class="myCol col-6 col-md-3"><img src="./assets/imgs/logo4.jpg" alt=""></div>
+
+        </div>
+
+        <div class="row myRow align-items-center">
+
+            <div class="myCol col-6 col-md-3"><img src="./assets/imgs/logo5.png" alt=""></div>
+            <div class="myCol col-6 col-md-3"><img src="./assets/imgs/logo6.jpg" alt=""></div>
+            <div class="myCol col-6 col-md-3"><img src="./assets/imgs/logo7.jpg" alt=""></div>
+            <div class="myCol col-6 col-md-3"><img src="./assets/imgs/logo8.jpg" alt=""></div>
+
+        </div>
+
+    </div>
+
+    <!-- CARUSEL -->
+    <div id="carusSect" class="row-cols">
+
+        <h2 class="col-6 offset-3 text-center bg-primary text-secondary p-2 rounded">Their Feedback</h2>
+
+        <div id="TestimonialCarusel" class="carousel slide touch" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active text-center">
+                    <div class="container testContainer shadow">
+                        <h3 class="testName">Mario Rossi</h3>
+                        <img class="testImg" src="./assets/imgs/person1.jpg" alt="">
+                        <p class="testPhrase">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim impedit aspernatur dolores
+                            nobis
+                            omnis debitis possimus tempora, dolorem repellat dolorum minus sequi, ab harum. Ipsum,
+                            aliquam?
+                            Atque quisquam ipsa velit!
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item text-center">
+                    <div class="container testContainer shadow">
+                        <h3 class="testName">Maria Bianchi</h3>
+                        <img class="testImg" src="./assets/imgs/person 2.jpg" alt="">
+                        <p class="testPhrase">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim impedit aspernatur dolores
+                            nobis
+                            omnis debitis possimus tempora, dolorem repellat dolorum minus sequi, ab harum. Ipsum,
+                            aliquam?
+                            Atque quisquam ipsa velit!
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item text-center">
+                    <div class="container testContainer shadow">
+                        <h3 class="testName">Greta Brazorf</h3>
+                        <img class="testImg" src="./assets/imgs/person3.jpg" alt="">
+                        <p class="testPhrase">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim impedit aspernatur dolores
+                            nobis
+                            omnis debitis possimus tempora, dolorem repellat dolorum minus sequi, ab harum. Ipsum,
+                            aliquam?
+                            Atque quisquam ipsa velit!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Prev Btn -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#TestimonialCarusel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-primary d-none d-md-block rounded-2"
+                    aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <!-- Next Btn -->
+            <button class="carousel-control-next" type="button" data-bs-target="#TestimonialCarusel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-primary d-none d-md-block rounded-2"
+                    aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+
+        <!-- FOOTER -->
+        <div class="container-fluid px-5 bg-primary text-secondary">
+            <footer id="myFooter" class="d-flex flex-wrap justify-content-center align-items-center py-3 px-5">
+                <div class=" d-flex flex-column flex-md-row align-items-center">
+                    <div>
+                        <a href="/" class="mb-3 me-2 mb-md-0 text-secondary text-decoration-none lh-1">
+                            MyCompany
+                        </a>
+                    </div>
+                    <div>
+                        <span id="companyInfo" class="mb-3 mb-md-0 text-secondary">
+                            © 2022 Company, Inc
+                        </span>
+                    </div>
+                </div>
+
+                <ul id="socialFooter" class="nav  justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-secondary" href="#"><i class="bi bi-linkedin"></i></a></li>
+                    <li class="ms-3"><a class="text-secondary" href="#"><i class="bi bi-whatsapp"></i></a></li>
+                    <li class="ms-3"><a class="text-secondary" href="#"><i class="bi bi-instagram"></i></a></li>
+                </ul>
+            </footer>
+        </div>
+
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
