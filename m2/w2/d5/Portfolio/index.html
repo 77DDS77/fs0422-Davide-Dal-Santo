@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/app.css">
+
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <title>Lorenzo Agostini</title>
+</head>
+
+<body>
+
+    <!-- NAV BAR -->
+
+    <nav id="myNavbar" class="navbar navbar-expand-lg navbar-primary bg-primary sticky-top shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand text-secondary" href="#">Lorenzo Agostini</a>
+            <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link text-secondary mx-3" aria-current="page" href="#">Home</a>
+                    <a class="nav-link text-secondary mx-3" href="#partnerships">Partners</a>
+                    <a class="nav-link text-secondary mx-3" href="#placeSect">My works</a>
+                    <!-- social icons -->
+                    <div class="d-flex socialImg">
+                        <a class="nav-link text-secondary mx-2"><i class="bi bi-whatsapp"></i></a>
+                        <a class="nav-link text-secondary mx-2" href="https://www.instagram.com/loryagostini/" target="_blank"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="topPic">
+        <!-- test Pic -->
+        <div id="picOverlay" class="rounded">
+            <p id="overlayText">
+                <span>ENJOY</span>  <span>YOUR</span>  <span>STAY</span>
+            </p>
+        </div>
+    </div>
+
+
+    <!-- HIGLIHLIGHT AREA -->
+    <div class="container bg-primary mt-5 p-5 text-center rounded-2 shadow">
+
+        <h1 id="introTitle" class="text-secondary">Who's Lorenzo Agostini:</h1>
+        <div id="introFoto" class="container">
+            <img id="profilePicture" class="my-5 img-fluid rounded-3" src="./assets/photos/profilePicture.jpeg" alt="Lorenzo Agostini">
+        </div>
+        
+        
+        <p id="introPara">
+            An award-winning mountain landscape, adventure and astro photographer based in Padova, Italy.
+        </p>
+
+    </div>
+
+    <!-- PARTNERSHIP -->
+    <div id="partnerships" class="container row-cols">
+
+        <h2 id="partnerTitle" class="col-8 offset-2 text-center rounded">Pround ambassador of</h2>
+
+        <div class="row myRow align-items-center">
+
+            <div class="myCol col-12 col-sm-6 col-md-3 my-2"><img src="./assets/imgs/Nikon_Logo.svg.png" alt=""></div>
+            <div class="myCol col-12 col-sm-6 col-md-3 my-2"><img src="./assets/imgs/patagonia.jfif" alt=""></div>
+            <div class="myCol col-12 col-sm-6 col-md-3 my-2"><img src="./assets/imgs/Haida.png" alt=""></div>
+            <div class="myCol col-12 col-sm-6 col-md-3 my-2"><img src="./assets/imgs/f-stop.jpg" alt=""></div>
+
+        </div>
+
+
+    </div>
+
+    <!-- WHERE IVE BEEN PICTURES -->
+
+    <div id="placeSect" class="container row-cols">
+
+        <h2 class="col-10 offset-1 text-center">Places I've been, things I've seen</h2>
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./assets/photos/mountain1.jpg" class="d-block w-100 rounded-3" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Monte Pelmo</h5>
+                        <p>Sunrise alongside the trail, Citta' di Fiume.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/photos/sunbeam.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Pico Ruivo, Madeira</h5>
+                        <p>Waiting for the perfect sunbeam.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/photos/mountain2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>San Lorenzo, Madeira</h5>
+                        <p>Sunrise over the cliffs.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/photos/fog.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Fanal forest, Madeira</h5>
+                        <p>In it's tipical low-altitude fog condition.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/photos/intro.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Northern Lights, Iceland</h5>
+                        <p>Last night of camping with some company.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+
+
+    <!-- CARUSEL -->
+    <div id="carusSect" class="row-cols">
+
+        <h2 class="col-6 offset-3 text-center p-2 rounded">Collaboration with</h2>
+
+        <div id="TestimonialCarusel" class="carousel slide touch" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active text-center">
+                    <div class="container testContainer shadow">
+                        <h3 class="testName">Mario Rossi</h3>
+                        <img class="testImg" src="./assets/imgs/person1.jpg" alt="">
+                        <p class="testPhrase">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim impedit aspernatur dolores
+                            nobis
+                            omnis debitis possimus tempora, dolorem repellat dolorum minus sequi, ab harum. Ipsum,
+                            aliquam?
+                            Atque quisquam ipsa velit!
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item text-center">
+                    <div class="container testContainer shadow">
+                        <h3 class="testName">Maria Bianchi</h3>
+                        <img class="testImg" src="./assets/imgs/person 2.jpg" alt="">
+                        <p class="testPhrase">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim impedit aspernatur dolores
+                            nobis
+                            omnis debitis possimus tempora, dolorem repellat dolorum minus sequi, ab harum. Ipsum,
+                            aliquam?
+                            Atque quisquam ipsa velit!
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-item text-center">
+                    <div class="container testContainer shadow">
+                        <h3 class="testName">Greta Brazorf</h3>
+                        <img class="testImg" src="./assets/imgs/person3.jpg" alt="">
+                        <p class="testPhrase">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim impedit aspernatur dolores
+                            nobis
+                            omnis debitis possimus tempora, dolorem repellat dolorum minus sequi, ab harum. Ipsum,
+                            aliquam?
+                            Atque quisquam ipsa velit!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Prev Btn -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#TestimonialCarusel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-primary d-none d-md-block rounded-2"
+                    aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <!-- Next Btn -->
+            <button class="carousel-control-next" type="button" data-bs-target="#TestimonialCarusel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-primary d-none d-md-block rounded-2"
+                    aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- FOOTER -->
+    <div class="container-fluid px-5 bg-primary text-secondary">
+        <footer id="myFooter" class="d-flex flex-wrap justify-content-center align-items-center py-3 px-5">
+            <div class=" d-flex flex-column flex-md-row align-items-center">
+                <div>
+                    <a href="/" class="mb-3 me-2 mb-md-0 text-secondary text-decoration-none lh-1">
+                        Lorenzo Agostini
+                    </a>
+                </div>
+                <div>
+                    <span id="companyInfo" class="mb-3 mb-md-0 text-secondary">
+                        Since 1997
+                    </span>
+                </div>
+            </div>
+
+            <ul id="socialFooter" class="nav  justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-secondary" href="#"><i class="bi bi-whatsapp"></i></a></li>
+                <li class="ms-3"><a class="text-secondary" href="https://www.instagram.com/loryagostini/" target="_blank"><i class="bi bi-instagram"></i></a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

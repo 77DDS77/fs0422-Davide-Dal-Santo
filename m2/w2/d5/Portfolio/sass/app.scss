@@ -1,0 +1,65 @@
+@import 'variables';
+
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "functions";
+
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-color: $background;
+}
+
+
+// HEAder
+@import "header";
+
+
+
+
+// HIGLIHLIGHT AREA
+
+#introFoto{
+    max-height: 600px;
+    max-width: 600px;
+}
+
+#introPara{
+    color: textContrast($primary);
+    font-size: 1.4rem;
+}
+
+
+
+// PARTNERSHIPS
+
+#partnerships{
+    @include myMargin('top', 10rem);
+    #partnerTitle{
+        @include titleFormat();
+    }
+    .myRow{
+        .myCol{
+            display: flex;
+            img{
+                min-width: 80px;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+    
+    }
+}
+
+
+// CARUSEL
+
+@import 'carusel';
+
+
+// FOOTER
+
+@import "footer";

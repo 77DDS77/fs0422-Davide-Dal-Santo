@@ -1,0 +1,43 @@
+//PHOTOS CAROUSEL
+#placeSect{
+    @include myMargin('top', 10rem);
+    @include myMargin('bottom', 10rem);
+    h2{
+        @include titleFormat();
+    }
+}
+
+// COLLABORATION CAROUSEL
+
+#carusSect{
+    @include myMargin('top', 10rem);
+    @include myMargin('bottom', 10rem);
+    max-width: 100%;
+    h2{
+        @include titleFormat();
+    }
+}
+
+.testContainer{
+    height: 100%;
+    background-color: $secondary;
+    border-radius: 15px;
+    
+    .testName{
+        font-size: 2.6rem;
+        color: $primary;
+        padding: 2rem;
+    }
+    .testImg{
+        max-height: 120px;
+        width: auto;
+        border-radius: 100%;
+    }
+    .testPhrase{
+        padding: 2rem;
+        font-size: 1.4rem;
+        color: textColor($secondary);
+    }
+
+}
+
