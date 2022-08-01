@@ -11,13 +11,17 @@ submit.addEventListener('click', (e) => {
     let cognome = document.querySelector('#userSurname');
     let data = document.querySelector('#userDob');
 
-    let utente = new User(nome.value, cognome.value, data.value);
+    if (nome.value == '' || cognome.value == '' || data.value == '') {
+        alert('Please fill all the fields');
+    } else {
+        let utente = new User(nome.value, cognome.value, data.value);
 
-    setUserLS(utente);
+        setUserLS(utente);
+    }
 })
 
 
-function setUserLS(utente){ 
+function setUserLS(utente) {
 
     listaUtenti.push(utente);
 
@@ -25,11 +29,11 @@ function setUserLS(utente){
 
 }
 
-function LSTable(){
+function LSTable() {
     let tBody = document.getElementById('tableBody');
-    for(let utente of listaUtenti){
-        let trLS= document.createElement('tr');
-        for(let prop in utente){
+    for (let utente of listaUtenti) {
+        let trLS = document.createElement('tr');
+        for (let prop in utente) {
 
             let tdLS = document.createElement('td');
             tdLS.textContent = utente[prop];
@@ -48,7 +52,7 @@ class User {
         this.createTable();
     }
 
-    createTable(){
+    createTable() {
         let tBody = document.getElementById('tableBody');
         let tr = document.createElement('tr');
         let tdNome = document.createElement('td');
@@ -61,6 +65,7 @@ class User {
 
         tr.append(tdNome, tdCognome, tdData);
         tBody.append(tr);
+
 
     }
 
