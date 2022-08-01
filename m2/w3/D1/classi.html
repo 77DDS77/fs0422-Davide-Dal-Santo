@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classi</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        class Pizza {
+            //il constructor e' importante perche' esegue qualsiasi cosa 
+            //io gli scriva dentro in fase di istanziamento dell'oggetto
+            //EX: se dentro il constructor ho una chiamata AJAX 
+            //ogni volta che istanzio un oggetto viene eseguita
+            constructor(_gusto, _prezzo) {
+                //gusto di this.gusto, e' una VARIAIBLE DI ISTANZA
+                this.gusto = _gusto;
+                this.prezzo = _prezzo;
+                this.disponibile = true;
+                this.mostraPrezzo();
+            }
+            //METODO non funzione!
+            mostraPrezzo() {
+                console.log(this.prezzo + '$');
+            }
+            pizzaEsaurita() {
+                this.disponibile = false;
+            }
+
+        }
+
+        let margherita = new Pizza('Margherita', 5);
+        let diavola = new Pizza('Diavola', 7);
+
+
+        // scrivere e sovrascrivere
+        margherita.prezzo = 4.5;
+        margherita.mostraPrezzo();
+
+        // prototype
+
+        Pizza.prototype.test = 'prova'
+
+        console.log(margherita, diavola);
+        console.log(margherita.test);
+
+
+
+    </script>
+
+</body>
+
+</html>

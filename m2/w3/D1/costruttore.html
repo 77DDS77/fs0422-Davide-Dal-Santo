@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Costruttore</title>
+</head>
+<body>
+
+
+    <script>
+
+        function Pizza(_gusto, _prezzo){
+            this.gusto = _gusto;
+            this.prezzo = _prezzo;
+            this.disponibile = true;
+            this.mostraPrezzo = () => {
+                //posso usare dei metodi che leggano le proprieta'
+                //dell'oggetto
+                console.log(this.prezzo + '$');
+            }
+            this.pizzaEsaurita = () => {
+                //posso creare dei metodi che modifichino
+                //le proprieta dell'oggetto
+                this.disponibile = false;
+            }
+        }
+
+        let margherita = new Pizza('Margherita', 5);
+        let diavola = new Pizza('Diavola', 7);
+
+        margherita.pizzaEsaurita();
+
+        console.log(margherita, diavola);
+        console.log(margherita.mostraPrezzo());
+        console.log(diavola.mostraPrezzo());
+
+
+    </script>
+    
+</body>
+</html>

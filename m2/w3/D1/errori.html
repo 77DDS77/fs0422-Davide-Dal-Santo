@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errori</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+
+        //questa robva qua fa schifo (il log dentor mostraprezzo)
+        //perche se faccio un altro oggetto 'diavola' e 
+        //lancio diavola.mostraprezzo, lui mi mostra il prezzo di margherita 
+        //e non quello di diavola
+        let margherita = {
+            gusto : 'margherita',
+            prezzo: 5,
+            mostraPrezzo : function (){ console.log(margherita.prezzo + '$')}
+        }
+        
+        margherita.mostraPrezzo();
+
+        //-----
+
+        // questo fa schifo uguale per lo stesso motivo
+
+        function Pizza(_gusto, _prezzo) {
+            this.gusto = _gusto
+            this.prezzo = _prezzo
+            this.mostraPrezzo = function (){
+                console.log(capricciosa.prezzo + '$');//sbagliato devo usare this
+            }
+        }
+
+        let capricciosa = new Pizza('Capricciosa', 9);
+        let stagioni = new Pizza('4 Stagioni', 7);
+        capricciosa.mostraPrezzo(); //=> 9
+        stagioni.mostraPrezzo();//=> dovrebbe dare 7 ma da 9
+
+    </script>
+</body>
+</html>
