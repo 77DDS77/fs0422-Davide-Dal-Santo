@@ -1,4 +1,5 @@
 listaUtenti = localStorage.getItem('listaUtenti') ? JSON.parse(localStorage.getItem('listaUtenti')) : [];
+console.log(listaUtenti);
 
 let submit = document.querySelector('#submit');
 
@@ -27,10 +28,9 @@ function setUserLS(utente){
 function LSTable(){
     let tBody = document.getElementById('tableBody');
     for(let utente of listaUtenti){
-        console.log(utente);
         let trLS= document.createElement('tr');
         for(let prop in utente){
-            console.log(prop, utente[prop]);
+
             let tdLS = document.createElement('td');
             tdLS.textContent = utente[prop];
             trLS.append(tdLS);
