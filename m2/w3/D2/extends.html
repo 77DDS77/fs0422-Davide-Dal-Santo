@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extends</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        class Veicolo{
+            constructor(marca, tipo, colore, maxVel, ruote = 2){
+                this.marca = marca;
+                this.tipo = tipo;
+                this.colore = colore;
+                this.maxVel = maxVel;
+                this.ruote = ruote;
+                this.vel = 0;
+                
+            }
+            accelera(n = 1){
+                if(this.vel < this.maxVel){
+                    this.vel += n;
+                }
+            }
+            decelera(n = 1){
+                if(this.vel > 0){
+                    this.vel -= n;
+                }
+            }
+
+            setData(obj){
+
+                for(let prop in obj){
+                    this[prop] = obj[prop];
+                }
+                
+                /*Versione non dinamica
+                if(obj.marca){
+                    this.marca = obj.marca;
+                }
+                if(obj.tipo){
+                    this.tipo = obj.tipo;
+                }
+                if(obj.colore){
+                    this.colore = obj.colore;
+                }
+                if(obj.maxVel){
+                    this.maxVel = obj.maxVel;
+                }
+                if(obj.ruote){
+                    this.ruote = obj.ruote;
+                }
+                */
+                return this; //per far ritornare l'oggetto creato con la classe
+            }
+
+
+            //estensione dei metodi con super
+            //rifatta su super.html -->
+            prova(){
+                console.log('genitore ' + this.vel);
+            }
+        }
+
+        let skate = new Veicolo('Billabong', 'skateboard', 'giallo', 20, 4)
+
+        console.table(skate);
+        
+        skate.accelera();
+        skate.accelera(10);
+
+        skate.decelera(10);
+        
+        console.table(skate);
+
+        class Skateboard extends Veicolo{
+            constructor(marca, colore, variante){//questo e' quello di skateboard
+                super(marca, 'skateboard', colore, 20, 4);//questo E' il costruttore del genitore, qui forzo i dati che voglio siano di default
+                this.variante = variante; //posso aggiungere valori che veicolo non ha
+            
+            }
+            flip(){//metodo specifico solo per skateboard
+                //fai qualcosa
+            }
+
+
+            prova(){
+                super.prova();
+                console.log('figlio ' + this.vel);
+            }
+        }
+
+        let skateProva = new Skateboard('Billabong', 'giallo', 'longboard');
+        console.log(skateProva);
+        skateProva.accelera(10);//eredita gli stessi metodi
+
+        let skateVuoto = new Skateboard();
+        skateVuoto.setData({//volendo mi sovrascrive anche il valore
+            colore: 'misto',
+            marca: 'plan-B',
+            variante: 'cruiser',
+            vel:10
+        })
+        console.log(skateVuoto);
+
+        skateVuoto.prova()
+
+
+
+    </script>
+</body>
+</html>

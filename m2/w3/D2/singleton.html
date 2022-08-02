@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singleton</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        let singleton = (function(){
+            let counter = 0;
+            let app = {
+                incrementCounter: function(){
+                    return counter++;
+                },
+                resetCounter: function(){
+                    console.log('Counter: ' + counter);
+                    counter = 0;
+                }
+            }
+
+            return app;
+
+        })(); //funzione autoeseguita, si autolancia senza invocarla
+
+        console.log(singleton);
+
+        singleton.incrementCounter();
+        singleton.incrementCounter();
+        singleton.incrementCounter();
+        singleton.incrementCounter();
+
+        //console.log(singleton.counter);  non funziona cosi
+
+        singleton.resetCounter();
+
+
+
+        let singletonBasket = (function(){
+            let basket = [];
+            
+            return {
+                addItem : function(item){
+                    basket.push(item);
+                },
+
+                getItemCount: function(){
+                    return console.log(basket.length);
+                }
+            }
+
+        })()
+
+        singletonBasket.addItem('voglia di vivere');
+        singletonBasket.getItemCount();
+        
+
+
+    </script>
+</body>
+</html>

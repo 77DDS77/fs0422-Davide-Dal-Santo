@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter Setter</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        class Veicolo {
+            constructor(marca, tipo, colore, maxVel, prezzo, ruote = 2) {
+                this.marca = marca;
+                this.tipo = tipo;
+                this.colore = colore;
+                this.maxVel = maxVel;
+                this.ruote = ruote;
+                this.vel = 0;
+                this.prezzo = prezzo;
+
+            }
+            /* lo rifaccio giu con il st
+            accelera(n = 1) {
+                if (this.vel < this.maxVel) {
+                    this.vel += n;
+                }
+            }*/
+            decelera(n = 1) {
+                if (this.vel > 0) {
+                    this.vel -= n;
+                }
+            }
+
+            setData(obj) {
+
+                for (let prop in obj) {
+                    this[prop] = obj[prop];
+                }
+
+                return this; //per far ritornare l'oggetto creato con la classe
+            }
+
+            //argomenti sezione
+
+            //get e set mi servono molto per la DESCRITTIVITA' del codice
+            
+            //get, metodo solo per leggere
+            //non posso parametrizzare il get
+            get prezzoAttuale(){//getter
+                return this.prezzo + '$'
+            }
+
+            // set accetta in entrata UN SOLO PARAMETRO
+            //cambia anche come lo invoco vedi giu
+            set accelera(n = 1) {
+                if (this.vel < this.maxVel) {
+                    this.vel += n;
+                }
+            }
+
+        }
+
+        let skate = new Veicolo('Billabong', 'skateboard', 'giallo', 20, 30, 4);
+        
+        //anche se e' un metodo il getter va invocato SENZA PARENTESI TONDE
+        //in realta' .prezzoAtutale e' definito come PROPRIETA'
+        console.log(skate.prezzoAttuale);
+
+        //sintassi set, prima era skate.accelera(5)
+        skate.accelera = 5;
+        console.log(skate);
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        let pizza = {
+            gusto: 'margherita',
+            prezzo: 5
+        }
+
+        let pizzaCopy = Object.assign({}, pizza)// creo un nuovo oggetto identico
+
+        console.log(pizza, pizzaCopy);
+
+
+        //easercizio
+
+        let veicolo = {
+            getColor: function(){
+                console.log('Modello ' + this.colore)
+            }
+        }
+
+        var skate = Object.create(veicolo, {
+            tipo : {
+                value : 'skateboard'
+            },
+            colore : {
+                value : 'misto',
+                writable: true
+            }
+        })
+
+        //non mi sovrascrive il colore perche non posso modificare le cose
+        //istanziate con .create
+        //Dopo aver aggiunto writable: true me lo modifica
+        skate.colore = 'red'; 
+
+        console.log(skate.colore);
+        skate.getColor();
+
+
+    </script>
+</body>
+</html>

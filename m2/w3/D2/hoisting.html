@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoisting</title>
+</head>
+<body>
+    
+
+
+
+    <script>
+        
+        saluta();
+
+        function saluta(){
+            console.log('ciao');
+        }
+
+
+        //LEGGI DA BASSO VERSO ALTO
+        document.addEventListener('click', function(){//se richiamo la clase ma all'ineterno di un evento allora l'hoisting funzoina
+            let x = new Person();
+        })
+
+        let x = new Person();//non c'e' l'hoisting per le classi quindi questo non va
+        class Person{ //definisco classe
+
+        }
+
+    </script>
+</body>
+</html>
