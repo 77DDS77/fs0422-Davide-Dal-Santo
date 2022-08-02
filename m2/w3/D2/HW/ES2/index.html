@@ -21,7 +21,8 @@
             }
 
             quantePagine(){
-                return Math.ceil(this.items.length / this.pageSize);
+                let numPagine = Math.ceil(this.items.length / this.pageSize);
+                return 'Mi servono ' + numPagine + ' pagine'
             }
 
 
@@ -645,7 +646,7 @@
     
         let pagina1 = new Paginazione(carisio);
         console.log(pagina1.quantePagine());
-        
+
         let pagina2 = new Paginazione(megaArray);
         console.log(pagina2.quantePagine());
 

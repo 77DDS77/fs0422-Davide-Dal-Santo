@@ -20,6 +20,7 @@
             }
 
             checkAge(pX, pY){
+                console.log('CHECK AGE');
                 if(this.age > pX.age){
                     if(this.age > pY.age){
                         console.log(this.name + ' e la persona piu vecchia');
@@ -35,7 +36,7 @@
             }
 
             checkAgePRO(pX, pY){
-
+                console.log('CHECK AGEPRO');
                 let ages = [this, pX, pY];
                 let oldest = ages.reduce((p,c) => p.age > c.age ? p : c)
                 console.log(oldest.name + ' e il piu vecchio');
@@ -43,7 +44,7 @@
             }
 
             checkAgePRO2(pX, pY){
-
+                console.log('CHECK AGEPRO2');
                 let ages = [this, pX, pY];
                 let mid = [];
                 let oldest = ages.reduce(function(p,c){
@@ -55,14 +56,14 @@
                         return c;
                     }
                 })
-                console.log(mid);
                 let midOldest = mid.reduce((p,c) => p.age > c.age ? p : c)
-                console.log(oldest.name);
-                console.log(midOldest);
+                console.log(oldest.name + ' è piu vecchio di '
+                + midOldest.name ); 
                 
             }
 
             checkAgeULTRAPRO(...pY){
+                console.log('CHECK AGEULTRAPRO');
                 let ages = [this,...pY];
                 
                 let sortedAges = ages.sort((a, b) => {
@@ -71,9 +72,28 @@
                 
                 console.log(sortedAges[0].name + ' e il piu giovane (' 
                 + sortedAges[0].age + ' anni) '
-                
+
                 + sortedAges[sortedAges.length - 1].name + ' e il piu vecchio ('
                 + sortedAges[sortedAges.length - 1].age + ' anni)');
+            }
+
+            checkAgeULTRAPROMEGA(...pY){
+                console.log('CHECK AGEULTRAPROMEGA');
+                let ages = [this,...pY];
+                
+                let sortedAges = ages.sort((a, b) => {
+                    return b.age - a.age;
+                });
+                let risposta = '';
+                for(let i = 0; i < sortedAges.length; i++) {
+                    if(i == sortedAges.length -1 ){
+                        risposta += sortedAges[i].name
+                    }else{
+                        risposta += sortedAges[i].name +
+                        ` è piu vecchio di `; 
+                    }
+                }
+                return risposta;
             }
 
 
@@ -90,6 +110,7 @@
         p1.checkAgePRO2(p2, p3)
 
         p1.checkAgeULTRAPRO(p2, p3, p4, p5)
+        console.log(p1.checkAgeULTRAPROMEGA(p2, p3, p4, p5))
         
 
 
