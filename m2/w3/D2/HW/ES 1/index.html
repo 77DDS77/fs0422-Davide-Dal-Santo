@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESERCIZIO 1</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        class Person{
+            constructor(name, age){
+
+                this.name = name;
+                this.age = age;
+            }
+
+            checkAge(pX, pY){
+                if(this.age > pX.age){
+                    if(this.age > pY.age){
+                        console.log(this.name + ' e la persona piu vecchia');
+  
+                    }else{
+                        console.log(pY.name + ' e il piu vecchio');
+                    }
+                }else if(pX.age > pY.age){
+                    console.log(pX.name + ' e il piu vecchio');
+                }else{
+                    console.log(pY.name +' e il piu vecchio');
+                }
+            }
+
+            checkAgePRO(pX, pY){
+
+                let ages = [this, pX, pY];
+                let oldest = ages.reduce((p,c) => p.age > c.age ? p : c)
+                console.log(oldest.name + ' e il piu vecchio');
+                
+            }
+
+            checkAgePRO2(pX, pY){
+
+                let ages = [this, pX, pY];
+                let mid = [];
+                let oldest = ages.reduce(function(p,c){
+                    if(p.age > c.age){
+                        mid.push(c);
+                        return p;
+                    }else{
+                        mid.push(p);
+                        return c;
+                    }
+                })
+                console.log(mid);
+                let midOldest = mid.reduce((p,c) => p.age > c.age ? p : c)
+                console.log(oldest.name);
+                console.log(midOldest);
+                
+            }
+
+            checkAgeULTRAPRO(...pY){
+                let ages = [this,...pY];
+                
+                let sortedAges = ages.sort((a, b) => {
+                    return a.age - b.age;
+                });
+                
+                console.log(sortedAges[0].name + ' e il piu giovane (' 
+                + sortedAges[0].age + ' anni) '
+                
+                + sortedAges[sortedAges.length - 1].name + ' e il piu vecchio ('
+                + sortedAges[sortedAges.length - 1].age + ' anni)');
+            }
+
+
+        }
+
+        p1 = new Person('Florin', 14);
+        p2 = new Person('Claudio', 22);
+        p3 = new Person('Carisio', 10);
+        p4 = new Person('Davide', 25);
+        p5 = new Person('Francesca', 18);
+
+        p1.checkAge(p2, p3)
+        p1.checkAgePRO(p2, p3)
+        p1.checkAgePRO2(p2, p3)
+
+        p1.checkAgeULTRAPRO(p2, p3, p4, p5)
+        
+
+
+
+    </script>
+</body>
+</html>
