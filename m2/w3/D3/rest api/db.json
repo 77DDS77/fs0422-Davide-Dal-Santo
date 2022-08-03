@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "id": 1
+    }
+  ],
+
+  "products": []
+}

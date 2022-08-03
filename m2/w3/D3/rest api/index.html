@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST API</title>
+</head>
+<body>
+    
+
+    <script>
+
+        const userApi = 'http://localhost:3000/users'
+
+        //chiamata GET
+        // fetch(userApi)
+        // .then(res => res.json())
+        // .then(users => {
+
+        //     console.log(users
+        //     );
+        // })
+
+        //chiamata POST
+        fetch(userApi,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(users => {
+
+            console.log(users);
+        })
+
+
+    </script>
+</body>
+</html>
