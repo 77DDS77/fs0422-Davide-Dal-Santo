@@ -1,0 +1,11 @@
+VEDI REST API M2W3D3
+
+npm install -g json-server
+-> installa json server globalmente
+
+npm init
+-> per creare il package.json
+
+"backend": "json-server --watch db.json"
+-> comando da mettere nel package.json creato con npm init
+(OCCHIO AL NOME DEL FILE, QUI E' db.json)
