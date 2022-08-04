@@ -1,0 +1,28 @@
+{
+  "utenti": [
+    {
+      "nome": "Walter",
+      "cognome": "White",
+      "eta": 55,
+      "id": 3
+    },
+    {
+      "nome": "Davide",
+      "cognome": "Dal Santo",
+      "eta": "25",
+      "id": 4
+    },
+    {
+      "nome": "Carisio",
+      "cognome": "Di Giampietro",
+      "eta": "20",
+      "id": 5
+    },
+    {
+      "nome": "Ajeje",
+      "cognome": "Brazorf",
+      "eta": "150",
+      "id": 6
+    }
+  ]
+}
