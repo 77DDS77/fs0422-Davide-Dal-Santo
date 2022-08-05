@@ -17,13 +17,13 @@ fetch(apiUtenti+'/'+userId)//faccio una chiamata fetch per avere solo l'utente c
 .then(res => res.json())
 .then(utente=> {//in risposata mi arriva ovviamente il singolo utente
 
-    console.log(utente);
     //mi aggancio ai campi
     let nome = document.querySelector('#nome');
     let cognome = document.querySelector('#cognome');
     let gender = document.querySelector('#gender');
     let mail = document.querySelector('#mail');
     let profileURL = document.querySelector('#profileURL');
+    let username = document.querySelector('#username');
 
     //scrivo nei campi i dati messi in precedenza DA MODIFICARE
     nome.value = utente.firstName
@@ -31,6 +31,7 @@ fetch(apiUtenti+'/'+userId)//faccio una chiamata fetch per avere solo l'utente c
     gender.value = utente.gender
     mail.value = utente.email
     profileURL.value = utente.profileURL
+    username.value = utente.username
 })
 
 let button = document.querySelector('#update button');
@@ -45,7 +46,7 @@ button.addEventListener('click', function (e) {
     let mail = document.querySelector('#mail');
 
     let user = {
-        username: userId,
+        username: username.value,
         firstName: nome.value,
         lastName: cognome.value,
         gender: gender.value,
@@ -74,7 +75,7 @@ button.addEventListener('click', function (e) {
             position: 'top-end',
             icon: 'success',
             title: 'Utente aggiornato',
-            text: `L'utente ${res.nome} ${res.cognome} con ID ${res.id} e' stato aggiornato`,
+            text: `L'utente ${res.firstName} ${res.lastName} ID ${res.id} e' stato aggiornato`,
             showConfirmButton: false,
             timer: 2500
         }).then(() => {

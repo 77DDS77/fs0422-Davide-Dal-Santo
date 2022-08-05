@@ -7,3 +7,8 @@
     text-transform: capitalize;
     font-weight: 600;
 }
+
+.label-update{
+    font-size: 1.1rem;
+    font-weight: 500;
+}

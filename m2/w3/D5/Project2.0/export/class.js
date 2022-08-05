@@ -115,6 +115,11 @@ export class User {
         deleteBTN.textContent = 'Cancella';
         deleteBTN.className = 'btn btn-danger ms-2'
 
+        //delete button event
+        deleteBTN.addEventListener('click', () =>{
+            eliminaUtente(this.id, this.cloneAcc)
+        })
+
         cloneAccBody.append(updateBTN, deleteBTN)
     }
 }

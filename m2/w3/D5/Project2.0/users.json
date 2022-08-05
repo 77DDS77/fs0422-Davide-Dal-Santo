@@ -1,40 +1,40 @@
 {
   "users": [
     {
-      "username": "0",
+      "username": "jhon",
       "firstName": "John",
-      "lastName": "Dank",
+      "lastName": "Doe",
       "gender": "Male",
       "email": "john.doe@example.com",
       "profileURL": "img/male.png",
       "id": 0
     },
     {
-      "id": 1,
       "username": "jane",
       "firstName": "Jane",
-      "lastName": "Doe",
+      "lastName": "Test",
       "gender": "Female",
+      "email": "jane.doe@example.com",
       "profileURL": "img/female.png",
-      "email": "jane.doe@example.com"
+      "id": 1
     },
     {
-      "id": 2,
       "username": "Davide",
       "firstName": "Davide",
       "lastName": "Dal Santo",
       "gender": "Male",
+      "email": "test@example.com",
       "profileURL": "img/male.png",
-      "email": "dds@example.com"
+      "id": 2
     },
     {
-      "username": "3",
+      "id": 3,
+      "username": "BigSmoke",
       "firstName": "Carisio",
       "lastName": "Di Giampietro",
       "gender": "Male",
       "profileURL": "img/male.png",
-      "email": "carisio@example.com",
-      "id": 3
+      "email": "carisio@example.com"
     }
   ]
 }
