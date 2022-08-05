@@ -2,7 +2,7 @@
 let options = {
     
     method: 'DELETE',
-    headers: {//serie di informazioni che definiscono la richiesta e la risposta
+    headers: {
         "content-type": "application/json"
     }
 }
@@ -19,13 +19,15 @@ function eliminaUtente(id, el){
 
         el.remove();
 
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Utente eliminato',
-            text: `L'utente e' stato eliminato`,
-            showConfirmButton: false,
-            timer: 2500
-        })
     })
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Utente eliminato',
+        text: `L'utente e' stato eliminato`,
+        showConfirmButton: true,
+    }).then(() => {
+        location.href = 'index.html'
+    })
+    
 }
