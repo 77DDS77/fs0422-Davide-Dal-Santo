@@ -1,0 +1,1 @@
+Usa una chiamata fetch per costruire la pagina prelevando i dati dal json assegnato

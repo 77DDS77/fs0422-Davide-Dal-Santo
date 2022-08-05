@@ -1,0 +1,9 @@
+.user-img{
+    width: 40px;
+    float: right;
+}
+
+.propSpan{
+    text-transform: capitalize;
+    font-weight: 600;
+}
