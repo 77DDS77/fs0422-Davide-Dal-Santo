@@ -77,7 +77,7 @@ button.addEventListener('click', function (e) {
             title: 'Utente aggiornato',
             text: `L'utente ${res.firstName} ${res.lastName} ID ${res.id} e' stato aggiornato`,
             showConfirmButton: false,
-            timer: 2500
+            timer: 2000
         }).then(() => {
              location.href = 'index.html' 
         })
