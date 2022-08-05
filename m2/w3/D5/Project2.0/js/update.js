@@ -1,23 +1,19 @@
 const apiUtenti = 'http://localhost:3000/users';
 
 
-
-//URLSearchParams cerca cosa c'e scritto nell'urls
-//loication.search restituscie il pezzo di URL dove ci sono scirtti i query params dell'utente
 let params = new URLSearchParams(location.search);
 
-//se tolgo l'id dall'url o se arrivo alla pagina per vie artificiose mi rispedisce all'index
 if(!params.has('user')){
     location.href = 'index.html';
 }
 
 let userId = params.get('user');
 
-fetch(apiUtenti+'/'+userId)//faccio una chiamata fetch per avere solo l'utente che sta modificando
+fetch(apiUtenti+'/'+userId)
 .then(res => res.json())
-.then(utente=> {//in risposata mi arriva ovviamente il singolo utente
+.then(utente=> {
 
-    //mi aggancio ai campi
+
     let nome = document.querySelector('#nome');
     let cognome = document.querySelector('#cognome');
     let gender = document.querySelector('#gender');
@@ -25,7 +21,7 @@ fetch(apiUtenti+'/'+userId)//faccio una chiamata fetch per avere solo l'utente c
     let profileURL = document.querySelector('#profileURL');
     let username = document.querySelector('#username');
 
-    //scrivo nei campi i dati messi in precedenza DA MODIFICARE
+
     nome.value = utente.firstName
     cognome.value = utente.lastName
     gender.value = utente.gender
@@ -60,15 +56,15 @@ button.addEventListener('click', function (e) {
     let options = {
 
         method: 'PUT',
-        body: JSON.stringify(user), //questi sono i dati da inviare
-        headers: {//serie di informazioni che definiscono la richiesta e la risposta
+        body: JSON.stringify(user),
+        headers: {
             "content-type": "application/json"
         }
 
     }
 
 
-    fetch(apiUtenti+'/'+userId, options)//eseguo la chiamata PUT per aggiornare quel singolo utente
+    fetch(apiUtenti+'/'+userId, options)
     .then(res => res.json())
     .then(res => {
         Swal.fire({
