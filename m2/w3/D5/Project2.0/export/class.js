@@ -108,11 +108,11 @@ export class User {
         
         //creating update e delete btn
         let updateBTN = document.createElement('a')
-        updateBTN.textContent = 'Modifica';
+        updateBTN.textContent = 'Update';
         updateBTN.className = 'btn btn-warning'
         updateBTN.href = 'modifica.html?user='+ this.id;//update btn reditect to update page
         let deleteBTN = document.createElement('a')
-        deleteBTN.textContent = 'Cancella';
+        deleteBTN.textContent = 'Delete';
         deleteBTN.className = 'btn btn-danger ms-2'
 
         //delete button event

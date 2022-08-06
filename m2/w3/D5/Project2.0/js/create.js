@@ -40,8 +40,8 @@ button.addEventListener('click', function (e) {
         Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Nuovo utente creato',
-            text: `L'utente ${res.nome} ${res.cognome} con ID ${res.id} e' stato creato`,
+            title: 'New User created!',
+            text: `User ${res.firstName} ${res.lastName} ID #${res.id} has been created and added succesfully`,
             showConfirmButton: true,
           }).then(() => {
             location.href = 'index.html' 

@@ -72,8 +72,8 @@ button.addEventListener('click', function (e) {
         Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Utente aggiornato',
-            text: `L'utente ${res.firstName} ${res.lastName} ID ${res.id} e' stato aggiornato`,
+            title: 'User updated',
+            text: `User ${res.firstName} ${res.lastName} ID ${res.id} has been updated`,
             showConfirmButton: false,
             timer: 2000
         }).then(() => {
