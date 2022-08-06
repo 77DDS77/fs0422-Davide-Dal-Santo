@@ -13,6 +13,8 @@ fetch(apiUtenti+'/'+userId)
 .then(res => res.json())
 .then(utente=> {
 
+    let userUpdtName = document.querySelector('#userUpdating')
+    userUpdtName.textContent = `${utente.firstName} ${utente.lastName} (#${utente.id})` 
 
     let nome = document.querySelector('#nome');
     let cognome = document.querySelector('#cognome');

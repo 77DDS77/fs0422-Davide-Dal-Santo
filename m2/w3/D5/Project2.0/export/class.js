@@ -110,14 +110,16 @@ export class User {
         let updateBTN = document.createElement('a')
         updateBTN.textContent = 'Modifica';
         updateBTN.className = 'btn btn-warning'
-        updateBTN.href = 'modifica.html?user='+ this.id;
+        updateBTN.href = 'modifica.html?user='+ this.id;//update btn reditect to update page
         let deleteBTN = document.createElement('a')
         deleteBTN.textContent = 'Cancella';
         deleteBTN.className = 'btn btn-danger ms-2'
 
         //delete button event
+
+        let accDelete = document.querySelector('#user_'+this.username)
         deleteBTN.addEventListener('click', () =>{
-            eliminaUtente(this.id, this.cloneAcc)
+            eliminaUtente(this.id, accDelete)
         })
 
         cloneAccBody.append(updateBTN, deleteBTN)
