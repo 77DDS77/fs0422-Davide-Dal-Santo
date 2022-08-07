@@ -8,6 +8,7 @@ if(!params.has('user')){
 }
 
 let userId = params.get('user');
+console.log(userId);
 
 fetch(apiUtenti+'/'+userId)
 .then(res => res.json())
@@ -66,11 +67,41 @@ button.addEventListener('click', function (e) {
     }
 
 
-    fetch(apiUtenti+'/'+userId, options)
+    Swal.fire({
+        title: 'Do you want to save the changes?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Save',
+        denyButtonText: `Don't save`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            fetch(apiUtenti+'/'+userId, options)
+            .then(res => res.json())
+            .then(res => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'User updated',
+                    text: `User ${res.firstName} ${res.lastName} ID ${res.id} has been updated`,
+                    showConfirmButton: false,
+                    timer: 2000
+                }).then(() => {
+                     location.href = 'index.html' 
+                })
+            })
+
+        } else if (result.isDenied) {
+          Swal.fire('Changes are not saved', 'You can keep updating', 'info')
+        }else{
+            location.href = 'index.html'
+        }
+      })
+
+    /*
+      fetch(apiUtenti+'/'+userId, options)
     .then(res => res.json())
     .then(res => {
         Swal.fire({
-            position: 'top-end',
             icon: 'success',
             title: 'User updated',
             text: `User ${res.firstName} ${res.lastName} ID ${res.id} has been updated`,
@@ -80,4 +111,5 @@ button.addEventListener('click', function (e) {
              location.href = 'index.html' 
         })
     })
+    */
 })

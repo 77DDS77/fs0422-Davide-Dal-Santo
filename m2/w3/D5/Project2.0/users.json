@@ -35,15 +35,6 @@
       "gender": "Male",
       "profileURL": "img/male.png",
       "email": "carisio@example.com"
-    },
-    {
-      "username": "captainMike",
-      "firstName": "Michele Arcangelo",
-      "lastName": "Tedesco",
-      "gender": "Male",
-      "email": "michele@test.com",
-      "profileURL": "img/male.png",
-      "id": 4
     }
   ]
 }

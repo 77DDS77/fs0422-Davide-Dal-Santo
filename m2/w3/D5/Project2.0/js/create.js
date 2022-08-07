@@ -38,7 +38,6 @@ button.addEventListener('click', function (e) {
     .then(res => res.json())
     .then(res => {
         Swal.fire({
-            position: 'top-end',
             icon: 'success',
             title: 'New User created!',
             text: `User ${res.firstName} ${res.lastName} ID #${res.id} has been created and added succesfully`,
@@ -47,4 +46,5 @@ button.addEventListener('click', function (e) {
             location.href = 'index.html' 
        })
     })
+
 })
