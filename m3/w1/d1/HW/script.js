@@ -8,11 +8,13 @@ button === null || button === void 0 ? void 0 : button.addEventListener('click',
     var resultDisplay = document.querySelector('#result');
     var resultContent = document.createElement('p');
     var randomDisplay = document.getElementById('randomSpan');
-    var g1I = Number(g1.value);
-    var g2I = Number(g2.value);
+    var g1I = Number(g1 === null || g1 === void 0 ? void 0 : g1.value);
+    var g2I = Number(g2 === null || g2 === void 0 ? void 0 : g2.value);
     var random = Math.floor(Math.random() * (100 - 1) + 1);
     // let random: number = 12
-    randomDisplay.innerText = "".concat(random);
+    if (randomDisplay) {
+        randomDisplay.innerText = "".concat(random);
+    }
     if (g1I && g2I) {
         // g1 e g2 vincono
         if (g1I == random && g2I == random) {
@@ -63,6 +65,8 @@ reset === null || reset === void 0 ? void 0 : reset.addEventListener("click", fu
     while (resultDisplay.firstChild) {
         resultDisplay.removeChild(resultDisplay.firstChild);
     }
-    g1.value = '';
-    g2.value = '';
+    if (g1 && g2) {
+        g1.value = '';
+        g2.value = '';
+    }
 });
