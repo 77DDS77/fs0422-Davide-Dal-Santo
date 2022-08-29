@@ -1,0 +1,46 @@
+{
+  "comments": [
+    {
+      "name": "Davide Dal Santo",
+      "date": "19/8/2022, 11:54:58",
+      "comment": "Prova prova prova prova",
+      "fullDate": 1660902898874,
+      "id": 1
+    },
+    {
+      "name": "Gianni",
+      "date": "19/8/2022, 11:55:56",
+      "comment": "Ne sto scrivendo un po a caso per vedere se funziona",
+      "fullDate": 1660902956855,
+      "id": 3
+    },
+    {
+      "name": "DDS del passato",
+      "date": "19/8/2022, 13:38:58",
+      "comment": "Admin page completa e delete funzionante, redirect a modifica-commento + id funziona, devi fare l'html e js di modifica-commento.\nPS: modificare l'outline/border della textarea quando l'utente scrive il commento",
+      "fullDate": 1660909138992,
+      "id": 4
+    },
+    {
+      "name": "DDS",
+      "date": "19/8/2022, 20:26:47",
+      "comment": "Modifica non funziona. EDIT: adesso funziona, funzionano anche i redirect. Mancano ancora i border/outline delle text area\n",
+      "fullDate": 1660933607951,
+      "id": 5
+    },
+    {
+      "name": "Davide Dal Santo",
+      "date": "19/8/2022, 21:51:32",
+      "comment": "Progetto completato e completamente funzionante",
+      "fullDate": 1660938692727,
+      "id": 6
+    },
+    {
+      "name": "Davide Dal Santo",
+      "date": "29/8/2022, 09:12:23",
+      "comment": "L'ultimo post, se ha meno di 5 giorni di vita, viene flaggato come 'LATEST'",
+      "fullDate": 1661757143361,
+      "id": 7
+    }
+  ]
+}

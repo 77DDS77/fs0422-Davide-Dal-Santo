@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/fe849dba6f.js" crossorigin="anonymous"></script>
+    <title>GuestBook</title>
+</head>
+
+<body>
+    <div id="global-container">
+        <div id="nav-bar">
+            <h1>GuestBook</h1>
+            <button id="admin-area"><i class="fa-solid fa-lock"></i></button>
+        </div>
+
+        <!-- form scrittura commento -->
+        <div id="comment-form-container">
+            <h2>Say hi!</h2>
+            <form id="comment-form">
+                <label for="name">Let us know who you are</label>
+                <input type="text" id="name">
+                <label for="comment">And add what you're thinking</label>
+                <textarea id="comment"></textarea>
+                <button id="comment-button" role="button">Post it!</button>
+            </form>
+        </div>
+
+        <h2>Check our posts</h2>
+        <!-- test creazione dummy card -->
+        <div id="card-container">
+
+            <div class="card">
+                <div class="card-header">
+                    <!-- nome cognome data -->
+                    <p class="header-name">Nome e Cognome </p>
+                    <p class="header-date">Data</p>
+                </div>
+                <div class="card-body">
+                    <!-- commento -->
+                    <p class="comment-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure doloribus sapiente et porro odit
+                        esse
+                        magnam harum id adipisci numquam fugiat voluptatem autem, vel ipsa voluptas. Id autem quos
+                        fugiat.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        
+        <a href="#global-container" id="toTop"><i class="fa-solid fa-turn-up"></i></a>
+    
+    </div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/read.js" type="module"></script>
+    <script src="./js/create.js" type="module"></script>
+    <script src="./js/app.js" type="module"></script>
+</body>
+
+</html>

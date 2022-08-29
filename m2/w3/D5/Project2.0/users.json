@@ -28,13 +28,13 @@
       "id": 2
     },
     {
-      "id": 3,
       "username": "BigSmoke",
       "firstName": "Carisio",
       "lastName": "Di Giampietro",
       "gender": "Male",
+      "email": "carisio@example.com",
       "profileURL": "img/male.png",
-      "email": "carisio@example.com"
+      "id": 3
     }
   ]
 }
