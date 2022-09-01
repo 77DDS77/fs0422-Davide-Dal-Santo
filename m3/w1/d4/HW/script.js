@@ -13,7 +13,7 @@ class CapiAbb {
         this.disponibile = disponibile;
         this.saldo = saldo;
         console.log(this);
-        console.log(`Prezzo intero ${this.capo} ${this.colore}: ${this.prezzoivainclusa}`);
+        console.log(`Prezzo intero ${this.capo} ${this.colore}: ${this.prezzoivainclusa}$`);
         console.log(`Prezzo scontato ${this.capo} ${this.colore}: ${this.getAcquistoCapo()}$`);
     }
     getSaldoCapo() {
