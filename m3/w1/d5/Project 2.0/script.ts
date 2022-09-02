@@ -70,9 +70,11 @@ class PhoneInterface implements ISmartphone {
             this.numeroChiamate++;
 
         } else {
-
+            this.phoneContainer.classList.add('shake')
             console.log(`Credito insufficiente, costo chiamata: ${costoChiamata}, credito residuo: ${this.carica}`);
-
+            setInterval( () => {
+                this.phoneContainer.classList.remove('shake');
+            },1100)
         }
     }
     numero404(): number {
@@ -104,7 +106,7 @@ class PhoneInterface implements ISmartphone {
         let credDisplay: HTMLElement = document.createElement('span');
         let credLabel: HTMLElement = document.createElement('p');
 
-        phoneContainer.className = 'phone';
+        phoneContainer.className = 'phone slideInRight';
         credContainer.className = 'credContainer'
 
         //salvo nell'oggetto il credito
@@ -168,7 +170,10 @@ class PhoneInterface implements ISmartphone {
         this.phoneContainer.append(delBtn)
 
         delBtn.addEventListener('click', () => {
-            this.phoneContainer.remove();
+            this.phoneContainer.classList.add('slideOutLeft')
+            setInterval( () => {
+                this.phoneContainer.remove();
+            },1000)
         })
     }
 
@@ -176,8 +181,10 @@ class PhoneInterface implements ISmartphone {
         this.credDisplay.textContent = this.carica.toString() + ' €';
         if (this.carica < this.costoChiamata) {
             this.credDisplay.style.color = 'red';
+ 
         } else {
             this.credDisplay.style.color = 'black';
+            this.phoneContainer.classList.remove('shake')
         }
     }
 

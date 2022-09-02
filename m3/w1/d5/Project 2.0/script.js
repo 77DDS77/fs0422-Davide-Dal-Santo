@@ -28,7 +28,11 @@ class PhoneInterface {
             this.numeroChiamate++;
         }
         else {
+            this.phoneContainer.classList.add('shake');
             console.log(`Credito insufficiente, costo chiamata: ${costoChiamata}, credito residuo: ${this.carica}`);
+            setInterval(() => {
+                this.phoneContainer.classList.remove('shake');
+            }, 1100);
         }
     }
     numero404() {
@@ -57,7 +61,7 @@ class PhoneInterface {
         let credContainer = document.createElement('div');
         let credDisplay = document.createElement('span');
         let credLabel = document.createElement('p');
-        phoneContainer.className = 'phone';
+        phoneContainer.className = 'phone slideInRight';
         credContainer.className = 'credContainer';
         //salvo nell'oggetto il credito
         this.credDisplay = credDisplay;
@@ -106,7 +110,10 @@ class PhoneInterface {
         delBtn.textContent = 'Elimina';
         this.phoneContainer.append(delBtn);
         delBtn.addEventListener('click', () => {
-            this.phoneContainer.remove();
+            this.phoneContainer.classList.add('slideOutLeft');
+            setInterval(() => {
+                this.phoneContainer.remove();
+            }, 1000);
         });
     }
     checkCredito() {
@@ -116,6 +123,7 @@ class PhoneInterface {
         }
         else {
             this.credDisplay.style.color = 'black';
+            this.phoneContainer.classList.remove('shake');
         }
     }
 }
