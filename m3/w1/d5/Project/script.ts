@@ -75,6 +75,8 @@ class FirstUser implements ISmartphone {
         console.log(`Chiamate azzerate!`);
         this.numeroChiamate = 0;
     }
+
+    
 }
 console.log('%cFIRST USER', 'color:red');
 

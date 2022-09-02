@@ -1,0 +1,86 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.addBtn{
+    width: 60px;
+    height: 50px;
+    margin: 2rem auto 3rem;
+    text-align: center;
+}
+
+.addBtn button{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: 2rem;
+}
+
+.phone{
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 4px 3px 14px 0px rgb(126, 126, 126);
+    background-color: green;
+
+}
+
+.credContainer{
+    font-size: 1.2rem;
+    padding: 0 0 1rem 0;
+}
+
+.ricContainer{
+    margin-bottom: 0.5rem;
+}
+
+.ricContainer input{
+    font-size: 1rem;
+    width: 50px;
+    padding: 0.2rem;
+    text-align: center;
+    border-radius: 5px;
+}
+.ricContainer button, .callContainer button{
+    font-size: 1rem;
+    padding: 0.2rem;
+    margin-left: 1rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.callContainer{
+    margin-bottom: 0.5rem;
+}
+
+.callContainer input{
+    font-size: 1rem;
+    width: 100px;
+    padding: 0.2rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.delBtn{
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.55rem 1rem;
+    border:none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+}
+
