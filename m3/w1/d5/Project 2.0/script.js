@@ -1,10 +1,17 @@
 "use strict";
 /**
- *  selettore: dove passo la stringa per agganciarmi all'anchor
- *  target: mi fa il queryselector di selettore
- */
+ * Test base di creazione e distruzione del DOM con OOP
+ *
+ * Stile e colori sono obnoxious come al solito ma questa voleva
+ * essere una esercitazione nella creazione e distruzione di
+ * Elementi del DOM con la Programmazione ad ogetti.
+ *
+ * Prima o poi diventero' bravo nel Design pure io
+ *
+*/
 class PhoneInterface {
-    constructor(selettore, carica) {
+    constructor(nome, selettore, carica) {
+        this.nome = nome;
         this.selettore = selettore;
         this.target = document.querySelector(selettore);
         this.carica = carica;
@@ -12,7 +19,7 @@ class PhoneInterface {
         this.costoPerMinuto = 0.20;
         this.creaHTML();
     }
-    // ------------ ISMARTPHONE implementation
+    // ------------------ ISMARTPHONE implementation
     ricarica(unaRicarica) {
         this.carica += unaRicarica;
         console.log(`Credito: ${this.carica}`);
@@ -49,10 +56,20 @@ class PhoneInterface {
     }
     // ------------------/ISMARTPHONE
     creaHTML() {
+        var _a;
         this.creaHTMLCredito();
+        this.creaFlagNome();
         this.creaHTMLRicarica();
         this.creaHTMLChiamata();
+        this.creaHTMLcallCounter();
         this.eliminaPhone();
+        (_a = this.target) === null || _a === void 0 ? void 0 : _a.append(this.phoneContainer);
+    }
+    creaFlagNome() {
+        let nomeContainer = document.createElement('div');
+        nomeContainer.className = 'nomeContainer';
+        nomeContainer.textContent = this.nome;
+        this.phoneContainer.append(nomeContainer);
     }
     creaHTMLCredito() {
         //creo container globale
@@ -79,7 +96,8 @@ class PhoneInterface {
         let ricInput = document.createElement('input');
         let ricBtn = document.createElement('button');
         ricContainer.className = 'ricContainer';
-        ricInput.placeholder = '0'; //value deve essere string
+        ricInput.placeholder = '0 €'; //value deve essere string
+        ricInput.type = 'number';
         ricBtn.textContent = 'Ricarica';
         ricContainer.append(ricInput, ricBtn);
         this.phoneContainer.append(ricContainer);
@@ -89,20 +107,41 @@ class PhoneInterface {
         });
     }
     creaHTMLChiamata() {
-        var _a;
         let callContainer = document.createElement('div');
         let callBtn = document.createElement('button');
         let callInput = document.createElement('input');
         callContainer.className = 'callContainer';
         callBtn.textContent = 'Chiama';
         callInput.placeholder = '0 min';
+        callInput.type = 'number';
         callContainer.append(callInput, callBtn);
         this.phoneContainer.append(callContainer);
-        (_a = this.target) === null || _a === void 0 ? void 0 : _a.append(this.phoneContainer);
         callBtn.addEventListener('click', () => {
-            this.chiamata(Number(callInput.value));
-            this.checkCredito();
+            if (Number(callInput.value) > 0) {
+                this.chiamata(Number(callInput.value));
+                this.checkCredito();
+                this.checkNumCall();
+            }
+            else {
+                this.phoneContainer.classList.add('shake');
+                setTimeout(() => {
+                    this.phoneContainer.classList.remove('shake');
+                    this.phoneContainer.classList.remove('slideInRight');
+                }, 1100);
+            }
         });
+    }
+    creaHTMLcallCounter() {
+        let counterContainer = document.createElement('div');
+        let counterP = document.createElement('p');
+        let callNum = document.createElement('span');
+        counterContainer.className = 'counterContainer';
+        counterP.textContent = 'Chiamate effettuate: ';
+        callNum.textContent = this.numeroChiamate.toString();
+        this.callNum = callNum;
+        counterP.append(callNum);
+        counterContainer.append(counterP);
+        this.phoneContainer.append(counterContainer);
     }
     eliminaPhone() {
         let delBtn = document.createElement('button');
@@ -124,7 +163,11 @@ class PhoneInterface {
         else {
             this.credDisplay.style.color = 'black';
             this.phoneContainer.classList.remove('shake');
+            this.phoneContainer.classList.remove('slideInRight');
         }
+    }
+    checkNumCall() {
+        this.callNum.textContent = this.numeroChiamate.toString();
     }
 }
 class Start {
@@ -137,12 +180,22 @@ class Start {
         var _a;
         let addContainer = document.createElement("div");
         let addBtn = document.createElement('button');
+        let nomeInput = document.createElement('input');
         addContainer.className = 'addBtn';
         addBtn.textContent = '+';
-        addContainer.append(addBtn);
+        nomeInput.type = 'name';
+        nomeInput.placeholder = 'Inserisci nome';
+        addContainer.append(nomeInput, addBtn);
         (_a = this.target) === null || _a === void 0 ? void 0 : _a.append(addContainer);
         addBtn.addEventListener('click', () => {
-            new PhoneInterface('#anchor', 0);
+            let nome = nomeInput.value;
+            if (nome == '') {
+                alert('Inserisci il nome');
+            }
+            else {
+                nomeInput.value = '';
+                new PhoneInterface(nome, '#anchor', 0);
+            }
         });
     }
 }

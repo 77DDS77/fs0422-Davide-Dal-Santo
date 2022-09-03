@@ -6,19 +6,32 @@
 
 body{
     background-color: rgb(196, 196, 196);
+    overflow: hidden;
 }
 
 
 .addBtn {
-    width: 60px;
+    width: 300px;
     height: 50px;
     margin: 2rem auto 3rem;
     text-align: center;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
+.addBtn input{
+    border: none;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 15px;
+}
+.addBtn input:focus-visible{
+    outline: none;
+}
 
 .addBtn button {
-    width: 100%;
+    width: 20%;
     height: 100%;
     border-radius: 15px;
     border: none;
@@ -45,7 +58,20 @@ body{
     border-radius: 15px;
     box-shadow: 4px 3px 14px 0px rgb(126, 126, 126);
     background-color: green;
+    position: relative;
+}
 
+.nomeContainer{
+    position:absolute;
+    transform: translateY(-110%);
+
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: red;
+    color: white;
+    box-shadow: 4px 3px 14px 0px rgb(126, 126, 126);;
+    padding: 0.4rem;
+    border-radius: 10px;
 }
 
 .credContainer {
@@ -89,6 +115,11 @@ body{
     border:none;
 }
 
+.counterContainer{
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
 .delBtn {
     font-size: 1rem;
     font-weight: 600;
@@ -119,8 +150,8 @@ body{
 
 @-webkit-keyframes slideInRight {
     0% {
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%);
+        -webkit-transform: translateX(400%);
+        transform: translateX(400%);
         visibility: visible;
     }
 
@@ -132,8 +163,8 @@ body{
 
 @keyframes slideInRight {
     0% {
-        -webkit-transform: translateX(200%);
-        transform: translateX(200%);
+        -webkit-transform: translateX(400%);
+        transform: translateX(400%);
         visibility: visible;
     }
 
@@ -173,8 +204,8 @@ body{
 
     100% {
         visibility: hidden;
-        -webkit-transform: translateX(-200%);
-        transform: translateX(-200%);
+        -webkit-transform: translateX(-400%);
+        transform: translateX(-400%);
     }
 }
 
