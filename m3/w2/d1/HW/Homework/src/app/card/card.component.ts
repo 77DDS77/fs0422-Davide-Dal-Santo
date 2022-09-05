@@ -15,7 +15,6 @@ export class CardComponent implements OnInit {
 
   photos: any[] = [];
   likesNum:number = 0;
-  like:boolean = false;
 
   getAllPhotos(){
     fetch('http://localhost:3000/users')
@@ -37,19 +36,23 @@ export class CardComponent implements OnInit {
     fetch("http://localhost:3000/users/" + id, option)
     .then(res => res.json())
     .then(() => {
-      window.location.reload();
+      let index = this.photos.find(u => u.id === id);
+      this.photos.splice(index, 1);
+      this.likesNum--
     })
+
 
   }
 
-  checkLike():void{
-    if(this.like){
+  checkLike(user:any):void{
+    if(user.like){
       this.likesNum--
-      this.like = !this.like
     }else{
-      this.likesNum++
-      this.like = !this.like
+      this.likesNum++;
     }
+    user.like = !user.like
+
+
   }
 
 
