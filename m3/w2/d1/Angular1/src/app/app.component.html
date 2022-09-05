@@ -1,0 +1,57 @@
+<h1 [style.color]="titleColor">Ciao</h1>
+
+<!--
+  per modificare attributi di un tag uso
+  le parentesi quadre dentro il tag
+  dentro le parentesi scrivo l'attributo
+  dentro le " " lui si aspetta una variabile
+  se invece gli voglio scrivere io a mano l'attributo devo scrivere
+  EX. " 'red' "
+  quindi apici singoli dentro doppi apici
+ -->
+
+<!--
+  sintassi per chiamare variabili / funzioni / metodi
+  {{nomeVariabile}}
+ -->
+<h1>{{ title }}</h1>
+{{ arr | json }}
+
+{{ returnNames() }}
+<hr />
+
+<app-button></app-button>
+
+<hr />
+
+<!--
+  *ngFor e' un for of che funziona direttamente sull'HTML
+
+-->
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.name }} /
+    {{ user.email }}
+  </li>
+</ul>
+
+<br />
+
+<table class="table">
+  <tr>
+    <th>Nome</th>
+    <th>Email</th>
+    <th>Azioni</th>
+  </tr>
+
+  <tr *ngFor="let user of users">
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td>
+      <button
+      (click)="deleteUser(user.id)"
+      class="btn btn-danger text-dark">Elimina</button>
+    </td>
+  </tr>
+
+</table>

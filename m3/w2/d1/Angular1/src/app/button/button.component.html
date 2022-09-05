@@ -1,0 +1,19 @@
+<!--
+  Gestione del click event in line
+ -->
+
+ <button
+ (click)="toggle()"
+ class="btn btn-primary"
+ [innerText]="mostra ? 'Nascondi' : 'Mostra'">
+ </button>
+
+ <!-- * = sugar Syntax -->
+
+ <!-- *ngIf se rivece true mostra l'area
+ se riceve false la nasconde
+ -->
+
+ <div *ngIf="mostra">
+   Prova
+ </div>
