@@ -1,0 +1,53 @@
+// ANGULAR VADEMECUM //
+
+	//NOTES//
+
+- Angular adesso e' in v12, quindi occhio quando cerchi roba 
+online.
+
+- Angular non usa le fetch per fare le chiamate. (rischio polizia)
+
+- Dependency injection: iniettare nella nostra app dei pacchetti
+esterni dai quali il nostro sito dipende (credo tipo sweet Alert, 
+una cosa del genere)
+
+- Se installo bootstrap con npm i bootstrap 
+sul angular.json dove ho "styles" e "scripts" devo collegare:
+	su "styles":
+	"node_modules/bootstrap/dist/css/bootstrap.min.css"
+
+	su "scripts":
+	"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+
+- app.module.ts e' importantissimo,
+ogni volta che dichiariamo un componente va scritto
+li (VSC lo fa in automatico)
+(anche per altre cose ma Michele parla troppo velocemente)
+
+
+
+
+//--- COMANDI CLI
+
+ng new nomeProgetto
+--> creare un nuovo progetto Angular
+
+
+ng serve --open || ng s -o
+--> avvia il server di angular (--open) apre una finestra
+del browser dove visualizzarlo
+
+ng g c nomeComponent
+--> Angular Generate Component NomeComponent, genera un nuovo
+component
+
+
+
+//
+
+
+
+
+estensioni 
+angular essentials 13
+angular snippets 13
