@@ -25,8 +25,6 @@ li (VSC lo fa in automatico)
 (anche per altre cose ma Michele parla troppo velocemente)
 
 
-
-
 //--- COMANDI CLI
 
 ng new nomeProgetto
@@ -43,9 +41,38 @@ component
 
 
 
-//
+//-----NOTES
+/**
+ * settare le route per la navigazione
+ * dentro routes devo scrivere un oggetto con
+ *  path e component
+ *
+ * la home ha path:''
+ *
+ * su app.component.html devo aggiungere
+ * <router-outlet>
+ *
+ */ vedi m3w2d2 AngularD2 app-routing.module.ts
 
+ ----
 
+Path per pagina con sottopagine:
+{
+    path:'utenti',
+    component: UtentiComponent,
+    children: [{
+      path: ':id',
+      component: UtentiDettaglioComponent
+    }]
+}
+
+ ----
+
+PER SERVER JSON
+
+"backend": "json-server db.json"
+
+ ----
 
 
 estensioni 
