@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "body": "Ciao questo e' il post di prova.",
+      "title": "Prova post",
+      "active": true
+    },
+    {
+      "id": 2,
+      "body": "Ciao questo e' il post di prova. N2",
+      "title": "Prova post 2",
+      "active": false
+    },
+    {
+      "body": "Prova",
+      "title": "Test",
+      "active": true,
+      "id": 3
+    },
+    {
+      "body": "Prova Post Inattivo",
+      "title": "Test questo post e' inattivo",
+      "active": false,
+      "id": 4
+    },
+    {
+      "body": "Just finished my homework, bye bye imma play some Apex",
+      "title": "Homework",
+      "active": true,
+      "id": 5
+    }
+  ]
+}
