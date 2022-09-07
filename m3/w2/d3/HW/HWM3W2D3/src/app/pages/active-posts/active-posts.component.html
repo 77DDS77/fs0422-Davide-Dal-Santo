@@ -1,11 +1,22 @@
-<div class="container p-4">
-  <div *ngFor="let post of activePosts" class="card my-4">
+
+<h1 class="text-center mt-3">Post Attivi</h1>
+
+<div class="container px-4">
+  <div *ngFor="let post of activePosts.slice().reverse()" class="card my-4">
     <div class="card-header">
-      Post #{{post.id}} [{{post.type}}]
+      Post #{{post.id}} <span [ngClass]="{
+        'news-post': post.type === 'News',
+        'education-post' : post.type === 'Education',
+        'politic-post' : post.type === 'Politics'}" class="badge ms-2">{{post.type}}</span>
     </div>
-    <div class="card-body" [ngClass]=" post.type == 'News' ? 'text-danger' : 'text-warning'">
+    <div class="card-body"
+    [ngClass]="{
+      'news-post': post.type === 'News',
+      'education-post' : post.type === 'Education',
+      'politic-post' : post.type === 'Politics'}">
       <h5 class="card-title">{{post.title}}</h5>
       <p class="card-text">{{post.body}}</p>
+      <button (click)="changeStatus(post.id)" class="btn btn-primary">{{post.active ? 'Disattiva' : 'Attiva'}}</button>
     </div>
   </div>
 </div>

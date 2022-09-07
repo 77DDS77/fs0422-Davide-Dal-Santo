@@ -20,8 +20,28 @@ export class InactivePostsComponent implements OnInit {
 
   getInactivePosts():void {
     this.postSvc.getAllPosts().then(res => {
-      this.inactivePosts = res.filter(post => post.active == true)
+      this.inactivePosts = res.filter(post => post.active == false)
     });
+  }
+
+  changeStatus(id:number|undefined):void{
+    let thisPost:Post|undefined = this.inactivePosts.find(post => post.id == id);
+    let thisPostIndex:number|undefined = this.inactivePosts.findIndex(post => post.id == id);
+    if(thisPost){
+      thisPost.active = !thisPost.active;
+      this.inactivePosts.slice(thisPostIndex, 1)
+    }
+
+    let option = {
+      method: "PATCH",
+      body: JSON.stringify(thisPost),
+      headers: {
+          "content-type": "application/json"
+      }
+    }
+
+    fetch('http://localhost:3000/posts/' + id, option)
+    .then(res => res.json())
   }
 
 }

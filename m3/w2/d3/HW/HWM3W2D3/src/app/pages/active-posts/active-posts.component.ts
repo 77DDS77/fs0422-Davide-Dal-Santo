@@ -24,8 +24,25 @@ export class ActivePostsComponent implements OnInit {
     });
   }
 
+  changeStatus(id:number|undefined):void{
+    let thisPost:Post|undefined = this.activePosts.find(post => post.id == id);
+    let thisPostIndex:number|undefined = this.activePosts.findIndex(post => post.id == id);
+    if(thisPost){
+      thisPost.active = !thisPost.active;
+      this.activePosts.slice(thisPostIndex, 1)
+    }
 
+    let option = {
+      method: "PATCH",
+      body: JSON.stringify(thisPost),
+      headers: {
+          "content-type": "application/json"
+      }
+    }
 
+    fetch('http://localhost:3000/posts/' + id, option)
+    .then(res => res.json())
+  }
 
 
 }

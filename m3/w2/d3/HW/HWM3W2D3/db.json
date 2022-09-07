@@ -5,13 +5,13 @@
       "body": "Ciao questo e' il post di prova.",
       "title": "Prova post",
       "type": "News",
-      "active": true
+      "active": false
     },
     {
       "body": "Test Types",
       "title": "Test 1",
       "type": "Education",
-      "active": true,
+      "active": false,
       "id": 2
     },
     {
@@ -20,6 +20,27 @@
       "type": "Politics",
       "active": false,
       "id": 3
+    },
+    {
+      "body": "Post politico",
+      "title": "Test Politico",
+      "type": "Politics",
+      "active": true,
+      "id": 4
+    },
+    {
+      "body": "Nozioni di Educazioni importantissime",
+      "title": "Post Edu",
+      "type": "Education",
+      "active": true,
+      "id": 5
+    },
+    {
+      "body": "Mega news non ci crederete mai! (no clickbait)",
+      "title": "Post News",
+      "type": "News",
+      "active": true,
+      "id": 6
     }
   ]
 }
