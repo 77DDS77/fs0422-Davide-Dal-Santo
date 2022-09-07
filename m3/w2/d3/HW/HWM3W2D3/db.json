@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "body": "Ciao questo e' il post di prova.",
+      "title": "Prova post",
+      "type": "News",
+      "active": true
+    },
+    {
+      "body": "Test Types",
+      "title": "Test 1",
+      "type": "Education",
+      "active": true,
+      "id": 2
+    },
+    {
+      "body": "Inactive",
+      "title": "Test Inactive",
+      "type": "Politics",
+      "active": false,
+      "id": 3
+    }
+  ]
+}

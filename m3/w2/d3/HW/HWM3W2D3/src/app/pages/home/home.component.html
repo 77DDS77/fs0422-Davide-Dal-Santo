@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="text-center my-3">Make a new Post</h1>
+  <form>
+    <input type="text" class="form-control mb-2" [(ngModel)]="newPost.title" name="title" placeholder="Titolo Post">
+    <input type="text" class="form-control mb-2" [(ngModel)]="newPost.body" name="body" placeholder="Contenuto Post">
+
+    <label for="type">Tipo di post:</label>
+    <select id="type" [(ngModel)]="newPost.type" name="type" class="form-select form-select-sm mb-2" aria-label=".form-select-sm example">
+      <option value="News">News</option>
+      <option value="Politics">Politics</option>
+      <option value="Education">Education</option>
+    </select>
+    <button (click)="addNewPost()" class="btn btn-primary">Posta</button>
+  </form>
+</div>
