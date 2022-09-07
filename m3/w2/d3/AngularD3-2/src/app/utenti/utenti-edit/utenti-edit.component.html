@@ -1,0 +1,10 @@
+<h1 class="text-center mt-4">Edit Utente</h1>
+<div class="container">
+  <form>
+    <input type="text" [(ngModel)]="user.name" name="name" class="form-control mb-2" placeholder="Nome">
+    <input type="text" [(ngModel)]="user.lastname" name="lastname" class="form-control" placeholder="Cognome">
+    <input id="active" [(ngModel)]="user.active" type="checkbox" name="active">
+    <label for="active">Attivo </label>
+    <button class="btn btn-primary ms-5 mt-2" (click)="save()">Salva</button>
+  </form>
+</div>

@@ -1,0 +1,18 @@
+<table class="table">
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Lastname</th>
+    <th>Active</th>
+  </tr>
+  <tr *ngFor="let user of allUsers; let i = index">
+    <td>{{i+1}}</td>
+    <td>{{user.name}}</td>
+    <td>{{user.lastname}}</td>
+    <td>{{user.active}}</td>
+    <td>
+      <a [routerLink]="['/edit', user.id]" class="btn btn-warning">Modifica</a>
+      <a (click)="deleteUser(user.id)" class="btn btn-danger text-black">Elimina</a>
+    </td>
+  </tr>
+</table>

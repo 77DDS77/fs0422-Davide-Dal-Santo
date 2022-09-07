@@ -11,6 +11,7 @@ online.
 esterni dai quali il nostro sito dipende (credo tipo sweet Alert, 
 una cosa del genere)
 
+-------BOOTSTRAP
 - Se installo bootstrap con npm i bootstrap 
 sul angular.json dove ho "styles" e "scripts" devo collegare:
 	su "styles":
@@ -18,6 +19,7 @@ sul angular.json dove ho "styles" e "scripts" devo collegare:
 
 	su "scripts":
 	"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+----------------
 
 - app.module.ts e' importantissimo,
 ogni volta che dichiariamo un componente va scritto
@@ -40,22 +42,6 @@ ng g c nomeComponent
 component
 
 
-
-//-----NOTES
-/**
- * settare le route per la navigazione
- * dentro routes devo scrivere un oggetto con
- *  path e component
- *
- * la home ha path:''
- *
- * su app.component.html devo aggiungere
- * <router-outlet>
- *
- */ vedi m3w2d2 AngularD2 app-routing.module.ts
-
- ----
-
 Path per pagina con sottopagine:
 {
     path:'utenti',
@@ -72,6 +58,60 @@ PER SERVER JSON
 
 "backend": "json-server db.json"
 
+ ----
+
+Se ho un form devo importare su app.module.ts il FormsModule
+
+ ----
+
+//-----NOTES
+/**
+ * Route e Navigazione
+ *
+ * settare le route per la navigazione
+ * dentro routes devo scrivere un oggetto con
+ *  path e component
+ *
+ * la home ha path:''
+ *
+ * su app.component.html devo aggiungere
+ * <router-outlet>
+ *
+ */ vedi m3w2d2 AngularD2 app-routing.module.ts
+
+
+/**
+ * EventEmitter
+ *
+ * Mi serve per mandare dati dal figlio al parent
+ * Da figlio a parent posso inviare dati solo attraverso
+ * un metodo
+ *
+ * Importando EventEmitter sblocco il metodo .emit da usare dentro
+ * al metodo, nelle parentesi di .emit() metto il dato da inviare
+ *
+ * sull'HTML del parent dove richiamo il componente child
+ * scrivo
+ * <app-form (onNewUserCreated)="addUser($event)"></app-form>
+ *
+ * (onNewUserCreated)="" e' l'evento
+ * dentro le virgolette devo avere un metodo pronto a gestire
+ * il dato che invio dal child, e nei parametri del metodo
+ * lo richiamero' con "$event"
+ *
+ * Event Emitter permette la tipizzazione con generics
+ */ vedi m3/w2/d3/AngularD3 (form che invia a app)
+
+<!--
+  #pippo
+
+  e' un elemento al quale posso agganciarmi attraverso il
+  typescript un po come se fosse un query selector
+
+  sul ts lo inizializzo cosi'
+  @ViewChild('pippo') pippo!:ElementRef;
+
+ -->
  ----
 
 

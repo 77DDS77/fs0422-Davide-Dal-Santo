@@ -1,0 +1,7 @@
+<form>
+  <input type="text" [(ngModel)]="newUser.name" name="name" class="form-control my-3" placeholder="Name">
+  <input type="text" [(ngModel)]="newUser.lastname" name="lastname" class="form-control mb-3" placeholder="Lastname">
+  <button (click)="sendDataToParent()" class="btn btn-primary">Send</button>
+</form>
+{{newUser|json}}
+
