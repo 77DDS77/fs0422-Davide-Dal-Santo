@@ -1,0 +1,12 @@
+
+<h1 class="text-center my-3">All our Todos</h1>
+
+<div class="container">
+  <div *ngFor="let todo of allTodos.slice().reverse()" class="card my-3">
+    <h5 class="card-header">{{todo.ownerName}}'s todo</h5>
+    <div class="card-body">
+      <h5 class="card-title">{{todo.title | toMaiusc}}</h5>
+      <p class="card-text p-1">{{todo.content}}</p>
+    </div>
+  </div>
+</div>

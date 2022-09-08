@@ -1,0 +1,20 @@
+
+<div class="container">
+  <h1 class="text-center my-3">Create your user here!</h1>
+
+  <form>
+
+    <input
+    [(ngModel)]="newUser.name"
+    type="text" name="name"
+    class="form-control my-3"
+    placeholder="Your Name">
+
+    <input [(ngModel)]="newUser.lastname"
+    type="text" name="lastname"
+    class="form-control my-3"
+    placeholder="Your Lastname">
+
+    <button (click)="add()" class="btn btn-primary">Create</button>
+  </form>
+</div>

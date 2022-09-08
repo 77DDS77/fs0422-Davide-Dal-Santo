@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="text-center my-3">Create your user here!</h1>
+
+  <form>
+
+    <input
+    [(ngModel)]="newTodo.title"
+    type="text" name="title"
+    class="form-control my-3"
+    placeholder="Your Todo's Title">
+
+    <input
+    [(ngModel)]="newTodo.content"
+    type="text" name="lastname"
+    class="form-control my-3"
+    placeholder="Your Todo's Content">
+
+    <select
+    [(ngModel)]="newTodo.ownerName"
+    class="form-select my-3" name="owner">
+
+      <option selected>Choose your profile</option>
+      <option *ngFor="let user of allUsers.slice().reverse()">{{user.name}}</option>
+
+    </select>
+
+    <button (click)="add()" class="btn btn-primary">Create To Do!</button>
+  </form>
+</div>

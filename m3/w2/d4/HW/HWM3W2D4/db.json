@@ -1,0 +1,39 @@
+{
+  "todos": [
+    {
+      "ownerName": "Davide",
+      "title": "test",
+      "content": "test",
+      "id": 1
+    },
+    {
+      "ownerName": "Davide",
+      "title": "Workout",
+      "content": "Reme,ber to workout, you're a fatass!",
+      "id": 2
+    },
+    {
+      "ownerName": "Alfredo",
+      "title": "Spesa",
+      "content": "Comprare mele pere e capparossoi",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Marios",
+      "lastname": "Rossis"
+    },
+    {
+      "name": "Davide",
+      "lastname": "Dal Santo",
+      "id": 2
+    },
+    {
+      "name": "Alfredo",
+      "lastname": "Megiasso",
+      "id": 3
+    }
+  ]
+}
