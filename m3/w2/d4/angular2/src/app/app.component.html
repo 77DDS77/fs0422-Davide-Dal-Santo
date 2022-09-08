@@ -1,0 +1,21 @@
+
+
+<div appColora>Prova</div>
+<p appColora>Test</p>
+<p>Non colora</p>
+
+<div appColora color="blue">Test con @Input</div>
+<div [appColora]="'5rem'">@input per fz</div>
+
+<br><br>
+{{persona | json}}
+<br>
+
+{{'08/07/2011' | date }}
+<br>
+{{'08/07/2011' | date : 'fullDate'}}
+<br>
+{{5 | currency : 'JPY'}}
+<br>
+<div>test mia pipe, fa il cut in base al parametro</div>
+{{'ciao come va' | cut : 3}}

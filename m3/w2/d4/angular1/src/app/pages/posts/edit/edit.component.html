@@ -1,0 +1,17 @@
+
+<div class="container">
+  <form>
+
+    <input
+    [(ngModel)]="currentPost.title"
+    class="form-control my-2"
+    type="text" name="title" placeholder="Title">
+
+    <textarea
+    [(ngModel)]="currentPost.content"
+    class="form-control my-2"
+    name="content" placeholder="Content"></textarea>
+
+    <button (click)="save()" class="btn btn-primary mx-2">Salva</button>
+  </form>
+</div>

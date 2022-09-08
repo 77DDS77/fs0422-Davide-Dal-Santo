@@ -1,0 +1,12 @@
+
+<div *ngFor="let post of allPosts" class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p class="card-text">{{post.content}}</p>
+    <small class="card-text">{{post.date}}</small>
+    <div>
+      <a [routerLink]="['edit', post.id]" class="btn btn-warning">Modifica</a>
+      <button (click)="deletePost(post)" class="btn btn-danger mx-2">Elimina</button>
+    </div>
+  </div>
+</div>
