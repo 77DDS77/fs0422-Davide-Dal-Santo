@@ -3,23 +3,24 @@
 
 
   <div class="row">
-    <div class="col-3 offset-1">
+    <div class="col-6">
 
       <div *ngFor="let user of allUsers.slice().reverse()" class="card my-3" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title text-center p-1" appHiglight>{{user.name}} {{user.lastname}}</h5>
           <p class="card-text">Qui sinceramente non so cosa metterci, magari la data in cui ha joinato o il numero di todos</p>
           <a [routerLink]="['/new-todo']" class="btn btn-primary">Check {{user.name}}'s todos</a>
+          <a [routerLink]="['/new-todo']" class="btn btn-warning mx-2">Edit</a>
         </div>
       </div>
 
     </div>
     <!-- qua ci vanno le todos dell'utente X -->
-    <div class="col-3 offset-2">
+    <div class="col-6">
       <div *ngFor="let user of allUsers.slice().reverse()" class="card my-3" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title text-center p-1" appHiglight>{{user.name}} {{user.lastname}}</h5>
-          <p class="card-text">Qui sinceramente non so cosa metterci, magari la data in cui ha joinato o il numero di todos</p>
+          <p class="card-text">Questo e' solo un mockup per le proprzioni</p>
           <a [routerLink]="['/new-todo']" class="btn btn-primary">Check {{user.name}}'s todos</a>
         </div>
       </div>

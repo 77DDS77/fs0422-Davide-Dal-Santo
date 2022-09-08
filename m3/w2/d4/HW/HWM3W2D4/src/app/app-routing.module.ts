@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path:'new-todo',
     component: NewTodoComponent
+  },
+  {
+    path: '**',
+    component: HomeComponent
   }
 ];
 

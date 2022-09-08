@@ -52,6 +52,20 @@ Path per pagina con sottopagine:
     }]
 }
 
+se il mio component ha delle rotte children AL SUO INTERNO
+DEVE avere un <router-outlet>
+(in questo caso dentro utenti)
+
+
+SULLLA ROTTA HOME
+Aggiungo attributo
+ 	pathMatch: 'full'
+serve ad evitare confusioni sulle rotte con path:'' e dice 
+al path per la home che deve essere evvettivamente e solamente 
+una stringa vuota. Si incasina con path children con stringa 
+vuota
+
+
  ----
 
 PER SERVER JSON
@@ -78,6 +92,21 @@ Se ho un form devo importare su app.module.ts il FormsModule
  * <router-outlet>
  *
  */ vedi m3w2d2 AngularD2 app-routing.module.ts
+
+/**
+   * Route e Navigazione 2
+   * 
+   *  this.activeRouter.snapshot.params['id']
+   * dentro params metto id perche nelle route
+   * ho scritto
+   *  path: 'edit/:id'
+   * DEVONO COMBACIARE
+   *
+   * private activeRoute:ActivatedRoute, //contiene info sulla rotta appena caricata
+   *
+   * private router:Router //permette di forzare la navigazione aka spostare l'utente
+   *
+   */
 
 
 /**
