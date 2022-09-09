@@ -56,7 +56,21 @@ export class TodoService {
     })
   }
 
-  editTodo(){}//devo pensarci
+  editTodo(todo:Todo, id:number| undefined):Promise<Todo>{
+    return new Promise((resolve, reject) => {
+      setTimeout(() =>{
+        let option = {
+          method: 'PATCH',
+          body: JSON.stringify(todo),
+          headers: {
+            'content-type': 'application/json',
+          },
+        };
+
+        resolve(fetch('http://localhost:3000/todos/'+id, option).then((res) => res.json()))
+      },2000)
+    })
+  }
 
 
 }

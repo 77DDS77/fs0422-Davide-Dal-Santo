@@ -1,1 +1,25 @@
-<p>completed works!</p>
+
+  <div class="container">
+    <h2>Completed tasks:</h2>
+
+    <div class="loading" *ngIf="completedTodos.length == 0">
+      <p>Retrieving tasks...</p>
+      <p *ngIf="noContent">...no task found.</p>
+    </div>
+
+    <div *ngFor="let todo of completedTodos" class="todo"
+    [ngClass]="todo.completed ? 'completed': ''">
+
+      <span>{{todo.title}}</span>
+
+      <div class="buttons">
+
+        <button class="done-btn"
+        (click)="done(todo)"
+        [innerText]="todo.completed ? 'Undo' : 'Done'"></button>
+        <button class="del-btn" (click)="swalDelete(todo)">Delete</button>
+
+      </div>
+
+    </div>
+  </div>
