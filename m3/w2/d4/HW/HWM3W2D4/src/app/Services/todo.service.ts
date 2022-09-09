@@ -51,4 +51,14 @@ export class TodoService {
   editTodo(id:number){
     //ci devo pensare
   }
+
+
+  // roba che mi serve domani
+  perDomani():Promise<Todo[]> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() =>{
+        resolve(fetch('http://localhost:3000/todos').then((res) => res.json()))
+      },200)
+    })
+  }
 }

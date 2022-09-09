@@ -41,6 +41,24 @@ ng g c nomeComponent
 --> Angular Generate Component NomeComponent, genera un nuovo
 component
 
+ng g class nomeClasse
+--> genera una classe
+
+ng g s nomeService
+--> crea un service
+
+ng g directive nomeDirective
+--> crea directive
+ --------------------------
+	DIRECTIVE
+
+constructor(
+    private ref:ElementRef,
+    private renderer:Renderer2
+  ) { }
+
+Ricordarsi di inserire nel costruttore
+ --------------------------
 
 Path per pagina con sottopagine:
 {
@@ -66,17 +84,17 @@ una stringa vuota. Si incasina con path children con stringa
 vuota
 
 
- ----
+ ----------------------------
 
 PER SERVER JSON
 
 "backend": "json-server db.json"
 
- ----
+ ----------------------------
 
 Se ho un form devo importare su app.module.ts il FormsModule
 
- ----
+ ----------------------------
 
 //-----NOTES
 /**
