@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-completed',
   templateUrl: './completed.component.html',
-  styleUrls: ['./completed.component.scss', '../../app.component.scss']
+  styleUrls: ['./completed.component.scss', '../../../styles.scss']
 })
 export class CompletedComponent implements OnInit {
 

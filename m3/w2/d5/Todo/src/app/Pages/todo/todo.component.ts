@@ -6,7 +6,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss', '../../app.component.scss']
+  styleUrls: ['./todo.component.scss', '../../../styles.scss']
 })
 export class TodoComponent implements OnInit {
 

@@ -8,6 +8,14 @@
 
     <div class="loading" *ngIf="allTodos.length == 0">
       <p>Retrieving tasks...</p>
+
+      <div class="newtons-cradle">
+        <div class="newtons-cradle__dot"></div>
+        <div class="newtons-cradle__dot"></div>
+        <div class="newtons-cradle__dot"></div>
+        <div class="newtons-cradle__dot"></div>
+      </div>
+
     </div>
 
     <div *ngFor="let todo of allTodos" class="todo"

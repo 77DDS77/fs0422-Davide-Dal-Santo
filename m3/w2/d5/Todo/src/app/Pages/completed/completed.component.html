@@ -4,6 +4,14 @@
 
     <div class="loading" *ngIf="completedTodos.length == 0">
       <p>Retrieving tasks...</p>
+
+      <div class="newtons-cradle">
+        <div class="newtons-cradle__dot"></div>
+        <div class="newtons-cradle__dot"></div>
+        <div class="newtons-cradle__dot"></div>
+        <div class="newtons-cradle__dot"></div>
+      </div>
+
       <p *ngIf="noContent">...no task found.</p>
     </div>
 
