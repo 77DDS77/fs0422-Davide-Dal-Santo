@@ -41,9 +41,6 @@ export class ListItemComponent implements OnInit {
   done(todo:Todo):void{
     todo.completed = !todo.completed;
     this.todoSvc.editTodo(todo, todo.id)
-    setTimeout(() => {
-      this.getAll();
-    },1000)
     this.swalDone(todo)
   }
 

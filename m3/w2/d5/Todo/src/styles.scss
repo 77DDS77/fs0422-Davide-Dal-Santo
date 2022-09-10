@@ -3,61 +3,61 @@
 *{
   font-family: 'fira sans', sans-serif;
 }
+html{
+  background-color: #f0f0ff;
+}
 
 .container{
-  width: 600px;
+  max-width: 600px;
+  width: 90vw;
   margin: 0 auto;
   .new-todo{
+    display: flex;
+    justify-content: center;
     input{
-      width: 80%;
+      max-width: 80%;
+      width: 400px;
+      min-width: none;
       height: 30px;
       font-size: 1rem;
       padding-left: 0.5rem;
+      border-radius: 10px;
     }
-    button{
-      height: 30px;
-      border: none;
-      background-color: white;
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-left: 1rem;
-      cursor: pointer;
-    }
-    margin: 0 auto;
   }
 }
 
 .todo{
-  width: 100%;
+  // width: 600px;
   font-size: 1.3rem;
-  padding: 0.5rem;
-  margin: 1rem 0;
+  padding: 0.7rem;
+  margin: 1rem auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border: 1px solid black;
+  background-color: #4285f4;
+  color: rgb(233, 233, 233);
+  font-weight: 500;
+  box-shadow: 5px 4px 15px 0px rgb(49, 49, 49);
   border-radius: 15px;
   span{
-    width: 384px;
+    max-width: 300px;
+    min-width: 40vw;
   }
   .buttons{
     button{
-      width: 100px;
-      margin: 0.1rem 0;
-      margin-left: 0.5rem;
-      padding: 0.3rem;
-      border:none;
-      background-color: white;
+      // width: 50px;
+      margin: 0.1rem 0 0 0.5rem;
+      padding: 0.5rem;
       font-size: 1.2rem;
       font-weight: 500;
-      cursor: pointer;
-      border-radius: 15px;
     }
   }
 }
 
 .completed{
-  background-color: greenyellow;
+  background-color: #34a853;
+  color: black;
 }
 
 .loading{
@@ -66,7 +66,61 @@
   font-size: 2rem;
 }
 
+// btns animations
+.btn {
+  padding: 10px 20px;
+  margin-left: 0.5rem;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 17px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
 
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #212121;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms
+}
+
+.done-btn::before{
+  background-color: #fbbc05;
+}
+.del-btn::before{
+  background-color: #ea4335;
+}
+
+
+.btn:hover {
+  color: #e8e8e8;
+}
+
+.done-btn:hover, .del-btn:hover{
+  color: black;
+}
+
+.btn:hover::before {
+  width: 100%;
+}
+
+
+// Dots animation
 .newtons-cradle {
   --uib-size: 50px;
   --uib-speed: 1.2s;

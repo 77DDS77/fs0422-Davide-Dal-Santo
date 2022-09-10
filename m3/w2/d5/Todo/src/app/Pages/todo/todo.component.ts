@@ -26,6 +26,13 @@ export class TodoComponent implements OnInit {
   add():void{
     this.todoSvc.addTodo(this.newTodo)
     this.newTodo = new Todo('')
+    Swal.fire({
+      icon: 'success',
+      title: 'Task added to your list!',
+      showConfirmButton: false,
+      timer: 1200,
+      timerProgressBar: true
+    })
     setTimeout(() => {
       this.getAll();
     },500)

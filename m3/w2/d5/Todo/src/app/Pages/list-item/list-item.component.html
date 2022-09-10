@@ -25,11 +25,11 @@
 
     <div class="buttons">
       <button
-        class="done-btn"
+        class="btn done-btn"
         (click)="done(todo)"
         [innerText]="todo.completed ? 'Undo' : 'Done'"
       ></button>
-      <button class="del-btn" (click)="swalDelete(todo)">Delete</button>
+      <button class="btn del-btn" (click)="swalDelete(todo)">Delete</button>
     </div>
   </div>
 </div>
@@ -45,11 +45,11 @@
 
     <div class="buttons">
       <button
-        class="done-btn"
+        class="btn done-btn"
         (click)="doneComp(todo)"
         [innerText]="todo.completed ? 'Undo' : 'Done'"
       ></button>
-      <button class="del-btn" (click)="swalDeleteComp(todo)">Delete</button>
+      <button class="btn del-btn" (click)="swalDeleteComp(todo)">Delete</button>
     </div>
   </div>
 </div>
