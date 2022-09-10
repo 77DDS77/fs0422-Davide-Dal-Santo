@@ -18,7 +18,10 @@
 
     </div>
 
-    <div *ngFor="let todo of allTodos" class="todo"
+    <app-list-item [todos]="allTodos"></app-list-item>
+
+
+    <!-- <div *ngFor="let todo of allTodos" class="todo"
     [ngClass]="todo.completed ? 'completed': ''">
 
       <span>{{todo.title}}</span>
@@ -32,8 +35,9 @@
 
       </div>
 
-    </div>
+    </div> -->
   </div>
 </div>
+
 
 

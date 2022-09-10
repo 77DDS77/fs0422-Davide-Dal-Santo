@@ -8,13 +8,15 @@ import { CompletedComponent } from './Pages/completed/completed.component';
 import { HeaderComponent } from './Main/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ListItemComponent } from './Pages/list-item/list-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     CompletedComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListItemComponent
   ],
   imports: [
     BrowserModule,

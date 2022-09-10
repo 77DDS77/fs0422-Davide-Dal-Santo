@@ -1,0 +1,52 @@
+
+<!--
+  Workaround beacause I couldn't figure a way
+  to make methods and logic for both all Todos
+  and completed Todos to work seamlessly in the
+  same temlate.
+
+  What I do is basically checking if im either in
+  the /completed path or not and via a boolean variable
+  show either one or the other template with the respective
+  methods.
+-->
+
+<!-- TODO TEMPLATE THAT ONLY SHOWS IF WE ARE IN THE MAIN PAGE -->
+<div *ngIf="!route">
+  <div
+    *ngFor="let todo of todos"
+    class="todo"
+    [ngClass]="todo.completed ? 'completed' : ''"
+  >
+    <span>{{ todo.title }}</span>
+
+    <div class="buttons">
+      <button
+        class="done-btn"
+        (click)="done(todo)"
+        [innerText]="todo.completed ? 'Undo' : 'Done'"
+      ></button>
+      <button class="del-btn" (click)="swalDelete(todo)">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- TODO TEMPLATE THAT ONLY SHOWS IF WE ARE IN /COMPLETED -->
+<div *ngIf="route">
+  <div
+    *ngFor="let todo of completedTodos"
+    class="todo"
+    [ngClass]="todo.completed ? 'completed' : ''"
+  >
+    <span>{{ todo.title }}</span>
+
+    <div class="buttons">
+      <button
+        class="done-btn"
+        (click)="doneComp(todo)"
+        [innerText]="todo.completed ? 'Undo' : 'Done'"
+      ></button>
+      <button class="del-btn" (click)="swalDeleteComp(todo)">Delete</button>
+    </div>
+  </div>
+</div>

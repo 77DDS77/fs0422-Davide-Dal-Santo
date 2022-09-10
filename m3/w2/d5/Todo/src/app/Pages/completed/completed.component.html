@@ -15,7 +15,11 @@
       <p *ngIf="noContent">...no task found.</p>
     </div>
 
-    <div *ngFor="let todo of completedTodos" class="todo"
+    <app-list-item
+    [completedTodos]="completedTodos"
+    [noContent]="noContent"></app-list-item>
+
+    <!-- <div *ngFor="let todo of completedTodos" class="todo"
     [ngClass]="todo.completed ? 'completed': ''">
 
       <span>{{todo.title}}</span>
@@ -29,5 +33,6 @@
 
       </div>
 
-    </div>
+    </div> -->
   </div>
+
