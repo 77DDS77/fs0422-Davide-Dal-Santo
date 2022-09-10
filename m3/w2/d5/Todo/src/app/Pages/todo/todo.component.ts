@@ -11,6 +11,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 export class TodoComponent implements OnInit {
 
   allTodos: Todo[] = [];
+  noContent:boolean = false;
   newTodo:Todo = new Todo('')
 
   constructor(private todoSvc: TodoService) { }
@@ -20,7 +21,14 @@ export class TodoComponent implements OnInit {
   }
 
   getAll():void{
-    this.todoSvc.getAllTodos().then(res => (this.allTodos = res));
+    this.todoSvc.getAllTodos().then(res => {
+      this.allTodos = res
+      if(this.allTodos.length == 0){
+        this.noContent = true;
+      }else{
+        this.noContent = false;
+      }
+    });
   }
 
   add():void{

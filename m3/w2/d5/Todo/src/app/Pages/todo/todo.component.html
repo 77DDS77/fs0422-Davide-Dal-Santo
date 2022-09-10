@@ -16,6 +16,8 @@
         <div class="newtons-cradle__dot"></div>
       </div>
 
+      <p *ngIf="noContent">...no task found.</p>
+
     </div>
 
     <app-list-item [todos]="allTodos"></app-list-item>

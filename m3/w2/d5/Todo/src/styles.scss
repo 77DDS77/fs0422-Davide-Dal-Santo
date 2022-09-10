@@ -23,11 +23,13 @@ html{
       padding-left: 0.5rem;
       border-radius: 10px;
     }
+    button{
+      cursor: pointer;
+    }
   }
 }
 
 .todo{
-  // width: 600px;
   font-size: 1.3rem;
   padding: 0.7rem;
   margin: 1rem auto;
@@ -41,16 +43,16 @@ html{
   box-shadow: 5px 4px 15px 0px rgb(49, 49, 49);
   border-radius: 15px;
   span{
-    max-width: 300px;
+    max-width: 400px;
     min-width: 40vw;
   }
   .buttons{
     button{
-      // width: 50px;
       margin: 0.1rem 0 0 0.5rem;
       padding: 0.5rem;
       font-size: 1.2rem;
       font-weight: 500;
+      cursor: pointer;
     }
   }
 }
@@ -64,7 +66,11 @@ html{
   width: 300px;
   margin: 10rem auto;
   font-size: 2rem;
+  p{
+    text-align: center;
+  }
 }
+
 
 // btns animations
 .btn {

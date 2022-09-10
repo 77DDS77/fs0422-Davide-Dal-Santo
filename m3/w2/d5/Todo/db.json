@@ -1,28 +1,38 @@
 {
   "todos": [
     {
-      "title": "Ma le to do me le mette sotto vero?",
+      "title": "Prendere uova al super",
       "completed": false,
-      "id": 3
+      "id": 1
     },
     {
-      "title": "teset per una tsk con un contenuto molto lungo forse troppo mi fuckuppa tutto",
+      "title": "Andare in palestra",
       "completed": false,
+      "id": 2
+    },
+    {
+      "title": "Sistemare la UX/UI",
+      "completed": true,
       "id": 4
     },
     {
-      "title": "Devo aggiungere un po di todo per i miei test wait what",
+      "title": "Pensare al progetto finale",
       "completed": false,
+      "id": 5
+    },
+    {
+      "title": "Testare questa SPA",
+      "completed": true,
       "id": 6
     },
     {
-      "title": "test test test ",
-      "completed": false,
+      "title": "Studiare librerie angular",
+      "completed": true,
       "id": 7
     },
     {
-      "title": "test swal",
-      "completed": true,
+      "title": "Riguardare TROP e HOTD",
+      "completed": false,
       "id": 8
     }
   ]
