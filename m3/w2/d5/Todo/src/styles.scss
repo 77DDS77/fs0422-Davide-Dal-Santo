@@ -7,71 +7,6 @@ html{
   background-color: #f0f0ff;
 }
 
-.container{
-  max-width: 600px;
-  width: 90vw;
-  margin: 0 auto;
-  .new-todo{
-    display: flex;
-    justify-content: center;
-    input{
-      max-width: 80%;
-      width: 400px;
-      min-width: none;
-      height: 30px;
-      font-size: 1rem;
-      padding-left: 0.5rem;
-      border-radius: 10px;
-    }
-    button{
-      cursor: pointer;
-    }
-  }
-}
-
-.todo{
-  font-size: 1.3rem;
-  padding: 0.7rem;
-  margin: 1rem auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid black;
-  background-color: #4285f4;
-  color: rgb(233, 233, 233);
-  font-weight: 500;
-  box-shadow: 5px 4px 15px 0px rgb(49, 49, 49);
-  border-radius: 15px;
-  span{
-    max-width: 400px;
-    min-width: 40vw;
-  }
-  .buttons{
-    button{
-      margin: 0.1rem 0 0 0.5rem;
-      padding: 0.5rem;
-      font-size: 1.2rem;
-      font-weight: 500;
-      cursor: pointer;
-    }
-  }
-}
-
-.completed{
-  background-color: #34a853;
-  color: black;
-}
-
-.loading{
-  width: 300px;
-  margin: 10rem auto;
-  font-size: 2rem;
-  p{
-    text-align: center;
-  }
-}
-
-
 // btns animations
 .btn {
   padding: 10px 20px;
@@ -124,6 +59,129 @@ html{
 .btn:hover::before {
   width: 100%;
 }
+
+
+.container{
+  max-width: 600px;
+  width: 90vw;
+  margin: 0 auto;
+  .new-todo{
+    display: flex;
+    justify-content: center;
+    input{
+      max-width: 80%;
+      width: 400px;
+      min-width: none;
+      height: 30px;
+      font-size: 1rem;
+      padding-left: 0.5rem;
+      border-radius: 10px;
+    }
+    button{
+      cursor: pointer;
+    }
+  }
+  @media screen and (max-width: 320px){
+    .new-todo{
+      flex-direction: column;
+      input{
+        max-width: 95%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.todo{
+  //width: 600px;
+  font-size: 1.3rem;
+  padding: 0.7rem;
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  background-color: #4285f4;
+  color: rgb(233, 233, 233);
+  font-weight: 500;
+  box-shadow: 5px 4px 15px 0px rgb(49, 49, 49);
+  border-radius: 15px;
+
+  position: relative;
+  span{
+    max-width: 400px;
+    min-width: 40vw;
+  }
+  @media screen and (max-width: 650px) {
+    span{
+      max-width: 100px;
+    }
+  }
+  @media screen and (max-width: 285px){
+    span{
+      min-height: 75px;
+    }
+  }
+  .buttons{
+    button{
+      margin: 0.1rem 0 0 0.5rem;
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      cursor: pointer;
+
+      position: absolute;
+    }
+    .del-btn{
+      right: 1%;
+      top: 2px;
+    }
+    .done-btn{
+      right: 13.5%;
+      top: 2px;
+    }
+    @media screen and (max-width: 650px) {
+      .done-btn{
+        right: 17.5%;
+        top: 2px;
+      }
+    }
+    @media screen and (max-width: 500px){
+      .done-btn{
+        right: 25%;
+        top: 2px;
+      }
+    }
+    @media screen and (max-width: 340px){
+      .done-btn{
+        right: 30%;
+        top: 2px;
+      }
+    }
+    @media screen and (max-width: 285px){
+      .done-btn{
+        right: 1%;
+        top: 45px;
+      }
+    }
+  }
+}
+
+.completed{
+  background-color: #34a853;
+  color: black;
+}
+
+.loading{
+  width: 300px;
+  margin: 10rem auto;
+  font-size: 2rem;
+  p{
+    text-align: center;
+  }
+}
+
+
 
 
 // Dots animation
