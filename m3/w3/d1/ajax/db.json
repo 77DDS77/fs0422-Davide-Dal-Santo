@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "title": "test",
+      "content": "Popipopi popipopi",
+      "data": "2022-09-12T10:24:48.533Z",
+      "id": 2
+    },
+    {
+      "title": "Test 3",
+      "content": "terzo post modificato",
+      "data": "2022-09-12T10:25:03.811Z",
+      "id": 3
+    }
+  ]
+}

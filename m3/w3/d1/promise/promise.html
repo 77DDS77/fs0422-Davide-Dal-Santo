@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        function dati(){
+            return new Promise((resolve) => {
+                resolve('ok')
+                setTimeout(() => {
+                    resolve('ok2') //non funzionera' perche la promise mi invia solo un dato e questo e' il secodo
+                }, 2000)
+            })
+        }   
+        console.log(dati());
+
+        dati().then((data) => console.log(data))
+
+
+        function check(){
+            return new Promise((resolve, reject) => {
+
+                let isUserLogged = false;
+                if(isUserLogged){
+                    resolve('puoi accedere')
+                }else{
+                    reject('accesso negato')
+                }
+
+            })
+        }
+
+        // devo mettere due cosi per vedere anche il reject
+        check().then(
+            (data) => console.log(data),
+            (error) => console.log(error)
+        )
+
+
+    </script>
+</body>
+</html>
