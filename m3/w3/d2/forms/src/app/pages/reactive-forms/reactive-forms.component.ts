@@ -18,7 +18,7 @@ export class ReactiveFormsComponent implements OnInit {
    * nei Validators
    * .min(5) e' per far inserire un NUMERO che sia almeno 5 EX Eta minima 18
    * .minLength(5) e' per far inserire una stringa lunga MINIMO 5 caratteri
-   */
+  */
 
   constructor() { }
 

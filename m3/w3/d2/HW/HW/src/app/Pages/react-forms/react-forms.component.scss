@@ -1,0 +1,12 @@
+form div .ng-touched.ng-invalid{
+  border: 1px solid red;
+}
+form div .ng-touched.ng-valid{
+  border: 1px solid green;
+  outline: 1px solid rgba(3, 255, 3, 0.474);
+}
+
+.card{
+  width: 18rem;
+  margin: 1rem auto;
+}

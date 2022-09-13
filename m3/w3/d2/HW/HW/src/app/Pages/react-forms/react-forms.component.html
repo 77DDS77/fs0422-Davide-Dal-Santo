@@ -1,0 +1,77 @@
+
+<div class="container my-3">
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="form-group">
+      <label for="name">Hero name:</label>
+      <input required id="name" type="text"
+      placeholder="Hero name" formControlName="name"
+      class="form-control"
+        >
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Alter Ego:</label>
+      <input id="alterEgo" type="text"
+      placeholder="Hero alterEgo"
+      formControlName="alterEgo" class="form-control"
+      required>
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="enemy">Enemy:</label>
+      <input id="enemy" type="text"
+      placeholder="Hero enemy" formControlName="enemy"
+      class="form-control"
+      required>
+    </div>
+
+    <div class="form-group">
+      <label for="planet">Planet:</label>
+      <input id="planet" type="text"
+      placeholder="Hero planet" formControlName="planet"
+      class="form-control"
+      required>
+    </div>
+
+    <div formArrayName="power" class="my-3">
+      <label class="d-block">Powers:</label>
+      <a (click)="addPower()" class="btn btn-success mb-2">+</a>
+      <input *ngFor="let power of getPowers(); let i = index"
+      type="text" class="form-control"
+      [formControlName]="i"
+      placeholder="Aggiungi power" required>
+    </div>
+
+    <div formArrayName="weakness" class="my-3">
+      <label class="d-block">Weaknesses:</label>
+      <a (click)="addWeakness()" class="btn btn-success mb-2">+</a>
+      <input *ngFor="let power of getWeakness(); let i = index"
+      type="text" class="form-control"
+      [formControlName]="i"
+      placeholder="Aggiungi weakness">
+    </div>
+
+    <button class="btn btn-primary mt-3" [disabled]="form.invalid">Create Hero</button>
+
+  </form>
+
+</div>
+
+<div class="container">
+  <div class="card" *ngFor="let hero of allHeroes">
+    <div class="card-header">
+      {{hero.name}}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{hero.alterEgo}}</li>
+      <li class="list-group-item">{{hero.enemy}}</li>
+      <li class="list-group-item">{{hero.planet}}</li>
+      <li class="list-group-item bg-success" *ngFor="let power of hero.power">{{hero.power}}</li>
+      <li class="list-group-item bg-danger" *ngFor="let weakness of hero.weakness">{{hero.weakness}}</li>
+    </ul>
+  </div>
+</div>

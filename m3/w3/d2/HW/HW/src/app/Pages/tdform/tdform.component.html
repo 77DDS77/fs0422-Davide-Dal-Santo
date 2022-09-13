@@ -1,0 +1,72 @@
+<div class="container my-3">
+
+  <form #form="ngForm" (ngSubmit)="submit(form)">
+
+    <div class="form-group">
+      <label for="name">Hero name:</label>
+      <input required id="name" type="text" placeholder="Hero name" name="name" class="form-control"
+        [(ngModel)]="heroForm.name">
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Alter Ego:</label>
+      <input id="alterEgo" type="text" placeholder="Hero alterEgo" name="alterEgo" class="form-control"
+        [(ngModel)]="heroForm.alterEgo" required>
+    </div>
+
+
+    <label for="power">Power:</label>
+    <select id="power" [(ngModel)]="heroForm.power" name="power" type="text" class="form-control" required>
+
+      <option value="" disabled selected hidden>Select power</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+
+    </select>
+
+    <div class="form-group">
+      <label for="enemy">Enemy:</label>
+      <input id="enemy" type="text" placeholder="Hero enemy" name="enemy" class="form-control"
+        [(ngModel)]="heroForm.enemy" required>
+    </div>
+
+    <div class="form-group">
+      <label for="planet">Planet:</label>
+      <input id="planet" type="text" placeholder="Hero planet" name="planet" class="form-control"
+        [(ngModel)]="heroForm.planet" required>
+    </div>
+
+    <div class="form-group">
+      <label for="weakness">Weakness:</label>
+      <input id="weakness" type="text" placeholder="Hero weakness" name="weakness" class="form-control"
+        [(ngModel)]="heroForm.weakness">
+    </div>
+
+    <button class="btn btn-primary mt-3" [disabled]="form.invalid">Create Hero</button>
+
+  </form>
+
+</div>
+
+<div class="container">
+  <div class="card" *ngFor="let hero of allHeroes">
+    <div class="card-header">
+      {{hero.name}}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{hero.alterEgo}}</li>
+      <li class="list-group-item">{{hero.power}}</li>
+      <li class="list-group-item">{{hero.enemy}}</li>
+      <li class="list-group-item">{{hero.planet}}</li>
+      <li class="list-group-item">{{hero.weakness}}</li>
+    </ul>
+  </div>
+</div>
