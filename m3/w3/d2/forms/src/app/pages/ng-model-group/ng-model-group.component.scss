@@ -1,0 +1,7 @@
+div[ngModelGroup].ng-invalid.ng-dirty.ng-touched{
+  background-color: rgba(255, 0, 0, 0.255);
+}
+div[ngModelGroup]{
+  border: 1px solid black;
+  padding-bottom: 1rem;
+}

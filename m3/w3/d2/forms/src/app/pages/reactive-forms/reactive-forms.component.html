@@ -1,0 +1,36 @@
+
+<div class="container">
+  <div class="row mb-3">
+    <form [formGroup]="form" class="col my-3" (ngSubmit)="submit()">
+      <h3>Dati personali:</h3>
+      <input formControlName="name"  class="form-control" type="text" placeholder="name">
+      <input formControlName="lastname" class="form-control" type="text" placeholder="lastname">
+      <input formControlName="email" class="form-control" type="text" placeholder="email">
+      <p *ngIf="checkFullValidity('email')"
+      >Il campo email deve contenere una email valida</p>
+
+      <div class="my-3" formGroupName="userAddress">
+        <h3>Indirizzo:</h3>
+        <input formControlName="address" type="text"
+        class="form-control" placeholder="address">
+
+        <input formControlName="city" type="text"
+        class="form-control" placeholder="city">
+
+        <input formControlName="zipcode" type="text"
+        class="form-control" placeholder="zipcode">
+
+      </div>
+
+      <div formArrayName="sports">
+        <h3>Sports</h3>
+        <button (click)="addSport()" class="btn btn-success">+</button>
+        <input *ngFor="let sport of getSports(); let i = index"
+        type="text" class="form-control"
+        [formControlName]="i" placeholder="'scrivi uno sport">
+      </div>
+
+      <button class="btn btn-primary mt-3">Invia</button>
+    </form>
+  </div>
+</div>

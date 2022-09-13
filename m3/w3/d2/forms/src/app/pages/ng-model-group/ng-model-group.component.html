@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <form action="" class="row" (ngSubmit)="submit(form)" #form="ngForm">
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" placeholder="Name"
+        name="name" [(ngModel)]="userForm.name"
+        type="text" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Lastname</label>
+        <input id="lastname" placeholder="Lastname"
+        name="lastname" [(ngModel)]="userForm.lastname"
+        type="text" class="form-control">
+      </div>
+
+      <!-- formatto gli ultrimi tre campi in un oggetto chiamato
+      userAddress -->
+      <div class="my-2" ngModelGroup="userAddress" #group="ngModelGroup">
+        <h6>Indirizzo:</h6>
+        <div class="form-group">
+          <label for="street">Street</label>
+          <input id="street" placeholder="Street"
+          name="street" [(ngModel)]="userForm.street"
+          type="text" required class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="city">City</label>
+          <input id="city" placeholder="City"
+          name="city" [(ngModel)]="userForm.city"
+          type="text" required class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="zipcode">Zipcode</label>
+          <input id="zipcode" placeholder="Zipcode"
+          name="zipcode" [(ngModel)]="userForm.zipcode"
+          type="text" required class="form-control mb-2">
+        </div>
+      </div>
+      <p *ngIf="group.invalid && group.dirty">Errore nel gruppo: devi compilare correttamente i campi dell'indirizo</p>
+
+      <button class="btn btn-primary">Invia</button>
+    </form>
+  </div>
+</div>
+
+<button class="btn btn-success m-3" (click)="riempi()">Riempi form</button>
+<button class="btn btn-success m-3" (click)="aggiorna()">Riempi indirizzo</button>
