@@ -90,6 +90,15 @@ PER SERVER JSON
 
 "backend": "json-server db.json"
 
+
+SERVER AUTH
+
+npm install -D json-server json-server-auth
+
+"backend": "json-server-auth db.json"
+
+
+
  ----------------------------
 
 Se ho un form devo importare su app.module.ts il FormsModule
