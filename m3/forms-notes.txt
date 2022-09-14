@@ -1,0 +1,29 @@
+
+-----
+NgForm per template driven Forms
+
+importare su app.module 
+FormsModule
+import { FormsModule } from '@angular/forms';
+
+------
+
+REACTIVE FORMS
+
+  // DA IMPORTARE SU APP.MODULE
+  // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+  //agli input non do piu l'attributo name ma
+  //formControlName="name"
+
+  /**
+   * nei Validators
+   * .min(5) e' per far inserire un NUMERO che sia almeno 5 EX Eta minima 18
+   * .minLength(5) e' per far inserire una stringa lunga MINIMO 5 caratteri
+  */
+
+
+-----
+
+(ngSubmit) 
+evento che si scatena quando submitto un form 
