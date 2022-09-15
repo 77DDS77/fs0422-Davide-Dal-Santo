@@ -170,6 +170,18 @@ Se ho un form devo importare su app.module.ts il FormsModule
  -->
  ----
 
+PER FARE LA BUILD E PUBBLICARE
+
+ng b // ng build
+
+------
+COMANDO SPECIALE
+
+ng generate module dashboard --route dashboard --module app.module
+
+-----
+
+
 
 estensioni 
 angular essentials 13
