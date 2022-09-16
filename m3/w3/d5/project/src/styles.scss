@@ -2,3 +2,18 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+body{
+  background-color: #f5f5f5;
+}
+
+.auth-container {
+  min-width: 180px;
+  max-width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 8px 15px 20px 2px rgb(0 0 0 / 20%)
+}
