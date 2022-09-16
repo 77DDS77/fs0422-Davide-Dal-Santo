@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "email": "davide.dds.dalsanto@gmail.com",
+      "password": "$2a$10$B4YyrR10tDoMknQnajcOJetSTuPp.M.l4XVju8zyRD4WeC.B6RA0m",
+      "name": "DDS",
+      "id": 1
+    }
+  ],
+  "posts": []
+}
