@@ -20,47 +20,37 @@ import { PostService } from 'src/app/Services/post.service';
   styleUrls: ['./edit-post.component.scss'],
 })
 export class EditPostComponent implements OnInit {
-  editForm!: FormGroup;
   postId: number = Number(this.activeRoute.snapshot.paramMap.get('postId'));
-  postToEdit!: Post;
+  postToEdit!: Post|undefined;
+  allPosts: Post[] = [];
+
+  editForm = new FormGroup({
+    postTitle: new FormControl(''),
+    postContent: new FormControl(''),
+    postOwner: new FormControl(''),
+  });
 
   constructor(
     private postSvc: PostService,
     private auth: AuthService,
     private router: Router,
     private activeRoute: ActivatedRoute
-  ) {}
+  ) {  }
 
   ngOnInit(): void {
-    // this.getPostData(this.postId)
-    this.postSvc.getPostById(this.postId).subscribe((post) => {
-      this.postToEdit = post;
-      console.log(this.postToEdit);
-      console.log(post);
-    });
-    console.log(this.postId);
-    console.log(this.postToEdit);
-  }
+    this.postSvc.getAllPosts().subscribe((posts: Post[]) => {
+      this.postToEdit = posts.find((post) => post.id == this.postId)
 
-  ngDoCheck(): void {
-    console.log(this.postToEdit);
-    this.editForm = new FormGroup({
-      postTitle: new FormControl(this.postToEdit.title),
-      postContent: new FormControl(this.postToEdit.content),
-      postOwner: new FormControl(this.auth.getLoggedUser().id),
-    });
-  }
+      if(this.postToEdit){
+        this.editForm.setValue({
+          postTitle: this.postToEdit.title ,
+          postContent: this.postToEdit.content,
+          postOwner: this.auth.getLoggedUser().id
+        })
 
-  getPostData(id: number) {
-    this.postSvc.getPostById(id).subscribe((post) => {
-      console.log(post);
-      if (post) {
-        this.postToEdit = post;
-        console.log(this.postToEdit);
       }
     });
   }
 
-  submit() {
-  }
+  submit() {}
 }
