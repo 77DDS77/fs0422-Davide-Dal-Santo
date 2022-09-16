@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/Classes/user';
 import { AuthService, ILogin } from 'src/app/Services/auth.service';
 
 @Component({
@@ -26,21 +27,14 @@ export class RegisterComponent implements OnInit {
   }
 
   submit(){
-    this.auth.register(this.form.value)
+    this.auth.register(new User(this.form.value.name, this.form.value.email, this.form.value.password))
     .subscribe(res => {
       alert(`User ${res.user.name} registered successfully`) //togliere alert
 
-      let loginObj:ILogin = {
-        email: this.form.value.email,
-        password: this.form.value.password
-      }
-
-      this.auth.login(loginObj)
-      .subscribe(res => {
-        this.auth.saveAccessData(res)
-        console.log('utente loggato');
-        //togliere log e aggiungere redirect
-      })
+      this.auth.saveAccessData(res)
+      console.log('utente loggato');
+      this.router.navigate(['/profile/'+User.slugify(res.user.name)]);
+      //togliere log e aggiungere redirect
       this.form.reset();
     })
   }

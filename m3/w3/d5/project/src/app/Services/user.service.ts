@@ -10,21 +10,25 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  apiUrl:string = 'http://localhost:3000/posts'
+  apiUrl:string = 'http://localhost:3000/users'
 
   getAllUsers():Observable<User[]>{
     return this.http.get<User[]>(this.apiUrl)
   }
 
-  addUser(post:User):Observable<User>{
-    return this.http.post<User>(this.apiUrl, post)
+  getUserById(id:Number | undefined):Observable<User|undefined>{
+    return this.http.get<User>(this.apiUrl + "/" + id)
   }
 
-  editUser(post:User):Observable<User>{
-    return this.http.patch<User>(this.apiUrl + '/' + post.id, post)
+  addUser(user:User):Observable<User>{
+    return this.http.post<User>(this.apiUrl, user)
   }
 
-  deleteUser(post:User):Observable<User>{
-    return this.http.delete<User>(this.apiUrl + '/' + post.id)
+  editUser(user:User):Observable<User>{
+    return this.http.patch<User>(this.apiUrl + '/' + user.id, user)
+  }
+
+  deleteUser(user:User):Observable<User>{
+    return this.http.delete<User>(this.apiUrl + '/' + user.id)
   }
 }

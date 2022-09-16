@@ -27,4 +27,8 @@ export class PostService {
   deletePost(post:Post):Observable<Post>{
     return this.http.delete<Post>(this.apiUrl + '/' + post.id)
   }
+
+  getPostByOwner(userId:number):Observable<Post[]>{
+    return this.http.get<Post[]>(this.apiUrl + '/?ownerId=' + userId)
+  }
 }

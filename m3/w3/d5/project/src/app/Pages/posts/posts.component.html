@@ -1,1 +1,14 @@
-<p>posts works!</p>
+<div class="container">
+  <h1 class="text-center my-3">All our users posts</h1>
+
+  <div class="card my-3" *ngFor="let post of allPosts">
+    <div class="card-header">
+      Posted by user: {{post.ownerId}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}}</h5>
+      <p class="card-text">{{post.content}}</p>
+      <!-- <a class="btn btn-primary">Bottoni crud</a> -->
+    </div>
+  </div>
+</div>

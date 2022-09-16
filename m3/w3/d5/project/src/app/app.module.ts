@@ -13,6 +13,7 @@ import { NavComponent } from './Pages/Main/nav/nav.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './Interceptor/auth.interceptor';
+import { NewPostComponent } from './Pages/new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthInterceptor } from './Interceptor/auth.interceptor';
     UsersComponent,
     PostsComponent,
     ProfileComponent,
-    NavComponent
+    NavComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,

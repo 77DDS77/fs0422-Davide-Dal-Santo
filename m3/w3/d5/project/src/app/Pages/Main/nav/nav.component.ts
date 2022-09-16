@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
@@ -11,12 +11,15 @@ export class NavComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private activeRoute: ActivatedRoute
     ) { }
 
   userName!: string
+  userNameParam!:string;
 
   ngOnInit(): void {
+    this.userNameParam = this.auth.getLoggedUser().slug;
   }
 
   ngDoCheck(): void {

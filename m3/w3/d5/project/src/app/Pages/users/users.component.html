@@ -1,1 +1,12 @@
-<p>users works!</p>
+<div class="container">
+  <h1 class="text-center my-3">All our Users</h1>
+  <div class="card my-3" *ngFor="let user of allUsers">
+    <div class="card-header">
+      User ID #({{user.id}})
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{user.name}}</h5>
+      <p class="card-text">{{user.email}}</p>
+    </div>
+  </div>
+</div>

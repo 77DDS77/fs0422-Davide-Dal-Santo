@@ -40,8 +40,6 @@ export class AuthService {
   }
   getAccessToken():string{
     let db = localStorage.getItem('access')
-    console.log(db);
-
     return db ? JSON.parse(db).accessToken : null
   }
 

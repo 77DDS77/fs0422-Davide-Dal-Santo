@@ -5,10 +5,36 @@
 </div>
 
 <div class="container my-3">
-  <h3>Check out all your posts:</h3>
+  <h3>Check out all your posts:
+    <a *ngIf="allPostsByUser.length != 0"
+    class="btn btn-primary ms-5"
+    [routerLink]="['/profile', userNameParam, 'new-post']">or make a new one
+    </a>
+  </h3>
+
+  <router-outlet></router-outlet>
 
   <!-- allPostsByUser -->
-  <div>
 
+  <div class="card my-3" *ngFor="let post of allPostsByUser.reverse()">
+    <div class="card-header">
+      Posted by user: {{user.name}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}}</h5>
+      <p class="card-text">{{post.content}}</p>
+      <a class="btn btn-primary">Bottoni crud</a>
+      <a (click)="deleteMyPost(post)" class="btn btn-danger ms-2">Delete</a>
+    </div>
+  </div>
+
+
+  <!-- da fare ngIf -->
+  <div *ngIf="allPostsByUser.length == 0">
+    <h5 class="mt-5">Seems like there's nothing here..</h5>
+    <a [routerLink]="['/profile', userNameParam, 'new-post']"
+      class="btn btn-primary">Go post something!
+    </a>
   </div>
 </div>
+

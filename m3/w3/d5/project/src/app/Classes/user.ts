@@ -3,11 +3,17 @@ export class User {
   name:string;
   email:string;
   password:string;
-  posts:number[] = [];
+  slug!:string;
 
   constructor(name:string, email:string, password:string){
     this.name = name;
     this.email = email;
     this.password = password;
+    this.slug = User.slugify(name)
+  }
+
+  static slugify(name:string):string{
+    return name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
   }
 }
+

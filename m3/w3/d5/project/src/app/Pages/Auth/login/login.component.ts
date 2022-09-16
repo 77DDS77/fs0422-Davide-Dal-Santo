@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/Classes/user';
 import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.form.value)
     .subscribe(res => {
       this.auth.saveAccessData(res);
-      this.router.navigate(['/profile/'+res.user.name]);
+      this.router.navigate(['/profile/'+User.slugify(res.user.name)]);
       this.form.reset();
     })
   }

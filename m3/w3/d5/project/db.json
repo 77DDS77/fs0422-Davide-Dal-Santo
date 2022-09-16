@@ -2,10 +2,18 @@
   "users": [
     {
       "email": "davide.dds.dalsanto@gmail.com",
-      "password": "$2a$10$B4YyrR10tDoMknQnajcOJetSTuPp.M.l4XVju8zyRD4WeC.B6RA0m",
+      "password": "$2a$10$7t1xMTtByUjhHbsyYQ4xnuICS0ljVtpysADiQvapDytJHzFw/3MLm",
       "name": "DDS",
+      "slug": "dds",
       "id": 1
     }
   ],
-  "posts": []
+  "posts": [
+    {
+      "title": "Test Primo post",
+      "content": "Ciao questo e' il primo post con sto pezzo funzionante",
+      "ownerId": 1,
+      "id": 1
+    }
+  ]
 }
