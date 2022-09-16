@@ -19,7 +19,9 @@ export class NavComponent implements OnInit {
   userNameParam!:string;
 
   ngOnInit(): void {
-    this.userNameParam = this.auth.getLoggedUser().slug;
+    if(this.auth.isUserLogged()){
+      this.userNameParam = this.auth.getLoggedUser().slug;
+    }
   }
 
   ngDoCheck(): void {

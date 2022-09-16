@@ -16,14 +16,14 @@
 
   <!-- allPostsByUser -->
 
-  <div class="card my-3" *ngFor="let post of allPostsByUser.reverse()">
+  <div class="card my-3 my-card" *ngFor="let post of allPostsByUser.reverse()">
     <div class="card-header">
       Posted by user: {{user.name}}
     </div>
     <div class="card-body">
       <h5 class="card-title">{{post.title}}</h5>
       <p class="card-text">{{post.content}}</p>
-      <a class="btn btn-primary">Bottoni crud</a>
+      <a class="btn btn-warning" [routerLink]="['/profile',userNameParam,'edit-post', post.id]">Edit</a>
       <a (click)="deleteMyPost(post)" class="btn btn-danger ms-2">Delete</a>
     </div>
   </div>

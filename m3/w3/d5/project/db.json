@@ -14,6 +14,36 @@
       "content": "Ciao questo e' il primo post con sto pezzo funzionante",
       "ownerId": 1,
       "id": 1
+    },
+    {
+      "title": "Test",
+      "content": "Ok Funziona ma faccio 10mila chiamate",
+      "ownerId": 1,
+      "id": 2
+    },
+    {
+      "title": "Post 1",
+      "content": "Ciao devo fare tanti post non ho vogli di andare sul database e farli a mano",
+      "ownerId": 1,
+      "id": 3
+    },
+    {
+      "title": "Post2",
+      "content": "Vediamo se me ne bastano due ",
+      "ownerId": 1,
+      "id": 4
+    },
+    {
+      "title": "Post3",
+      "content": "Con il terzo sono sicuro",
+      "ownerId": 1,
+      "id": 5
+    },
+    {
+      "title": "Non finiro' questo progetto",
+      "content": "Progetto completamente rotto, non verra' finito",
+      "ownerId": 1,
+      "id": 6
     }
   ]
 }

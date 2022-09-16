@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top" aria-label="Fourth navbar example">
   <div class="container-fluid">
     <span class="navbar-brand">Welcome
       <a [routerLink]="['/profile', userNameParam]"
@@ -18,11 +18,20 @@
           <a class="nav-link" [routerLink]="['/profile', userNameParam]">My Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/posts']">Posts</a>
+          <a class="nav-link" [routerLink]="['/posts']">All Posts</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/users']">Users</a>
+          <a class="nav-link" [routerLink]="['/users']">All Users</a>
         </li>
+
+        <li class="nav-item dropdown bg-dark" ngbDropdown>
+          <a class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true" ngbDropdownToggle>Settings</a>
+          <ul class="dropdown-menu mb-3" data-bs-popper="static" ngbDropdownMenu>
+            <li><a ngbDropdownItem class="dropdown-item" href="#">Edit Profile</a></li>
+            <li><a ngbDropdownItem disabled class="dropdown-item" href="#">WIP</a></li>
+          </ul>
+        </li>
+
         <li *ngIf="checkIfUserLogged()" (click)="logOut()" class="nav-item">
           <button class="btn btn-danger">Logout</button>
         </li>

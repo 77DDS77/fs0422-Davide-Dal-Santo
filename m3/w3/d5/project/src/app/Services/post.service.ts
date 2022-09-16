@@ -4,31 +4,41 @@ import { Observable } from 'rxjs';
 import { Post } from '../Classes/post';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PostService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  apiUrl: string = 'http://localhost:3000/posts';
+  allPosts: Post[] = [];
 
-  apiUrl:string = 'http://localhost:3000/posts'
-
-  getAllPosts():Observable<Post[]>{
-    return this.http.get<Post[]>(this.apiUrl)
+  getAllPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.apiUrl);
   }
 
-  addPost(post:Post):Observable<Post>{
-    return this.http.post<Post>(this.apiUrl, post)
+  getPostById2(id: number): Post | null {
+    this.getAllPosts().subscribe((posts) => (this.allPosts = posts));
+    let foundPost = this.allPosts.find((post: Post) => Number(post.id) === id);
+    return foundPost || null;
   }
 
-  editPost(post:Post):Observable<Post>{
-    return this.http.patch<Post>(this.apiUrl + '/' + post.id, post)
+  getPostById(id: Number): Observable<Post> {
+    return this.http.get<Post>('http://localhost:3000/posts/' + id);
   }
 
-  deletePost(post:Post):Observable<Post>{
-    return this.http.delete<Post>(this.apiUrl + '/' + post.id)
+  addPost(post: Post): Observable<Post> {
+    return this.http.post<Post>(this.apiUrl, post);
   }
 
-  getPostByOwner(userId:number):Observable<Post[]>{
-    return this.http.get<Post[]>(this.apiUrl + '/?ownerId=' + userId)
+  editPost(post: Post): Observable<Post> {
+    return this.http.patch<Post>(this.apiUrl + '/' + post.id, post);
+  }
+
+  deletePost(post: Post): Observable<Post> {
+    return this.http.delete<Post>(this.apiUrl + '/' + post.id);
+  }
+
+  getPostByOwner(userId: number): Observable<Post[]> {
+    return this.http.get<Post[]>(this.apiUrl + '/?ownerId=' + userId);
   }
 }

@@ -10,10 +10,13 @@ body{
 .auth-container {
   min-width: 180px;
   max-width: 400px;
-  height: 400px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 8px 15px 20px 2px rgb(0 0 0 / 20%)
+}
+
+.my-card{
+  box-shadow: 5px 6px 20px 2px rgb(0 0 0 / 20%);
 }

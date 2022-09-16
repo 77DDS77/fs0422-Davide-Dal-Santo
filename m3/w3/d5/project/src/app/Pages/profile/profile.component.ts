@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/Classes/post';
 import { User } from 'src/app/Classes/user';
 import { AuthService } from 'src/app/Services/auth.service';
@@ -14,26 +13,26 @@ import { PostService } from 'src/app/Services/post.service';
 export class ProfileComponent {
 
   constructor(
-    private activeRoute: ActivatedRoute,
     private auth: AuthService,
     private postSvc: PostService,
     private router: Router
   )
   {
-    this.user = this.auth.getLoggedUser()
-    this.router.events.subscribe((event) => {
-      this.getMyPosts();
-    })
+    if(this.auth.isUserLogged()){
+      this.user = this.auth.getLoggedUser()
+      this.router.events.subscribe((event) => {
+        this.getMyPosts();
+      })
+    }
   }
 
   user!: User;
-  userNameParam!:string;
+  userNameParam:string = this.auth.getLoggedUser().slug;
   allPostsByUser:Post[] = [];
 
   getMyPosts():void{
     this.postSvc.getPostByOwner(this.auth.getLoggedUser().id)
     .subscribe(posts => {
-      console.log(posts)
       this.allPostsByUser = posts;
     })
   }

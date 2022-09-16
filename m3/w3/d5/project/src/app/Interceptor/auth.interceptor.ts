@@ -24,10 +24,6 @@ export class AuthInterceptor implements HttpInterceptor {
         return next.handle(requestClone);
       }
     }
-
-
-    console.log('Chiamata con utente non loggato');
-
     return next.handle(request);
   }
 }

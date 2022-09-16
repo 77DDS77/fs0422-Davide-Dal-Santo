@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavigationGuard } from './Guards/navigation.guard';
 import { LoginComponent } from './Pages/Auth/login/login.component';
 import { RegisterComponent } from './Pages/Auth/register/register.component';
+import { EditPostComponent } from './Pages/edit-post/edit-post.component';
 import { NewPostComponent } from './Pages/new-post/new-post.component';
 import { PostsComponent } from './Pages/posts/posts.component';
 import { ProfileComponent } from './Pages/profile/profile.component';
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path:'new-post',
         component: NewPostComponent
+      },
+      {
+        path:'edit-post/:postId',
+        component: EditPostComponent
       }
     ]
   },

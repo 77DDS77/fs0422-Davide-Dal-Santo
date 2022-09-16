@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './Interceptor/auth.interceptor';
 import { NewPostComponent } from './Pages/new-post/new-post.component';
+import { EditPostComponent } from './Pages/edit-post/edit-post.component';
+import { EditProfileComponent } from './Pages/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { NewPostComponent } from './Pages/new-post/new-post.component';
     PostsComponent,
     ProfileComponent,
     NavComponent,
-    NewPostComponent
+    NewPostComponent,
+    EditPostComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
