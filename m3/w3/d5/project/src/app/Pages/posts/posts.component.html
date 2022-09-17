@@ -1,9 +1,14 @@
+<!-- si, potevo fare un componente per
+la card e usarlo sia su prrofile che qua,
+me ne sono accorto troppo tardi.. -->
+
 <div class="container">
   <h1 class="text-center my-3">All our users posts</h1>
 
   <div class="card my-3 my-card" *ngFor="let post of allPosts.reverse()">
     <div class="card-header">
-      Posted by user: {{post.ownerName}}<span *ngIf="post.edited == true" class="text-danger ms-3">(edited)</span>
+      Posted by user: <span class="fw-semibold">{{post.ownerName}}</span>
+      <span *ngIf="post.edited == true" class="badge text-bg-danger ms-3">(edited)</span>
     </div>
     <div class="card-body">
       <h5 class="card-title">{{post.title}}</h5>

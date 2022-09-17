@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class LoginComponent implements OnInit {
 
   form!: FormGroup
+  userNameParam:string = this.auth.isUserLogged() ? this.auth.getLoggedUser().slug : '';
 
   constructor(
     private auth: AuthService,
@@ -19,10 +20,14 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      email: new FormControl(null),
-      password: new FormControl(null),
-    })
+    if(this.userNameParam == ''){
+      this.form = new FormGroup({
+        email: new FormControl(null),
+        password: new FormControl(null),
+      })
+    }else{
+      this.router.navigate(['/profile', this.userNameParam])
+    }
   }
 
   login(){

@@ -16,12 +16,10 @@ export class NavComponent implements OnInit {
     ) { }
 
   userName!: string
-  userNameParam!:string;
+  userNameParam:string = this.auth.isUserLogged() ? this.auth.getLoggedUser().slug : '';
 
   ngOnInit(): void {
-    if(this.auth.isUserLogged()){
-      this.userNameParam = this.auth.getLoggedUser().slug;
-    }
+
   }
 
   ngDoCheck(): void {

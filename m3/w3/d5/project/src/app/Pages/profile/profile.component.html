@@ -1,7 +1,7 @@
 
 
 <div class="container">
-  <h2 class="text-center my-3">Glad to see you <span>{{user.name}}</span></h2>
+  <h2 class="text-center fw-bold my-3"><span>{{user.name}}</span></h2>
 </div>
 
 <div class="container my-3">
@@ -18,7 +18,9 @@
 
   <div class="card my-3 my-card" *ngFor="let post of allPostsByUser.reverse()">
     <div class="card-header">
-      Posted by user: {{user.name}}<span *ngIf="post.edited == true" class="text-danger ms-3">(edited)</span>
+      Posted by user: <span class="fw-semibold">{{post.ownerName}}</span>
+      <span *ngIf="post.edited == true"
+      class="badge text-bg-danger ms-3">(edited)</span>
     </div>
     <div class="card-body">
       <h5 class="card-title">{{post.title}}</h5>
