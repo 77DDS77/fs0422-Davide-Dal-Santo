@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/Classes/user';
@@ -13,6 +13,7 @@ import { AuthService, ILogin } from 'src/app/Services/auth.service';
 export class RegisterComponent implements OnInit {
 
   form!: FormGroup
+  isFormValid!: boolean;
 
   constructor(
     private auth: AuthService,
@@ -22,21 +23,26 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      name: new FormControl(null),
-      email: new FormControl(null),
-      password: new FormControl(null)
+      name: new FormControl(null, Validators.required),
+      email: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required)
     })
 
   }
 
   submit(){
-    this.auth.register(new User(this.form.value.name, this.form.value.email, this.form.value.password))
-    .subscribe(res => {
-      // alert(`User ${res.user.name} registered successfully`) //togliere alert
-      this.auth.saveAccessData(res)
-      this.router.navigate(['/profile/'+User.slugify(res.user.name)]);
-      this.form.reset();
-    })
+    if(this.form.valid){
+      this.auth.register(new User(this.form.value.name, this.form.value.email, this.form.value.password))
+      .subscribe(res => {
+        this.auth.saveAccessData(res)
+        this.router.navigate(['/profile/'+User.slugify(res.user.name)]);
+        this.form.reset();
+      })
+    }else{
+      console.log('aasgas');
+
+      this.isFormValid = false;
+    }
   }
 
   openVerticallyCentered(content:any) {

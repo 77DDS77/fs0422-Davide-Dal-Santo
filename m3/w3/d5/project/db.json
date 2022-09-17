@@ -103,6 +103,14 @@
       "ownerName": "Davide Dal Santo",
       "edited": false,
       "id": 11
+    },
+    {
+      "title": "QOL improvements",
+      "content": "Aggiunte labels per form invalidi, aggiunta modal per controllo pre delete post",
+      "ownerId": 1,
+      "ownerName": "DDS",
+      "edited": false,
+      "id": 12
     }
   ]
 }

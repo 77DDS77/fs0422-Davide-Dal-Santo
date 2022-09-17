@@ -1,24 +1,30 @@
 <div class="container auth-container">
 
   <main class="form-signin m-auto">
-    <form [formGroup]="form" >
+    <form [formGroup]="form"(submit)="submit()">
       <h1 class="h3 mb-3 fw-normal">Register here:</h1>
 
       <div class="form-floating mb-2">
-        <input formControlName="name" type="text" class="form-control" id="floatingInput1" placeholder="Your name">
+        <input formControlName="name"
+        type="text" class="form-control"
+        id="floatingInput1" placeholder="Your name">
         <label for="floatingInput1">Your name</label>
       </div>
       <div class="form-floating mb-2">
-        <input formControlName="email" type="email" class="form-control" id="floatingInput2" placeholder="name@example.com">
+        <input formControlName="email"
+        type="email" class="form-control"
+        id="floatingInput2" placeholder="name@example.com">
         <label for="floatingInput2">Email address</label>
       </div>
       <div class="form-floating mb-2">
-        <input formControlName="password" type="password" class="form-control" id="floatingPassword1" placeholder="Password">
+        <input formControlName="password"
+        type="password" class="form-control"
+        id="floatingPassword1" placeholder="Password">
         <label for="floatingPassword1">Password</label>
       </div>
 
-      <button class="w-100 btn btn-lg btn-primary" type="submit"
-      (click)="openVerticallyCentered(content)">Register</button>
+      <label *ngIf="isFormValid == false" class="text-danger">*Form is invalid</label>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
       <a [routerLink]="['/']" class="w-30 btn btn-lg btn-primary my-2">Back to Login</a>
 
     </form>
@@ -26,15 +32,4 @@
 
 </div>
 
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Thank you!</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-  </div>
-  <div class="modal-body">
-    <p>Close this pop-up to be redirected to your profile.</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close(submit())">Close</button>
-  </div>
-</ng-template>
+

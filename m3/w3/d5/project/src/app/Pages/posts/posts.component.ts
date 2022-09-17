@@ -32,8 +32,6 @@ export class PostsComponent implements OnInit {
       .subscribe(users => {
         this.allUsers = users;
         for(let post of posts){
-          console.log(users.filter(user => user.id == post.ownerId));
-
           this.postOwnerName = users.filter(user => user.id == post.ownerId)[0].name;
         }
       })

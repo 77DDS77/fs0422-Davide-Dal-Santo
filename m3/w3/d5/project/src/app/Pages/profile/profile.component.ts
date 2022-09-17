@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Post } from 'src/app/Classes/post';
 import { User } from 'src/app/Classes/user';
 import { AuthService } from 'src/app/Services/auth.service';
@@ -15,7 +16,8 @@ export class ProfileComponent {
   constructor(
     private auth: AuthService,
     private postSvc: PostService,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal
   )
   {
     if(this.auth.isUserLogged()){
@@ -45,8 +47,9 @@ export class ProfileComponent {
     })
   }
 
-
-
+  openVerticallyCentered(content:any) {
+    this.modalService.open(content, { centered: true })
+  }
 }
 
 

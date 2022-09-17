@@ -5,20 +5,28 @@
       <h1 class="h3 mb-3 fw-normal">Post something:</h1>
 
       <div class="form-floating mb-2">
-        <input formControlName="postTitle" type="text" class="form-control" id="floatingInput1" placeholder="Post title">
+        <input formControlName="postTitle"
+        type="text" class="form-control"
+        id="floatingInput1" placeholder="Post title">
         <label for="floatingInput1">Post title</label>
       </div>
       <div class="form-floating mb-2">
-        <textarea formControlName="postContent" type="email" class="form-control" id="floatingInput2" placeholder="Post content"></textarea>
+        <textarea formControlName="postContent"
+        type="email" class="form-control"
+        id="floatingInput2" placeholder="Post content"></textarea>
         <label for="floatingInput2">Post content</label>
       </div>
       <div class="form-floating mb-2">
-        <input formControlName="postOwner" type="email" class="form-control" id="floatingInput3" placeholder="Post owner" readonly>
+        <input formControlName="postOwner"
+        type="email" class="form-control"
+        id="floatingInput3" placeholder="Post owner" readonly>
         <label for="floatingInput2">Post owner id (readonly)</label>
       </div>
 
 
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Post</button>
+      <label *ngIf="formIsValid == false" class="text-danger">*You must fill the form</label>
+      <button #submitBtn
+      class="w-100 btn btn-lg btn-primary" type="submit">Post</button>
 
     </form>
   </main>

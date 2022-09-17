@@ -27,13 +27,24 @@
       <p class="card-text">{{post.content}}</p>
       <div class="actions text-end">
         <a class="btn btn-warning" [routerLink]="['/profile',userNameParam,'edit-post', post.id]">Edit</a>
-        <a (click)="deleteMyPost(post)" class="btn btn-danger ms-2">Delete</a>
+        <a (click)="openVerticallyCentered(content)" class="btn btn-danger ms-2">Delete</a>
       </div>
     </div>
+
+
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Are you sure?</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+        <p>You will not be able to retrieve your post!</p>
+        <button type="button" class="btn btn-danger" (click)="modal.close(deleteMyPost(post))">Yes delete it</button>
+      </div>
+    </ng-template>
+
   </div>
 
-
-  <!-- da fare ngIf -->
   <div *ngIf="allPostsByUser.length == 0">
     <h5 class="mt-5">Seems like there's nothing here..</h5>
     <a [routerLink]="['/profile', userNameParam, 'new-post']"
@@ -41,4 +52,7 @@
     </a>
   </div>
 </div>
+
+
+
 

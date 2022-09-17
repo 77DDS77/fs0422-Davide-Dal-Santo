@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/Classes/user';
 import { AuthService } from 'src/app/Services/auth.service';
@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class LoginComponent implements OnInit {
 
   form!: FormGroup
+  formIsValid!: boolean;
   userNameParam:string = this.auth.isUserLogged() ? this.auth.getLoggedUser().slug : '';
 
   constructor(
@@ -22,8 +23,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if(this.userNameParam == ''){
       this.form = new FormGroup({
-        email: new FormControl(null),
-        password: new FormControl(null),
+        email: new FormControl(null, Validators.required),
+        password: new FormControl(null, Validators.required),
       })
     }else{
       this.router.navigate(['/profile', this.userNameParam])
@@ -31,12 +32,18 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.auth.login(this.form.value)
-    .subscribe(res => {
-      this.auth.saveAccessData(res);
-      this.router.navigate(['/profile/'+User.slugify(res.user.name)]);
-      this.form.reset();
-    })
+    if(this.form.valid){
+
+      this.auth.login(this.form.value)
+      .subscribe(res => {
+        this.auth.saveAccessData(res);
+        this.router.navigate(['/profile/'+User.slugify(res.user.name)]);
+        this.form.reset();
+      })
+    }
+    else{
+      this.formIsValid = false;
+    }
   }
 
 }
