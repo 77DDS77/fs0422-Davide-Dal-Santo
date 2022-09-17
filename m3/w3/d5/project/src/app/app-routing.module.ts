@@ -4,6 +4,7 @@ import { NavigationGuard } from './Guards/navigation.guard';
 import { LoginComponent } from './Pages/Auth/login/login.component';
 import { RegisterComponent } from './Pages/Auth/register/register.component';
 import { EditPostComponent } from './Pages/edit-post/edit-post.component';
+import { EditProfileComponent } from './Pages/edit-profile/edit-profile.component';
 import { NewPostComponent } from './Pages/new-post/new-post.component';
 import { PostsComponent } from './Pages/posts/posts.component';
 import { ProfileComponent } from './Pages/profile/profile.component';
@@ -32,6 +33,11 @@ const routes: Routes = [
         component: EditPostComponent
       }
     ]
+  },
+  {
+    path: 'edit-profile/:name',
+    component: EditProfileComponent,
+    canActivate: [NavigationGuard]
   },
   {
     path:'posts',

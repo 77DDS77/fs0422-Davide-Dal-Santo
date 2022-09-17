@@ -27,8 +27,8 @@
         <li class="nav-item dropdown bg-dark" ngbDropdown>
           <a class="nav-link dropdown-toggle show" data-bs-toggle="dropdown" aria-expanded="true" ngbDropdownToggle>Settings</a>
           <ul class="dropdown-menu mb-3" data-bs-popper="static" ngbDropdownMenu>
-            <li><a ngbDropdownItem class="dropdown-item" href="#">Edit Profile</a></li>
-            <li><a ngbDropdownItem disabled class="dropdown-item" href="#">WIP</a></li>
+            <li><a ngbDropdownItem class="dropdown-item" [routerLink]="['/edit-profile', userNameParam]">Edit Profile</a></li>
+            <li><a ngbDropdownItem disabled class="dropdown-item">WIP</a></li>
           </ul>
         </li>
 

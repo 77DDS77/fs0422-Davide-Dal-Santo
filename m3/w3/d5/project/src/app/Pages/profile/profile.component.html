@@ -18,7 +18,7 @@
 
   <div class="card my-3 my-card" *ngFor="let post of allPostsByUser.reverse()">
     <div class="card-header">
-      Posted by user: {{user.name}}  <span *ngIf="post.edited == true" class="text-danger ms-3">(edited)</span>
+      Posted by user: {{user.name}}<span *ngIf="post.edited == true" class="text-danger ms-3">(edited)</span>
     </div>
     <div class="card-body">
       <h5 class="card-title">{{post.title}}</h5>
