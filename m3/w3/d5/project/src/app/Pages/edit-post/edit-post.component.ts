@@ -21,7 +21,7 @@ import { PostService } from 'src/app/Services/post.service';
 })
 export class EditPostComponent implements OnInit {
   postId: number = Number(this.activeRoute.snapshot.paramMap.get('postId'));
-  postToEdit!: Post|undefined;
+  postToEdit!: Post;
   allPosts: Post[] = [];
 
   editForm = new FormGroup({
@@ -39,7 +39,7 @@ export class EditPostComponent implements OnInit {
 
   ngOnInit(): void {
     this.postSvc.getAllPosts().subscribe((posts: Post[]) => {
-      this.postToEdit = posts.find((post) => post.id == this.postId)
+      this.postToEdit = <Post>posts.find((post) => post.id == this.postId)
 
       if(this.postToEdit){
         this.editForm.setValue({
@@ -52,5 +52,17 @@ export class EditPostComponent implements OnInit {
     });
   }
 
-  submit() {}
+  submit() {
+    let hold:Post = {
+      id: this.postId,
+      title: <string>this.editForm.value.postTitle,
+      content: <string>this.editForm.value.postContent ,
+      ownerId: this.auth.getLoggedUser().id,
+      edited: true
+    }
+    this.postSvc.editPost(hold, this.postId)
+    .subscribe(() => {
+      this.router.navigate(['/profile', this.auth.getLoggedUser().slug])
+    })
+  }
 }
