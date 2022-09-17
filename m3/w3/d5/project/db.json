@@ -13,6 +13,13 @@
       "name": "Davide Dal Santo",
       "slug": "davide-dal-santo",
       "id": 2
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$RDPJCp3Kc5X6F79OQck1UuiqpVR8MmrEBXLWZCaFSrUyaY1c3vGNC",
+      "name": "TestAccount",
+      "slug": "testaccount",
+      "id": 3
     }
   ],
   "posts": [
@@ -111,6 +118,14 @@
       "ownerName": "DDS",
       "edited": false,
       "id": 12
+    },
+    {
+      "title": "Test Post",
+      "content": "This is a test post from a test account\n\nEmail: test@test.com\nPswrd: 1234",
+      "ownerId": 3,
+      "ownerName": "TestAccount",
+      "edited": true,
+      "id": 13
     }
   ]
 }
