@@ -6,6 +6,13 @@
       "name": "DDS",
       "slug": "dds",
       "id": 1
+    },
+    {
+      "email": "albedalsanto@gmail.com",
+      "password": "$2a$10$vES067MwGIOEcwbkXuDz0Ofc1c3/phqF7WSiG2uUa7fCEPkXdh2vq",
+      "name": "Davide Dal Santo",
+      "slug": "davide-dal-santo",
+      "id": 2
     }
   ],
   "posts": [
@@ -64,6 +71,20 @@
       "ownerId": 1,
       "edited": true,
       "id": 8
+    },
+    {
+      "title": "Primo post da altro account",
+      "content": "Creata una modal sulla registrazione",
+      "ownerId": 2,
+      "edited": false,
+      "id": 9
+    },
+    {
+      "title": "Trovato un altro bug...",
+      "content": "Bug su pagina all Posts, non viene visualizzato correttamente il nome di chi ha postato",
+      "ownerId": 2,
+      "edited": false,
+      "id": 10
     }
   ]
 }

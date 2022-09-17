@@ -30,7 +30,12 @@ export class NewPostComponent implements OnInit {
   }
 
   submit(){
-    this.postSvc.addPost(new Post(this.form.value.postTitle, this.form.value.postContent, this.form.value.postOwner))
+    this.postSvc.addPost(
+      new Post(
+        this.form.value.postTitle,
+        this.form.value.postContent,
+        this.form.value.postOwner
+        ))
     .subscribe(res => {
       this.router.navigate(['/profile', this.auth.getLoggedUser().slug]);
     })

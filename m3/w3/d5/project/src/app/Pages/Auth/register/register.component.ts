@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/Classes/user';
 import { AuthService, ILogin } from 'src/app/Services/auth.service';
 
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal
     ) { }
 
   ngOnInit(): void {
@@ -24,19 +26,21 @@ export class RegisterComponent implements OnInit {
       email: new FormControl(null),
       password: new FormControl(null)
     })
+
   }
 
   submit(){
     this.auth.register(new User(this.form.value.name, this.form.value.email, this.form.value.password))
     .subscribe(res => {
-      alert(`User ${res.user.name} registered successfully`) //togliere alert
-
+      // alert(`User ${res.user.name} registered successfully`) //togliere alert
       this.auth.saveAccessData(res)
-      console.log('utente loggato');
       this.router.navigate(['/profile/'+User.slugify(res.user.name)]);
-      //togliere log e aggiungere redirect
       this.form.reset();
     })
+  }
+
+  openVerticallyCentered(content:any) {
+    this.modalService.open(content, { centered: true })
   }
 
 }
