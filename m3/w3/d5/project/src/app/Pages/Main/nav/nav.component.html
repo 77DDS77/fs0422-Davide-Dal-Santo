@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top" aria-label="Fourth navbar example">
   <div class="container-fluid">
-    <a [routerLink]="['/']" class="navbar-brand">Welcome
-      <a [routerLink]="['/profile', userNameParam]"
+    <a [routerLink]="['/profile', userNameParam]" class="navbar-brand">Welcome
+      <span
         *ngIf="checkIfUserLogged()"
         class="ms-2 text-warning nav-link d-inline">{{userName}}
-      </a>
+      </span>
     </a>
     <button class="navbar-toggler collapsed"
     type="button"
@@ -32,6 +32,9 @@
           </ul>
         </li>
 
+        <li *ngIf="!checkIfUserLogged()" class="nav-item">
+          <a [routerLink]="['/']" class="btn btn-warning">Login</a>
+        </li>
         <li *ngIf="checkIfUserLogged()" (click)="logOut()" class="nav-item">
           <button class="btn btn-danger">Logout</button>
         </li>

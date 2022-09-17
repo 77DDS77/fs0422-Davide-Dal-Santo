@@ -58,6 +58,7 @@ export class EditPostComponent implements OnInit {
       title: <string>this.editForm.value.postTitle,
       content: <string>this.editForm.value.postContent ,
       ownerId: this.auth.getLoggedUser().id,
+      ownerName: this.auth.getLoggedUser().name,
       edited: true
     }
     this.postSvc.editPost(hold, this.postId)

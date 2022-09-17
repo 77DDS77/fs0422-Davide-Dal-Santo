@@ -34,7 +34,8 @@ export class NewPostComponent implements OnInit {
       new Post(
         this.form.value.postTitle,
         this.form.value.postContent,
-        this.form.value.postOwner
+        this.form.value.postOwner,
+        this.auth.getLoggedUser().name
         ))
     .subscribe(res => {
       this.router.navigate(['/profile', this.auth.getLoggedUser().slug]);
