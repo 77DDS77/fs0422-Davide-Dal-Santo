@@ -1,5 +1,4 @@
 package it.epicode.be;
-import java.lang.Math;
 
 public class EX4 {
 
