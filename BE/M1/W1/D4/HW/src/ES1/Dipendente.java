@@ -34,7 +34,7 @@ public class Dipendente {
 		this.setDipartimento(Dipartimento);
 	}
 	
-public Dipendente(
+	public Dipendente(
 			
 			int matricola,
 			Livello Livello,
