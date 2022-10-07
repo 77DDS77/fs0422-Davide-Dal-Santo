@@ -1,0 +1,6 @@
+Book: ISBNCode: 9780708980279 | Title: 1984 | Author: George Orwell | genre: Dystopian | Year of publication: 1949 | Page count: 250 ||;
+Book: ISBNCode: 9780743273565 | Title: The Great Gatsby | Author: F. Scott Fitzgerald | genre: Tragedy | Year of publication: 1925 | Page count: 208 ||;
+Magazine: ISBNCode: 3734235265620 | Title: Il coding per tutti | Year of publication: 2015 | Page count: 23 | Periodicity: WEEKLY ||;
+Magazine: ISBNCode: 3781351504900 | Title: Vogue France | Year of publication: 2022 | Page count: 50 | Periodicity: MONTHLY ||;
+Magazine: ISBNCode: 7386429184102 | Title: Focus | Year of publication: 2022 | Page count: 40 | Periodicity: MONTHLY ||;
+Book: ISBNCode: 9780553573404 | Title: A Song of Ice and Fire | Author: George R. R. Martin | genre: Epic Fantasy | Year of publication: 1996 | Page count: 1184 ||;
