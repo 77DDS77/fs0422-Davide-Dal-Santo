@@ -1,13 +1,17 @@
 package dao;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
+import models.Concerto;
 import models.Evento;
+import models.Genere;
 import models.Location;
 import models.Partecipazione;
 import models.TipoEvento;
@@ -67,5 +71,69 @@ public class EventoDAO {
         emf.close();
 	}
 	
+	public static void getConcertiPerGenere(Genere genere) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("eventi-bis");
+		EntityManager em = emf.createEntityManager();
+		
+
+		Query q = em.createNamedQuery("byGenere");
+		q.setParameter("g", genere);
+		
+		List<Concerto> list = q.getResultList();
+		
+		if(list.size() == 0) {
+			System.out.println("***NESSUN CONCERTO TROVATO***");
+		}else {			
+			for(Concerto p : list) {
+				System.out.println(p);
+			}
+		}
+		
+		
+		em.close();
+		emf.close();
+	}
+	
+	public static void getConcertiInStreaming(boolean stream) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("eventi-bis");
+		EntityManager em = emf.createEntityManager();
+		
+
+		Query q = em.createNamedQuery("byStream");
+		q.setParameter("b", stream);
+		
+		List<Concerto> list = q.getResultList();
+		
+		if(list.size() == 0) {
+			System.out.println("***NESSUN CONCERTO TROVATO***");
+		}else {			
+			for(Concerto p : list) {
+				System.out.println(p);
+			}
+		}
+		
+		
+		em.close();
+		emf.close();
+	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
