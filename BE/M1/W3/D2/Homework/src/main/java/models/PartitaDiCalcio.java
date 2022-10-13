@@ -78,7 +78,7 @@ public class PartitaDiCalcio extends Evento{
 		if(golCasa > golOspite) {
 			return squadraCasa;
 		}else if(golCasa == golOspite){
-			return null;
+			return "pareggio";
 		}else {
 			return squadraOspite;
 		}

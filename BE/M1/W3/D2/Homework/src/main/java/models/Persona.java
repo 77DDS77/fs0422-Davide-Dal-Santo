@@ -9,6 +9,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -34,6 +37,12 @@ public class Persona {
 	
 	@OneToMany(cascade = CascadeType.REMOVE, mappedBy="persona")
 	private List<Partecipazione> listaPartecipazioni;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "person_races",
+		joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns = @JoinColumn(name = "race_id")
+	)
+	private List<GaraDiAtletica> gare;
 	
 	public Persona() {}
 

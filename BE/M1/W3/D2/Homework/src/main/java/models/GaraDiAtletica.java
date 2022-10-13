@@ -5,6 +5,9 @@ import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
@@ -12,9 +15,11 @@ import javax.persistence.Transient;
 @DiscriminatorValue("gara_di_atletica")
 public class GaraDiAtletica extends Evento{
 	
-	@Transient
+	@ManyToMany(mappedBy = "gare")
 	Set<Persona> setAtleti;
-	@OneToOne
+	
+	@ManyToOne
+	@JoinColumn(name = "id_person")
 	Persona vincitore;
 	
 	

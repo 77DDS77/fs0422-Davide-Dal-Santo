@@ -168,6 +168,8 @@ public class Main {
 		
 		EventoDAO.getConcertiInStreaming(false);
 		
+		EventoDAO.getGareDiAtleticaPerVincitore(PersonaDAO.findPersona(3));
+		
 		//logs
 		/*
 		System.out.println(ev1);

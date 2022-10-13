@@ -6,6 +6,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -18,11 +19,13 @@ public class Partecipazione {
 	private int id;
 	
 	@ManyToOne
+	@JoinColumn(name = "person_id")
 	private Persona persona;
 	
 	//many partecipazioni to one evento
 	//no cascade perche' se cancello partec non voglio cvancellare ebvento
 	@ManyToOne
+	@JoinColumn(name = "event_id")
 	private Evento evento;
 	@Enumerated(EnumType.STRING)
 	private StatoPartecipazione statoPartecipazione;

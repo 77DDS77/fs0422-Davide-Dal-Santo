@@ -48,7 +48,7 @@ public class PersonaDAO {
         emf.close();
 	}
 	
-	public static void findPersona(int id) {
+	public static Persona findPersona(int id) {
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("eventi-bis");
         EntityManager em = emf.createEntityManager();
@@ -61,6 +61,7 @@ public class PersonaDAO {
 		
         em.close();
         emf.close();
+        return found;
 	}
 	
 }
