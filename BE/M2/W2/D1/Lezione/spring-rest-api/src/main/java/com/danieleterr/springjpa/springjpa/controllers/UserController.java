@@ -4,6 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.danieleterr.springjpa.springjpa.entities.Address;
 import com.danieleterr.springjpa.springjpa.entities.User;
+import com.danieleterr.springjpa.springjpa.exceptions.PageException;
 import com.danieleterr.springjpa.springjpa.services.AddressService;
 import com.danieleterr.springjpa.springjpa.services.UserService;
 
@@ -33,7 +40,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/api/users")
-	public List<User> getAllUsers(){
+	public Iterable<User> getAllUsers(){
 		return us.getAll();
 	}
 	
@@ -115,5 +122,105 @@ public class UserController {
 		return us.getByName(name);
 	}
 	
+	// GIORNO 3
 	
+	@GetMapping("/api/users/re1")
+	public ResponseEntity<String> re1(){
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Author", "Davide");
+		
+		String body = "Corpo del responso";
+		
+		ResponseEntity<String> res = new ResponseEntity<>(body, headers, HttpStatus.OK);
+		return res;
+	}
+	
+	@GetMapping("/api/users/re2/{mode}")
+	public ResponseEntity<Object> re2(@PathVariable int mode){
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Author", "Davide");
+		
+		switch (mode) {
+		case 1: 
+			return new ResponseEntity<Object>("mode1",headers, HttpStatus.OK);
+		
+		case 2:
+			return new ResponseEntity<Object>(us.getAll(),headers, HttpStatus.OK);
+			
+		default:
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+			
+		}
+	}
+	
+	@GetMapping("/api/users/exc1")
+	public String exc1() {
+		throw new PageException("Eccezione generata manualmente");
+	}
+	
+	@GetMapping("/api/users/exc2")
+	public String exc2() {
+		throw new ArrayIndexOutOfBoundsException("Eccezione generata manualmente");
+	}
+	
+	@GetMapping("/api/users/test1")
+	public String test1() {
+		return "Sono il test 1";
+	}
+	
+	@GetMapping("/api/users/test2")
+	public String test2() {
+		return "Sono java sono il test 2";
+	}
+	
+	@GetMapping("/api/users-paginate")
+	public ResponseEntity<Page<User>> getAllUsersPaginate(Pageable p){
+		
+		Page<User> res = us.getAllAndPaginate(p);
+		
+		if(res.isEmpty()) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}else {
+			return new ResponseEntity<>(res, HttpStatus.OK);
+		}
+	}
+	
+	@GetMapping("/api/users-paginate-slice")
+	public Page<User> getAllUsersPaginateSlice(){
+		
+		Pageable pagina1_risultati2 = PageRequest.of(0,2);
+		Page<User> res = us.getAllAndPaginate(pagina1_risultati2);
+		
+		return res;
+	}
+	
+	@GetMapping("/api/users-paginate-byname/{name}")
+	public Page<User> getByNameAndPaginate(@PathVariable("name") String n, Pageable p){
+		
+		Page<User> res = us.getByNameAndPaginate(n, p);
+		
+		return res;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.danieleterr.springjpa.springjpa.entities.User;
@@ -15,7 +17,7 @@ public class UserService {
 	@Autowired
 	UserRepository ur;
 	
-	public List<User> getAll() {
+	public Iterable<User> getAll() {
 		return ur.findAll();
 	}
 	
@@ -35,4 +37,16 @@ public class UserService {
 		ur.deleteById(id);
 	}
 	
+	//GIORNO 3
+	
+	public Page<User> getAllAndPaginate(Pageable p){
+		
+		Page<User> pu = ur.findAll(p);
+		return pu;
+	}
+	
+	public Page<User> getByNameAndPaginate(String n, Pageable p){
+			
+		return ur.findByNameAndPaginate(n, p);
+	}
 }
