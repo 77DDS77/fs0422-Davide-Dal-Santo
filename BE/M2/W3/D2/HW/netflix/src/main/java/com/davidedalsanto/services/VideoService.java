@@ -131,6 +131,17 @@ public class VideoService {
 		
 		return result;
 	}
+
+	public List<Video> getList(List<Long> favIDs) {
+		List<Video> res = new ArrayList<Video>();
+		for(Long id : favIDs) {
+			Optional<Video> v = vr.findById(id);
+			if(v.isPresent()) {
+				res.add(v.get());
+			}
+		}
+		return res;
+	}
 	
 }
 
