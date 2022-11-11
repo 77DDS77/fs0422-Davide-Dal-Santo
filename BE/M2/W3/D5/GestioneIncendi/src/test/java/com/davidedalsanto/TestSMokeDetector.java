@@ -47,7 +47,7 @@ public class TestSMokeDetector {
 		ControlCenter cc = new ControlCenter();
 		SmokeDetector sm1 = new SmokeDetector(1L, 22.7, 18.4, 0);
 		sm1.addObserver(cc);
-		sm1.setSmokeLevel(6);
+		sm1.setSmokeLevel(5);
 
 		//expected detectFire() to return true
 		assertTrue(sm1.detectFire());
