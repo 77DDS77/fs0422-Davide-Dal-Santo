@@ -58,7 +58,7 @@ public class Customer {
     private Address sedeLegale;
 
     @ManyToOne
-    @JoinColumn(name = "address_id")
+    @JoinColumn(name = "address_id2")
     private Address indirizzoOpzionale = null;
     @Enumerated(EnumType.STRING)
     private CompanyType tipo;

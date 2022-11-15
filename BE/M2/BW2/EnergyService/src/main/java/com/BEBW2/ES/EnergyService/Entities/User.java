@@ -25,7 +25,7 @@ public class User {
     private String username;
     private String email;
 
-
+    //TODO mettere encode
     private String password;
     private String nome;
     private String cognome;
