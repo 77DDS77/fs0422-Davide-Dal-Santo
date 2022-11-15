@@ -21,7 +21,7 @@ public class CustomerController {
 
     //----------------------GET-------------------
     /*
-    * Three way to get te customer list:
+    * Three way to get the customer list:
     * - via iterable variable
     * - via pageable to manage large numbers of customers
     * - via Customer's ID
@@ -46,6 +46,7 @@ public class CustomerController {
         try{
             return new ResponseEntity<>(cs.findById(id), HttpStatus.OK);
         } catch (ByIdNotFoundException e) {
+            log.error(e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
@@ -85,7 +86,7 @@ public class CustomerController {
 
     //----------------------DELETE-------------------
     /*
-     * Endpoint to update a Customer:
+     * Endpoint to delete a Customer:
      * - must receive the id of the Customer you want to delete
      * */
     @DeleteMapping("/{id}")
@@ -95,6 +96,17 @@ public class CustomerController {
         }catch(IllegalArgumentException iae){
             log.error("Error deleting Customer (id could be null): " + iae.getMessage());
             return new ResponseEntity<>(iae.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    //----------------------ACTIONS-------------------
+    @PutMapping("/{id}/update-last-contact")
+    public ResponseEntity<Customer> updateLastContact(@PathVariable Long id){
+        try{
+            return new ResponseEntity<>(cs.updateLastContact(id), HttpStatus.OK);
+        } catch (ByIdNotFoundException e) {
+            log.error(e.getMessage());
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
 

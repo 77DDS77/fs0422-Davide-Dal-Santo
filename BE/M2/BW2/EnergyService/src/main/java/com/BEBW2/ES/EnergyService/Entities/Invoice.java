@@ -27,13 +27,18 @@ public class Invoice {
 
     private int numero;
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
     @Enumerated(EnumType.STRING)
     private InvoiceState statoFattura;
 
-    public Invoice(BigDecimal importo, int numero) {
+    public Invoice(BigDecimal importo, int numero, Customer customer) {
         this.date = LocalDate.now();
         this.importo = importo;
         this.numero = numero;
         this.statoFattura = InvoiceState.CREATA;
+        this.customer = customer;
     }
 }

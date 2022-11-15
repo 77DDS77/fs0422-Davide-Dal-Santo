@@ -60,7 +60,7 @@ public class CustomerService {
    }
 
    // delete a customer
-   public String delete(long id){
+   public String delete(Long id){
         cr.deleteById(id);
         return "Customer deleted successfully.";
    }
@@ -68,9 +68,10 @@ public class CustomerService {
    //----------------------------------------------------------
 
     // method to set the last contact with a customer
-    public void updateLastContact(long id) throws ByIdNotFoundException {
+    public Customer updateLastContact(long id) throws ByIdNotFoundException {
         Customer found = findById(id);
         found.setDataUltimoContatto(LocalDate.now());
+        return found;
     }
 
 
