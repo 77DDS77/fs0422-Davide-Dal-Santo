@@ -10,10 +10,14 @@ import com.BEBW2.ES.EnergyService.Services.InvoiceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -31,7 +35,7 @@ public class InvoiceController {
      * - via Invoice's ID
      * */
     @GetMapping("")
-    public ResponseEntity<Iterable<Invoice>> getAllCustomers(){
+    public ResponseEntity<Iterable<Invoice>> getAllInvoices(){
         return new ResponseEntity<>(is.getAllInvoices(), HttpStatus.OK);
     }
 
@@ -41,7 +45,7 @@ public class InvoiceController {
         if(foundAll.hasContent()){
             return new ResponseEntity<>(foundAll, HttpStatus.OK);
         }else{
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
 
@@ -143,10 +147,65 @@ public class InvoiceController {
         }
     }
 
+    //----------------------SORTED ENDPOINTS-------------------
+
+    //sort by Customer_id
+    @GetMapping("/pageable/sort-by-client/{page}/{size}")
+    public ResponseEntity<Page<Invoice>> getBySortedInvoiceCustomer(@PathVariable(name = "page") int page, @PathVariable(name = "size") int size){
+        Pageable p = PageRequest.of(page, size, Sort.by("customer").ascending());
+        Page<Invoice> foundAll = is.getAllInvoicesPageable(p);
+        if(foundAll.hasContent()){
+            return new ResponseEntity<>(foundAll, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    //sort by Invoice state
+    @GetMapping("/pageable/sort-by-state/{page}/{size}")
+    public ResponseEntity<Page<Invoice>> getBySortedInvoiceState(@PathVariable(name = "page") int page, @PathVariable(name = "size") int size){
+        Pageable p = PageRequest.of(page, size, Sort.by("statoFattura"));
+        Page<Invoice> foundAll = is.getAllInvoicesPageable(p);
+        if(foundAll.hasContent()){
+            return new ResponseEntity<>(foundAll, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    //sort by Invoice date
+    @GetMapping("/pageable/sort-by-state/{page}/{size}")
+    public ResponseEntity<Page<Invoice>> getBySortedInvoiceDate(@PathVariable(name = "page") int page, @PathVariable(name = "size") int size){
+        Pageable p = PageRequest.of(page, size, Sort.by("date").descending());
+        Page<Invoice> foundAll = is.getAllInvoicesPageable(p);
+        if(foundAll.hasContent()){
+            return new ResponseEntity<>(foundAll, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
 
 
+    //----------------------FILTERED ENDPOINTS-------------------
 
+    @GetMapping("/filtered/customer-id/{c_id}")
+    public ResponseEntity<List<Invoice>> getByCustomerId(@PathVariable(name = "c_id") Long id){
+        try {
+            return new ResponseEntity<>(is.findByCustomerId(id), HttpStatus.OK);
+        } catch (ByIdNotFoundException e) {
+            log.error(e.getMessage());
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
 
+    @GetMapping("/filtered/invoice-state/{state}")
+    public ResponseEntity<List<Invoice>> getByInvoiceState(@PathVariable(name = "state") InvoiceState state){
+        try{
+            return new ResponseEntity<>(is.findByStatoFattura(state), HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
 
-
+    //TODO findByDate   findByYear   findByImportoBetween
 }

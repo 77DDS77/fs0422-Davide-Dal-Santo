@@ -11,6 +11,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,6 +21,9 @@ public class InvoiceService {
 
     @Autowired
     InvoiceRepository ir;
+
+    @Autowired
+    CustomerService cs;
 
     public Invoice save(Invoice invoice) {
         return ir.save(invoice);
@@ -93,5 +99,34 @@ public class InvoiceService {
     public String delete(Long id){
         ir.deleteById(id);
         return "Invoice deleted successfully.";
+    }
+
+    //FILTEERING METHODS
+
+    //BY CUSTOMER ID
+    public List<Invoice> findByCustomerId(Long id) throws ByIdNotFoundException {
+        cs.findById(id);
+        return ir.findByCustomer_Id(id);
+    }
+
+    //BY INVOICE STATE
+    public List<Invoice> findByStatoFattura(InvoiceState statoFattura){
+        return ir.findByStatoFattura(statoFattura);
+    }
+
+    //BY DATE
+    public List<Invoice> findByDate(LocalDate date){
+        return ir.findByDate(date);
+    }
+
+    //BY ANNO
+    public List<Invoice> findByYear(int year){
+      LocalDate dateStart = LocalDate.of(year, 1, 1);
+      LocalDate dateEnd = LocalDate.of((year + 1), 1, 1);
+      return ir.findByDateBetween(dateStart, dateEnd);
+    }
+    //BY RANGE DI IMPORTI
+    public List<Invoice> findByImportoBetween(BigDecimal importoStart, BigDecimal importoEnd){
+        return ir.findByImportoBetween(importoStart, importoEnd);
     }
 }
