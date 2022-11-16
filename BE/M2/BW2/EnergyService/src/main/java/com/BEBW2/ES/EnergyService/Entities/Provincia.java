@@ -1,4 +1,4 @@
-package com.BEBW2.ES.EnergyService.comune.model;
+package com.BEBW2.ES.EnergyService.Entities;
 
 import lombok.*;
 

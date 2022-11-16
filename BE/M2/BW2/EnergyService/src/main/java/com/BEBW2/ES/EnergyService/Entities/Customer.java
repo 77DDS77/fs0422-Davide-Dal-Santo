@@ -3,6 +3,7 @@ package com.BEBW2.ES.EnergyService.Entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 /*
@@ -64,15 +65,14 @@ public class Customer {
     private CompanyType tipo;
 
     //test: potrebbe non servirci
-    public Customer(String ragioneSociale, String partitaIVA, String email,
-                    LocalDate dataInserimento, LocalDate dataUltimoContatto, double fatturatoAnnuale,
+    public Customer(String ragioneSociale, String partitaIVA, String email, double fatturatoAnnuale,
                     String pec, String telefono, String emailContatto, String nomeContatto, String cognomeContatto,
-                    String telefonoContatto, Address sedeLegale, Address indirizzoOpzionale, CompanyType tipo) {
+                    String telefonoContatto, Address sedeLegale, CompanyType tipo) {
         this.ragioneSociale = ragioneSociale;
         this.partitaIVA = partitaIVA;
         this.email = email;
-        this.dataInserimento = dataInserimento;
-        this.dataUltimoContatto = dataUltimoContatto;
+        this.dataInserimento = LocalDate.now();
+        this.dataUltimoContatto = LocalDate.now();
         this.fatturatoAnnuale = fatturatoAnnuale;
         this.pec = pec;
         this.telefono = telefono;
@@ -81,7 +81,6 @@ public class Customer {
         this.cognomeContatto = cognomeContatto;
         this.telefonoContatto = telefonoContatto;
         this.sedeLegale = sedeLegale;
-        this.indirizzoOpzionale = indirizzoOpzionale;
         this.tipo = tipo;
     }
 }

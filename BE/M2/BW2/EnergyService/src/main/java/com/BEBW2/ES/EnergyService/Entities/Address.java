@@ -23,17 +23,19 @@ public class Address {
 
     private int civico;
 
-    private String localita;
+    //private String localita;
 
     private int cap;
 
-    private String comune;
+    @ManyToOne
+    private Comune comune;
 
-    public Address(String via, int civico, String localita, int cap, String comune){
+    public Address(String via, int civico, int cap, Comune comune){
 
         this.via = via;
         this.civico = civico;
-        this.localita=localita;
+        //TODO chiedere localita
+        //this.localita=localita;
         this.cap=cap;
         this.comune= comune;
     }

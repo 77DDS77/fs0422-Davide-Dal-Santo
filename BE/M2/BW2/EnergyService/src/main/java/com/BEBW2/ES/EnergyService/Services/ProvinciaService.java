@@ -1,8 +1,8 @@
-package com.BEBW2.ES.EnergyService.comune.services;
+package com.BEBW2.ES.EnergyService.Services;
 
-import com.BEBW2.ES.EnergyService.comune.helper.CSVHelper;
-import com.BEBW2.ES.EnergyService.comune.model.Provincia;
-import com.BEBW2.ES.EnergyService.comune.repositories.ProvinciaRepository;
+import com.BEBW2.ES.EnergyService.Entities.Provincia;
+import com.BEBW2.ES.EnergyService.Repositories.ProvinciaRepository;
+import com.BEBW2.ES.EnergyService.helper.CSVHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

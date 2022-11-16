@@ -6,6 +6,7 @@ import com.BEBW2.ES.EnergyService.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -16,25 +17,29 @@ public class UserService {
     @Autowired
     UserRepository ur;
 
+    @Autowired
+    PasswordEncoder encoder;
+
     // method to save and persist in db a User entity
     public User save(User user) {
+        user.setPassword(encoder.encode(user.getPassword()));
         return ur.save(user);
     }
 
     //simple get All Users, return an iterable of Users
-    public Iterable<User> getAllUsers(){
+    public Iterable<User> getAllUsers() {
         return ur.findAll();
     }
 
     //simple get All Users, return a pageable of users for lighter payloads
-    public Page<User> getAllUsersPageable(Pageable p){
+    public Page<User> getAllUsersPageable(Pageable p) {
         return ur.findAll(p);
     }
 
     // easy find by id, if id is non-existent throws an exception
     public User findById(Long id) throws ByIdNotFoundException {
         Optional<User> found = ur.findById(id);
-        if(found.isPresent()){
+        if (found.isPresent()) {
             return found.get();
         }
         throw new ByIdNotFoundException("User", id);
@@ -42,7 +47,7 @@ public class UserService {
 
     //update, takes the ID of the "original" User and a User object to get the props that we will
     //assign to the original, now updated, User.
-    public User updateUser(Long id, User updatedUser) throws ByIdNotFoundException{
+    public User updateUser(Long id, User updatedUser) throws ByIdNotFoundException {
         User origUser = findById(id);
         origUser.setNome(updatedUser.getNome());
         origUser.setCognome(updatedUser.getCognome());
@@ -55,7 +60,7 @@ public class UserService {
     }
 
     //throws IllegalArgumentException
-    public String deleteUser(Long id){
+    public String deleteUser(Long id) {
         ur.deleteById(id);
         return "User delete successfully";
     }

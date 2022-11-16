@@ -1,6 +1,6 @@
-package com.BEBW2.ES.EnergyService.comune.repositories;
+package com.BEBW2.ES.EnergyService.Repositories;
 
-import com.BEBW2.ES.EnergyService.comune.model.Comune;
+import com.BEBW2.ES.EnergyService.Entities.Comune;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -1,8 +1,8 @@
-package com.BEBW2.ES.EnergyService.comune.services;
+package com.BEBW2.ES.EnergyService.Services;
 
 
-import com.BEBW2.ES.EnergyService.comune.model.Comune;
-import com.BEBW2.ES.EnergyService.comune.repositories.ComuneRepository;
+import com.BEBW2.ES.EnergyService.Entities.Comune;
+import com.BEBW2.ES.EnergyService.Repositories.ComuneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,6 +35,10 @@ public class ComuneService {
 
     public void save(Comune c) {
         cr.save(c);
+    }
+
+    public void saveAll(List<Comune> lc) {
+        cr.saveAll(lc);
     }
 
     public void delete(Long id) throws Exception {

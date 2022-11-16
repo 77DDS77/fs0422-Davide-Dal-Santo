@@ -15,8 +15,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.time.DateTimeException;
+import java.time.LocalDate;
 import java.util.List;
 
 @Slf4j
@@ -35,11 +39,13 @@ public class InvoiceController {
      * - via Invoice's ID
      * */
     @GetMapping("")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Iterable<Invoice>> getAllInvoices(){
         return new ResponseEntity<>(is.getAllInvoices(), HttpStatus.OK);
     }
 
     @GetMapping("/pageable")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Page<Invoice>> getPageableInvoices(Pageable p){
         Page<Invoice> foundAll = is.getAllInvoicesPageable(p);
         if(foundAll.hasContent()){
@@ -50,6 +56,7 @@ public class InvoiceController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Invoice> findById(@PathVariable Long id){
         try{
             return new ResponseEntity<>(is.getById(id), HttpStatus.OK);
@@ -65,6 +72,7 @@ public class InvoiceController {
      * - must receive a complete Invoice obj as Request Body
      * */
     @PostMapping("/new")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Invoice> createNewCustomer(@RequestBody Invoice invoice){
         try{
             return new ResponseEntity<>(is.save(invoice), HttpStatus.OK);
@@ -82,6 +90,7 @@ public class InvoiceController {
      * */
     //TODO vedere se serve @RequestBody sui parametri
     @PutMapping("/update")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Invoice> updateCustomer(Long id, Invoice UpdatedInvoice){
         try {
             return new ResponseEntity<>(is.update(id, UpdatedInvoice), HttpStatus.OK);
@@ -100,6 +109,7 @@ public class InvoiceController {
      * - must receive the id of the Invoice you want to delete
      * */
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> deleteById(@PathVariable Long id){
         try{
             return new ResponseEntity<>(is.delete(id), HttpStatus.OK);
@@ -114,6 +124,7 @@ public class InvoiceController {
     //endpoint to change the state of the Invoice to ACCETTATA following the conditions
     //set on the acceptInvoice method of the InvoiceService
     @PutMapping("/{id}/accept")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Invoice> acceptInvoice(@PathVariable Long id){
         try{
             return new ResponseEntity<>(is.acceptInvoice(id), HttpStatus.OK);
@@ -126,6 +137,7 @@ public class InvoiceController {
     //endpoint to change the state of the Invoice to RIFIUTATA following the conditions
     //set on the denyInvoice method of the InvoiceService
     @PutMapping("/{id}/deny")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Invoice> denyInvoice(@PathVariable Long id){
         try{
             return new ResponseEntity<>(is.denyInvoice(id), HttpStatus.OK);
@@ -138,6 +150,7 @@ public class InvoiceController {
     //endpoint to change the state of the Invoice to the param sent with the request
     //TODO check se RequestParam va bene o no
     @PutMapping("/{id}/state-change")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Invoice> changeStatus(@PathVariable Long id, @RequestParam InvoiceState newState){
         try{
             return new ResponseEntity<>(is.changeStatus(id, newState), HttpStatus.OK);
@@ -151,6 +164,7 @@ public class InvoiceController {
 
     //sort by Customer_id
     @GetMapping("/pageable/sort-by-client/{page}/{size}")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Page<Invoice>> getBySortedInvoiceCustomer(@PathVariable(name = "page") int page, @PathVariable(name = "size") int size){
         Pageable p = PageRequest.of(page, size, Sort.by("customer").ascending());
         Page<Invoice> foundAll = is.getAllInvoicesPageable(p);
@@ -163,6 +177,7 @@ public class InvoiceController {
 
     //sort by Invoice state
     @GetMapping("/pageable/sort-by-state/{page}/{size}")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Page<Invoice>> getBySortedInvoiceState(@PathVariable(name = "page") int page, @PathVariable(name = "size") int size){
         Pageable p = PageRequest.of(page, size, Sort.by("statoFattura"));
         Page<Invoice> foundAll = is.getAllInvoicesPageable(p);
@@ -174,7 +189,8 @@ public class InvoiceController {
     }
 
     //sort by Invoice date
-    @GetMapping("/pageable/sort-by-state/{page}/{size}")
+    @GetMapping("/pageable/sort-by-date/{page}/{size}")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Page<Invoice>> getBySortedInvoiceDate(@PathVariable(name = "page") int page, @PathVariable(name = "size") int size){
         Pageable p = PageRequest.of(page, size, Sort.by("date").descending());
         Page<Invoice> foundAll = is.getAllInvoicesPageable(p);
@@ -189,6 +205,7 @@ public class InvoiceController {
     //----------------------FILTERED ENDPOINTS-------------------
 
     @GetMapping("/filtered/customer-id/{c_id}")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<List<Invoice>> getByCustomerId(@PathVariable(name = "c_id") Long id){
         try {
             return new ResponseEntity<>(is.findByCustomerId(id), HttpStatus.OK);
@@ -199,6 +216,7 @@ public class InvoiceController {
     }
 
     @GetMapping("/filtered/invoice-state/{state}")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<List<Invoice>> getByInvoiceState(@PathVariable(name = "state") InvoiceState state){
         try{
             return new ResponseEntity<>(is.findByStatoFattura(state), HttpStatus.OK);
@@ -207,5 +225,40 @@ public class InvoiceController {
         }
     }
 
-    //TODO findByDate   findByYear   findByImportoBetween
+    @GetMapping("/filtered/{yyyy}/{mm}/{gg}")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<List<Invoice>> getByDate(@PathVariable(name = "yyyy") int year,
+                                                   @PathVariable(name = "mm") int month,
+                                                   @PathVariable(name = "gg") int day){
+        try{
+            LocalDate date = LocalDate.of(year, month, day);
+            return new ResponseEntity<>(is.findByDate(date), HttpStatus.OK);
+        }catch(DateTimeException dte){
+            log.error("Invalid Date.");
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/filtered/{yyyy}")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<List<Invoice>> getByYear(@PathVariable(name = "yyyy") int year){
+        try{
+            return new ResponseEntity<>(is.findByYear(year), HttpStatus.OK);
+        }catch(Exception e){
+            log.error(e.getMessage());
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/filtered/importi")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<List<Invoice>> getByImportoBetween(@RequestParam(name = "start") BigDecimal importoStart,
+                                                             @RequestParam(name = "end") BigDecimal importoEnd){
+        try{
+           return new ResponseEntity<>(is.findByImportoBetween(importoStart, importoEnd), HttpStatus.OK);
+        }catch(Exception e ){
+            log.error(e.getMessage());
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
 }

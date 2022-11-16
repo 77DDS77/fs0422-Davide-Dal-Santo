@@ -1,7 +1,7 @@
-package com.BEBW2.ES.EnergyService.comune.helper;
+package com.BEBW2.ES.EnergyService.helper;
 
-import com.BEBW2.ES.EnergyService.comune.model.Provincia;
-import com.BEBW2.ES.EnergyService.comune.services.ProvinciaService;
+import com.BEBW2.ES.EnergyService.Entities.Provincia;
+import com.BEBW2.ES.EnergyService.Services.ProvinciaService;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;

@@ -33,13 +33,13 @@ public class InvoiceService {
         return ir.findAll();
     }
 
-    public Page<Invoice> getAllInvoicesPageable(Pageable p){
+    public Page<Invoice> getAllInvoicesPageable(Pageable p) {
         return ir.findAll(p);
     }
 
     public Invoice getById(Long id) throws ByIdNotFoundException {
         Optional<Invoice> found = ir.findById(id);
-        if(found.isPresent()){
+        if (found.isPresent()) {
             return found.get();
         }
         throw new ByIdNotFoundException("Invoice", id);
@@ -49,7 +49,7 @@ public class InvoiceService {
     public Invoice update(Long id, Invoice updtInvoice) throws ByIdNotFoundException, CantModifyInvoiceException {
         Invoice origInvoice = getById(id);
         InvoiceState statoFatt = origInvoice.getStatoFattura();
-        if(statoFatt.equals(InvoiceState.CREATA) || statoFatt.equals(InvoiceState.RIFIUTATA)){
+        if (statoFatt.equals(InvoiceState.CREATA) || statoFatt.equals(InvoiceState.RIFIUTATA)) {
             origInvoice.setCustomer(updtInvoice.getCustomer());
             origInvoice.setDate(updtInvoice.getDate());
             origInvoice.setImporto(updtInvoice.getImporto());
@@ -57,7 +57,7 @@ public class InvoiceService {
             origInvoice.setStatoFattura(InvoiceState.CREATA);
             ir.save(origInvoice);
             return origInvoice;
-        }else{
+        } else {
             throw new CantModifyInvoiceException();
         }
     }
@@ -73,11 +73,11 @@ public class InvoiceService {
     //method to change the invoice status to ACCETTATA only if the previous status was INVIATA
     public Invoice acceptInvoice(Long id) throws ByIdNotFoundException, InvalidInvoiceStateException {
         Invoice found = getById(id);
-        if(found.getStatoFattura().equals(InvoiceState.INVIATA)){
+        if (found.getStatoFattura().equals(InvoiceState.INVIATA)) {
             found.setStatoFattura(InvoiceState.ACCETTATA);
             ir.save(found);
             return found;
-        }else{
+        } else {
             throw new InvalidInvoiceStateException("INVIATA");
         }
     }
@@ -85,23 +85,23 @@ public class InvoiceService {
     //method to change the invoice status to RIFIUTATA only if the previous status was INVIATA
     public Invoice denyInvoice(Long id) throws ByIdNotFoundException, InvalidInvoiceStateException {
         Invoice found = getById(id);
-        if(found.getStatoFattura().equals(InvoiceState.INVIATA)){
+        if (found.getStatoFattura().equals(InvoiceState.INVIATA)) {
             found.setStatoFattura(InvoiceState.RIFIUTATA);
             ir.save(found);
             return found;
-        }else{
+        } else {
             throw new InvalidInvoiceStateException("INVIATA");
         }
     }
 
 
     //delete invoice by id
-    public String delete(Long id){
+    public String delete(Long id) {
         ir.deleteById(id);
         return "Invoice deleted successfully.";
     }
 
-    //FILTEERING METHODS
+    //FILTERING METHODS
 
     //BY CUSTOMER ID
     public List<Invoice> findByCustomerId(Long id) throws ByIdNotFoundException {
@@ -110,23 +110,24 @@ public class InvoiceService {
     }
 
     //BY INVOICE STATE
-    public List<Invoice> findByStatoFattura(InvoiceState statoFattura){
+    public List<Invoice> findByStatoFattura(InvoiceState statoFattura) {
         return ir.findByStatoFattura(statoFattura);
     }
 
     //BY DATE
-    public List<Invoice> findByDate(LocalDate date){
+    public List<Invoice> findByDate(LocalDate date) {
         return ir.findByDate(date);
     }
 
     //BY ANNO
-    public List<Invoice> findByYear(int year){
-      LocalDate dateStart = LocalDate.of(year, 1, 1);
-      LocalDate dateEnd = LocalDate.of((year + 1), 1, 1);
-      return ir.findByDateBetween(dateStart, dateEnd);
+    public List<Invoice> findByYear(int year) {
+        LocalDate dateStart = LocalDate.of(year, 1, 1);
+        LocalDate dateEnd = LocalDate.of((year + 1), 1, 1);
+        return ir.findByDateBetween(dateStart, dateEnd);
     }
+
     //BY RANGE DI IMPORTI
-    public List<Invoice> findByImportoBetween(BigDecimal importoStart, BigDecimal importoEnd){
+    public List<Invoice> findByImportoBetween(BigDecimal importoStart, BigDecimal importoEnd) {
         return ir.findByImportoBetween(importoStart, importoEnd);
     }
 }
