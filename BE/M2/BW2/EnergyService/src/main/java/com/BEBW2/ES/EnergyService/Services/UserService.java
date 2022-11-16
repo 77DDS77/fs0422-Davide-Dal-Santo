@@ -20,23 +20,31 @@ public class UserService {
     @Autowired
     PasswordEncoder encoder;
 
-    // method to save and persist in db a User entity
+    /**
+     * method to save and persist in db a User entity
+     */
     public User save(User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         return ur.save(user);
     }
 
-    //simple get All Users, return an iterable of Users
+    /**
+     * simple get All Users, return an iterable of Users
+     */
     public Iterable<User> getAllUsers() {
         return ur.findAll();
     }
 
-    //simple get All Users, return a pageable of users for lighter payloads
+    /**
+     * simple get All Users, return a pageable of users for lighter payloads
+     */
     public Page<User> getAllUsersPageable(Pageable p) {
         return ur.findAll(p);
     }
 
-    // easy find by id, if id is non-existent throws an exception
+    /**
+     * easy find by id, if id is non-existent throws an exception
+     */
     public User findById(Long id) throws ByIdNotFoundException {
         Optional<User> found = ur.findById(id);
         if (found.isPresent()) {
@@ -45,8 +53,10 @@ public class UserService {
         throw new ByIdNotFoundException("User", id);
     }
 
-    //update, takes the ID of the "original" User and a User object to get the props that we will
-    //assign to the original, now updated, User.
+    /**
+     * update, takes the ID of the "original" User and a User object to get the props that we will
+     * assign to the original, now updated, User.
+     */
     public User updateUser(Long id, User updatedUser) throws ByIdNotFoundException {
         User origUser = findById(id);
         origUser.setNome(updatedUser.getNome());
@@ -59,7 +69,9 @@ public class UserService {
         return origUser;
     }
 
-    //throws IllegalArgumentException
+    /**
+     * throws IllegalArgumentException
+     */
     public String deleteUser(Long id) {
         ur.deleteById(id);
         return "User delete successfully";

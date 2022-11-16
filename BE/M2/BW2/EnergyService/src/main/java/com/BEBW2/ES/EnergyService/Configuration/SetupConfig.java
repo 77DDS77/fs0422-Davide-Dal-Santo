@@ -15,8 +15,8 @@ import java.util.Optional;
 @Order(1)
 public class SetupConfig {
 
-    @Autowired
-    private ComuneService cs;
+//    @Autowired
+//    private ComuneService cs;
 
     @Bean(name = "rAdmin")
     @Scope("singleton")

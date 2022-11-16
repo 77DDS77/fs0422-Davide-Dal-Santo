@@ -45,7 +45,9 @@ public class InvoiceService {
         throw new ByIdNotFoundException("Invoice", id);
     }
 
-    //Update method only works for invoices with state either CREATA or RIFIUTATA
+    /**
+     * Update method only works for invoices with state either CREATA or RIFIUTATA
+     */
     public Invoice update(Long id, Invoice updtInvoice) throws ByIdNotFoundException, CantModifyInvoiceException {
         Invoice origInvoice = getById(id);
         InvoiceState statoFatt = origInvoice.getStatoFattura();
@@ -62,7 +64,9 @@ public class InvoiceService {
         }
     }
 
-    //modify the invoice state and keep persistence
+    /**
+     * modify the invoice state and keep persistence
+     */
     public Invoice changeStatus(Long id, InvoiceState newState) throws ByIdNotFoundException {
         Invoice found = getById(id);
         found.setStatoFattura(newState);
@@ -70,7 +74,9 @@ public class InvoiceService {
         return found;
     }
 
-    //method to change the invoice status to ACCETTATA only if the previous status was INVIATA
+    /**
+     * method to change the invoice status to ACCETTATA only if the previous status was INVIATA
+     */
     public Invoice acceptInvoice(Long id) throws ByIdNotFoundException, InvalidInvoiceStateException {
         Invoice found = getById(id);
         if (found.getStatoFattura().equals(InvoiceState.INVIATA)) {
@@ -82,7 +88,9 @@ public class InvoiceService {
         }
     }
 
-    //method to change the invoice status to RIFIUTATA only if the previous status was INVIATA
+    /**
+     * method to change the invoice status to RIFIUTATA only if the previous status was INVIATA
+     */
     public Invoice denyInvoice(Long id) throws ByIdNotFoundException, InvalidInvoiceStateException {
         Invoice found = getById(id);
         if (found.getStatoFattura().equals(InvoiceState.INVIATA)) {
@@ -95,7 +103,9 @@ public class InvoiceService {
     }
 
 
-    //delete invoice by id
+    /**
+     * delete invoice by id
+     */
     public String delete(Long id) {
         ir.deleteById(id);
         return "Invoice deleted successfully.";
@@ -103,30 +113,40 @@ public class InvoiceService {
 
     //FILTERING METHODS
 
-    //BY CUSTOMER ID
+    /**
+     * BY CUSTOMER ID
+     */
     public List<Invoice> findByCustomerId(Long id) throws ByIdNotFoundException {
         cs.findById(id);
         return ir.findByCustomer_Id(id);
     }
 
-    //BY INVOICE STATE
+    /**
+     * BY INVOICE STATE
+     */
     public List<Invoice> findByStatoFattura(InvoiceState statoFattura) {
         return ir.findByStatoFattura(statoFattura);
     }
 
-    //BY DATE
+    /**
+     * BY DATE
+     */
     public List<Invoice> findByDate(LocalDate date) {
         return ir.findByDate(date);
     }
 
-    //BY ANNO
+    /**
+     * BY ANNO
+     */
     public List<Invoice> findByYear(int year) {
         LocalDate dateStart = LocalDate.of(year, 1, 1);
         LocalDate dateEnd = LocalDate.of((year + 1), 1, 1);
         return ir.findByDateBetween(dateStart, dateEnd);
     }
 
-    //BY RANGE DI IMPORTI
+    /**
+     * BY RANGE DI IMPORTI
+     */
     public List<Invoice> findByImportoBetween(BigDecimal importoStart, BigDecimal importoEnd) {
         return ir.findByImportoBetween(importoStart, importoEnd);
     }

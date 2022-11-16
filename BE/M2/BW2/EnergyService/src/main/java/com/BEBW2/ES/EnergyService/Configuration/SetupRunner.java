@@ -50,12 +50,12 @@ public class SetupRunner implements CommandLineRunner {
 //        us.save(ctx.getBean("user1", User.class));
 //        us.save(ctx.getBean("user2", User.class));
 //        us.save(ctx.getBean("user3", User.class));
-
-        as.save(ctx.getBean("address1", Address.class));
-
-        custS.save(ctx.getBean("customer1", Customer.class));
-
-        is.save(ctx.getBean("invoice1", Invoice.class));
+//
+//        as.save(ctx.getBean("address1", Address.class));
+//
+//        custS.save(ctx.getBean("customer1", Customer.class));
+//
+//        is.save(ctx.getBean("invoice1", Invoice.class));
 
 
     }

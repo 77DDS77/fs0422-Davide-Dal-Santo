@@ -1,7 +1,9 @@
 package com.BEBW2.ES.EnergyService.Services;
 
 import com.BEBW2.ES.EnergyService.Entities.Address;
+import com.BEBW2.ES.EnergyService.Entities.Comune;
 import com.BEBW2.ES.EnergyService.Exceptions.ByIdNotFoundException;
+import com.BEBW2.ES.EnergyService.Exceptions.ComuneNotFoundException;
 import com.BEBW2.ES.EnergyService.Repositories.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,8 +19,18 @@ public class AddressService {
     @Autowired
     AddressRepository ar;
 
-    public void save(Address r) {
-        ar.save(r);
+    @Autowired
+    ComuneService cs;
+
+    public Address save(String via, int civico, int cap, String comune) throws ComuneNotFoundException {
+        Optional<Comune> c = cs.getByName(comune);
+        if (c.isPresent()) {
+            Address a = new Address(via, civico, cap, c.get());
+            ar.save(a);
+            return a;
+        }else{
+            throw new ComuneNotFoundException(comune);
+        }
     }
 
     public List<Address> getAll() {
@@ -52,6 +64,10 @@ public class AddressService {
 
         return "Address deleted successfully.";
 
+    }
+
+    public Optional<Address> getSameAddress(Address a) {
+        return ar.getSameAddress(a.getCap(), a.getVia(), a.getCivico());
     }
 
 }
