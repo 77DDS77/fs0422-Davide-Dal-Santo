@@ -2,6 +2,7 @@ package com.BEBW2.ES.EnergyService.Services;
 
 
 import com.BEBW2.ES.EnergyService.Entities.Comune;
+import com.BEBW2.ES.EnergyService.Exceptions.ByIdNotFoundException;
 import com.BEBW2.ES.EnergyService.Repositories.ComuneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,8 +26,12 @@ public class ComuneService {
         return cr.findAll(p);
     }
 
-    public Optional<Comune> getById(Long id) {
-        return cr.findById(id);
+    public Comune getById(Long id) throws ByIdNotFoundException {
+        Optional<Comune> found = cr.findById(id);
+        if (found.isPresent()) {
+            return found.get();
+        }
+        throw new ByIdNotFoundException("Comune", id);
     }
 
     public Optional<Comune> getByName(String comune) {
@@ -53,4 +58,5 @@ public class ComuneService {
     public void update(Comune c) {
         cr.save(c);
     }
+
 }

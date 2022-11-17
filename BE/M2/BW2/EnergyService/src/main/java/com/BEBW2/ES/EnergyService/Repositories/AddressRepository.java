@@ -10,6 +10,9 @@ import java.util.Optional;
 @Repository
 public interface AddressRepository extends JpaRepository<Address, Long> {
 
+    /**
+    * Check if the Address given already exists in the database
+    * */
     @Query("select a from Address a where a.cap = ?1 and a.via = ?2 and a.civico = ?3")
     Optional<Address> getSameAddress(int cap, String via, int civico);
 

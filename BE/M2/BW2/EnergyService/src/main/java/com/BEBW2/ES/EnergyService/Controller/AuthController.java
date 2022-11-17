@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(method = {RequestMethod.POST}, value="/api")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class AuthController {
 
     @Autowired

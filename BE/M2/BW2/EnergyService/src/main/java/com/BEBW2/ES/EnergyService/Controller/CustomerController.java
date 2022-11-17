@@ -25,6 +25,7 @@ import java.util.Optional;
 @Slf4j
 @RestController
 @RequestMapping("/api/customers")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class CustomerController {
 
     @Autowired
@@ -47,7 +48,7 @@ public class CustomerController {
     }
 
     @GetMapping("/pageable")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<Page<Customer>> getPageableCustomers(Pageable p) {
         Page<Customer> foundAll = cs.getAllCustomerPageable(p);
         if (foundAll.hasContent()) {
@@ -58,7 +59,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<Customer> findById(@PathVariable Long id) {
         try {
             return new ResponseEntity<>(cs.findById(id), HttpStatus.OK);
@@ -78,8 +79,7 @@ public class CustomerController {
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Customer> createNewCustomer(@RequestBody Customer customer) {
         try {
-            Customer processedCustomer = cs.preSave(customer);
-            return new ResponseEntity<>(cs.save(processedCustomer), HttpStatus.OK);
+            return new ResponseEntity<>(cs.save(customer), HttpStatus.OK);
         } catch (Exception e) {
             log.error("Error saving customer: " + e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -98,10 +98,11 @@ public class CustomerController {
     //TODO vedere se serve @RequestBody sui parametri
     @PutMapping("/update")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Customer> updateCustomer(Long id, Customer UpdatedCustomer) {
+    public ResponseEntity<Customer> updateCustomer(@RequestBody Customer UpdatedCustomer) {
         try {
-            return new ResponseEntity<>(cs.update(id, UpdatedCustomer), HttpStatus.OK);
-        } catch (ByIdNotFoundException e) {
+            System.err.println(UpdatedCustomer);
+            return new ResponseEntity<>(cs.update(UpdatedCustomer), HttpStatus.OK);
+        } catch (ByIdNotFoundException | ComuneNotFoundException e) {
             log.error("Error updating customer: " + e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -138,9 +139,9 @@ public class CustomerController {
     //----------------------SORTED ENDPOINTS-------------------
 
     //SORT BY NOMECONTATTO
-    @GetMapping("/pageable/sort-by-name/{page}/{size}")
-    @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<Page<Customer>> getBySortedName(@PathVariable(name = "page") int page, @PathVariable(name = "size") int size) {
+    @GetMapping("/pageable/sort-by-name")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public ResponseEntity<Page<Customer>> getBySortedName(@RequestParam(name = "page") int page, @RequestParam(name = "size") int size) {
         Pageable p = PageRequest.of(page, size, Sort.by("nomeContatto").ascending());
         Page<Customer> foundAll = cs.getAllCustomerPageable(p);
         if (foundAll.hasContent()) {
@@ -151,9 +152,9 @@ public class CustomerController {
     }
 
     //SORT BY FATTURATO ANNUALE
-    @GetMapping("/pageable/sort-by-fatturato/{page}/{size}")
-    @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<Page<Customer>> getBySortedFatturato(@PathVariable(name = "page") int page, @PathVariable(name = "size") int size) {
+    @GetMapping("/pageable/sort-by-fatturato")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public ResponseEntity<Page<Customer>> getBySortedFatturato(@RequestParam(name = "page") int page, @RequestParam(name = "size") int size) {
         Pageable p = PageRequest.of(page, size, Sort.by("fatturatoAnnuale").descending());
         Page<Customer> foundAll = cs.getAllCustomerPageable(p);
         if (foundAll.hasContent()) {
@@ -164,9 +165,9 @@ public class CustomerController {
     }
 
     //SORT BY DATA ULTIMO CONTATTO
-    @GetMapping("/pageable/sort-by-ultimo-contatto/{page}/{size}")
-    @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<Page<Customer>> getBySortedUltimoContatto(@PathVariable(name = "page") int page, @PathVariable(name = "size") int size) {
+    @GetMapping("/pageable/sort-by-ultimo-contatto")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public ResponseEntity<Page<Customer>> getBySortedUltimoContatto(@RequestParam(name = "page") int page, @RequestParam(name = "size") int size) {
         Pageable p = PageRequest.of(page, size, Sort.by("dataUltimoContatto").descending());
         Page<Customer> foundAll = cs.getAllCustomerPageable(p);
         if (foundAll.hasContent()) {
@@ -178,9 +179,9 @@ public class CustomerController {
 
     //SORT BY PROVINCIA SEDE LEGALE
     //todo vedere se sta cosa e' cosi' stupida che potrebbe funzionare
-    @GetMapping("/pageable/sort-by-provincia/{page}/{size}")
-    @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<Page<Customer>> getBySortedProvincia(@PathVariable(name = "page") int page, @PathVariable(name = "size") int size) {
+    @GetMapping("/pageable/sort-by-provincia")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public ResponseEntity<Page<Customer>> getBySortedProvincia(@RequestParam(name = "page") int page, @RequestParam(name = "size") int size) {
         Pageable p = PageRequest.of(page, size, Sort.by("sedeLegale.comune.provincia"));
         Page<Customer> foundAll = cs.getAllCustomerPageable(p);
         if (foundAll.hasContent()) {
@@ -194,7 +195,7 @@ public class CustomerController {
 
     //Filter by fatturato annuale, strict value (search for customers with the specified value only)
     @GetMapping("/filtered/fatturato-annuale/{fatturato}")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<List<Customer>> getByFatturatoAnnuale(@PathVariable(name = "fatturato") double fatturato) {
         try {
             return new ResponseEntity<>(cs.findByFatturatoAnnuale(fatturato), HttpStatus.OK);
@@ -205,7 +206,7 @@ public class CustomerController {
 
     //Filter by fatturato annuale (search for customers with the fatturatoAnnuale value from the specified value)
     @GetMapping("/filtered/fatturato-annuale-from/{fatturato}")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<List<Customer>> findByFatturatoAnnualeGreaterThanEqual(@PathVariable(name = "fatturato") double fatturato) {
         try {
             return new ResponseEntity<>(cs.findByFatturatoAnnualeGreaterThanEqual(fatturato), HttpStatus.OK);
@@ -215,10 +216,13 @@ public class CustomerController {
     }
 
     //Filter by data d'inserimento
-    @GetMapping("/filtered/data-inserimento/{yyyy-mm-gg}")
-    @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<List<Customer>> findByDataInserimento(@PathVariable(name = "yyyy-mm-gg") LocalDate dataInserimento) {
+    @GetMapping("/filtered/data-inserimento/{yyyy}/{mm}/{gg}")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public ResponseEntity<List<Customer>> findByDataInserimento(@PathVariable(name = "yyyy") int year,
+                                                                @PathVariable(name = "mm") int month,
+                                                                @PathVariable(name = "gg") int day) {
         try {
+            LocalDate dataInserimento = LocalDate.of(year, month, day);
             return new ResponseEntity<>(cs.findByDataInserimento(dataInserimento), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -226,10 +230,13 @@ public class CustomerController {
     }
 
     //Filter by data ultimo contatto
-    @GetMapping("/filtered/data-ultimo-contatto/{yyyy-mm-gg}")
-    @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<List<Customer>> findByDataUltimoContatto(@PathVariable(name = "yyyy-mm-gg") LocalDate dataUltimoContatto) {
+    @GetMapping("/filtered/data-ultimo-contatto/{yyyy}/{mm}/{gg}")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public ResponseEntity<List<Customer>> findByDataUltimoContatto(@PathVariable(name = "yyyy") int year,
+                                                                   @PathVariable(name = "mm") int month,
+                                                                   @PathVariable(name = "gg") int day) {
         try {
+            LocalDate dataUltimoContatto = LocalDate.of(year, month, day);
             return new ResponseEntity<>(cs.findByDataUltimoContatto(dataUltimoContatto), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -238,7 +245,7 @@ public class CustomerController {
 
     //Filter by nome contatto or partial of it
     @GetMapping("/filtered/nome-contatto/{nome}")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<List<Customer>> findByNomeContatto(@PathVariable(name = "nome") String nomeContatto) {
         try {
             return new ResponseEntity<>(cs.findByNomeContattoContainsIgnoreCase(nomeContatto), HttpStatus.OK);

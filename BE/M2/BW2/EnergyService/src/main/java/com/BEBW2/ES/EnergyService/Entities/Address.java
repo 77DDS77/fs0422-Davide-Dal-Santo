@@ -23,8 +23,6 @@ public class Address {
 
     private int civico;
 
-    //private String localita;
-
     private int cap;
 
     @ManyToOne
@@ -35,7 +33,6 @@ public class Address {
         this.via = via;
         this.civico = civico;
         //TODO chiedere localita
-        //this.localita=localita;
         this.cap=cap;
         this.comune= comune;
     }

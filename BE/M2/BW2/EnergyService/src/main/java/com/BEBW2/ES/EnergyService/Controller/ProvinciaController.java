@@ -1,8 +1,8 @@
 package com.BEBW2.ES.EnergyService.Controller;
 
-import com.BEBW2.ES.EnergyService.Entities.Address;
+import com.BEBW2.ES.EnergyService.Entities.Provincia;
 import com.BEBW2.ES.EnergyService.Exceptions.ByIdNotFoundException;
-import com.BEBW2.ES.EnergyService.Services.AddressService;
+import com.BEBW2.ES.EnergyService.Services.ProvinciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,42 +15,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/addresses")
-public class AddressController {
+@RequestMapping("/api/provincie")
+public class ProvinciaController {
 
     @Autowired
-    AddressService as;
+    ProvinciaService ps;
 
     //----------------------GET-------------------
     /*
-     * Three way to get the Address list:
+     * Three way to get the Provincia list:
      * - via iterable variable
-     * - via pageable to manage large numbers of Addresses
-     * - via Address's ID
+     * - via pageable to manage large numbers of Provincie
+     * - via Provincia's ID
      * */
     @GetMapping("")
-    @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<Iterable<Address>> getAllAddresses() {
-        return new ResponseEntity<>(as.getAll(), HttpStatus.OK);
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public ResponseEntity<Iterable<Provincia>> getAllComuni(){
+        return new ResponseEntity<>(ps.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/pageable")
-    @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<Page<Address>> getPageableAddress(Pageable p) {
-        Page<Address> foundAll = as.getAllPaginate(p);
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public ResponseEntity<Page<Provincia>> getPageableComuni(Pageable p){
+        Page<Provincia> foundAll = ps.getAllPaginate(p);
 
-        if (foundAll.hasContent()) {
+        if(foundAll.hasContent()){
             return new ResponseEntity<>(foundAll, HttpStatus.OK);
-        } else {
+        }else{
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
 
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
-    public ResponseEntity<Address> findById(@PathVariable Long id) {
+    public ResponseEntity<Provincia> findById(@PathVariable Long id) {
         try {
-            return new ResponseEntity<>(as.getById(id), HttpStatus.OK);
+            return new ResponseEntity<>(ps.getById(id), HttpStatus.OK);
         } catch (ByIdNotFoundException e) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }

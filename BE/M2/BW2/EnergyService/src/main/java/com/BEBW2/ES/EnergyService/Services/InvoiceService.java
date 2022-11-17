@@ -25,8 +25,14 @@ public class InvoiceService {
     @Autowired
     CustomerService cs;
 
-    public Invoice save(Invoice invoice) {
-        return ir.save(invoice);
+    public Invoice save(Invoice invoice) throws ByIdNotFoundException {
+        Invoice newInv = new Invoice(
+                invoice.getImporto(),
+                invoice.getNumero(),
+                cs.findById(invoice.getCustomer().getId())
+        );
+        cs.updateLastContact(invoice.getCustomer().getId());
+        return ir.save(newInv);
     }
 
     public Iterable<Invoice> getAllInvoices() {
@@ -72,6 +78,20 @@ public class InvoiceService {
         found.setStatoFattura(newState);
         ir.save(found);
         return found;
+    }
+
+    /**
+     * method to change the invoice status to INVIATA only if the previous status was CREATA
+     */
+    public Invoice sendInvoice(Long id) throws ByIdNotFoundException, InvalidInvoiceStateException {
+        Invoice found = getById(id);
+        if (found.getStatoFattura().equals(InvoiceState.CREATA)) {
+            found.setStatoFattura(InvoiceState.INVIATA);
+            ir.save(found);
+            return found;
+        } else {
+            throw new InvalidInvoiceStateException("INVIATA");
+        }
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.BEBW2.ES.EnergyService.Services;
 
 import com.BEBW2.ES.EnergyService.Entities.Provincia;
+import com.BEBW2.ES.EnergyService.Exceptions.ByIdNotFoundException;
 import com.BEBW2.ES.EnergyService.Repositories.ProvinciaRepository;
 import com.BEBW2.ES.EnergyService.helper.CSVHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,14 @@ public class ProvinciaService {
         return pr.findAll(p);
     }
 
-    public Optional<Provincia> getById(Long id) {
-        return pr.findById(id);
+    public Provincia getById(Long id) throws ByIdNotFoundException {
+        Optional<Provincia> found = pr.findById(id);
+        if (found.isPresent()) {
+            return found.get();
+        }
+        throw new ByIdNotFoundException("Provincia", id);
     }
+
 
     public Optional<Provincia> getByName(String provincia) {
         return pr.findByName(provincia);
@@ -44,7 +50,7 @@ public class ProvinciaService {
 
     public void delete(Long id) throws Exception {
         Optional<Provincia> p = pr.findById(id);
-        if(p.isPresent()) {
+        if (p.isPresent()) {
             pr.delete(p.get());
         } else {
             throw new Exception("Utente non trovato");

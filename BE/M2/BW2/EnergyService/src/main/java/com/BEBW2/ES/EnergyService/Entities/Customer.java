@@ -28,6 +28,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer {
@@ -60,14 +61,13 @@ public class Customer {
 
     @ManyToOne
     @JoinColumn(name = "address_id2")
-    private Address indirizzoOpzionale = null;
+    private Address sedeOperativa;
     @Enumerated(EnumType.STRING)
     private CompanyType tipo;
 
-    //test: potrebbe non servirci
     public Customer(String ragioneSociale, String partitaIVA, String email, double fatturatoAnnuale,
                     String pec, String telefono, String emailContatto, String nomeContatto, String cognomeContatto,
-                    String telefonoContatto, Address sedeLegale, CompanyType tipo) {
+                    String telefonoContatto, Address sedeLegale, Address sedeOperativa, CompanyType tipo) {
         this.ragioneSociale = ragioneSociale;
         this.partitaIVA = partitaIVA;
         this.email = email;
@@ -81,6 +81,7 @@ public class Customer {
         this.cognomeContatto = cognomeContatto;
         this.telefonoContatto = telefonoContatto;
         this.sedeLegale = sedeLegale;
+        this.sedeOperativa = sedeOperativa;
         this.tipo = tipo;
     }
 }

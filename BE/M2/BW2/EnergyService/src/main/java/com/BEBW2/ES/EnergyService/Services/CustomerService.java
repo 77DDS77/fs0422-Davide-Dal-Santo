@@ -24,28 +24,44 @@ public class CustomerService {
     AddressService as;
 
     // method to save and persist in db a Customer entity
-    public Customer save(Customer customer) {
-        return cr.save(customer);
+    public Customer save(Customer customer) throws ComuneNotFoundException {
+        Customer processed = preSave(customer);
+
+        return cr.save(processed);
     }
 
     /**
      * Process a Customer to persist both its property and its Address values
      * from a single form data input
      */
+    //TODO possibili compiicazioni con form su frontend per il doppio indirizzo
     public Customer preSave(Customer customer) throws ComuneNotFoundException {
-        Optional<Address> newUserAdd = as.getSameAddress(customer.getSedeLegale());
+        Optional<Address> newLegalAdd = as.getSameAddress(customer.getSedeLegale());
+        Optional<Address> newOperativeAdd = customer.getSedeOperativa() != null ? as.getSameAddress(customer.getSedeOperativa()) : Optional.empty();
 
-        if (newUserAdd.isPresent()) {
-            customer.setSedeLegale(newUserAdd.get());
+        if (newOperativeAdd.isPresent()) {
+            customer.setSedeOperativa(newOperativeAdd.get());
+        } else if(customer.getSedeOperativa() != null ) {
+            Address sa = as.save(customer.getSedeOperativa().getVia(),
+                    customer.getSedeOperativa().getCivico(),
+                    customer.getSedeOperativa().getCap(),
+                    customer.getSedeOperativa().getComune().getComune()
+            );
+            customer.setSedeOperativa(sa);
+        }
+
+        if (newLegalAdd.isPresent()) {
+            customer.setSedeLegale(newLegalAdd.get());
         } else {
-            Address a = as.save(customer.getSedeLegale().getVia(),
+            Address la = as.save(customer.getSedeLegale().getVia(),
                     customer.getSedeLegale().getCivico(),
                     customer.getSedeLegale().getCap(),
                     customer.getSedeLegale().getComune().getComune()
             );
-            customer.setSedeLegale(a);
+            customer.setSedeLegale(la);
         }
-        return new Customer(
+
+        return  new Customer(
                 customer.getRagioneSociale(),
                 customer.getPartitaIVA(),
                 customer.getEmail(),
@@ -57,8 +73,22 @@ public class CustomerService {
                 customer.getCognomeContatto(),
                 customer.getTelefonoContatto(),
                 customer.getSedeLegale(),
+                customer.getSedeOperativa(),
                 customer.getTipo()
         );
+
+    }
+
+    public Customer preUpdate(Customer updateCustomer) throws ComuneNotFoundException, ByIdNotFoundException {
+
+        Customer oldCustomer = findById(updateCustomer.getId());
+
+        Customer uc = preSave(updateCustomer);
+
+        uc.setId(oldCustomer.getId());
+        uc.setDataInserimento(oldCustomer.getDataInserimento());
+
+        return uc;
     }
 
     /**
@@ -90,21 +120,8 @@ public class CustomerService {
      * update, takes the ID of the "original" customer and a Customer object to get the props that we will
      * assign to the original, now updated, customer.
      */
-    public Customer update(Long id, Customer updtCustomer) throws ByIdNotFoundException {
-        Customer origCustomer = findById(id);
-        origCustomer.setRagioneSociale(updtCustomer.getRagioneSociale());
-        origCustomer.setPartitaIVA(updtCustomer.getPartitaIVA());
-        origCustomer.setEmail(updtCustomer.getEmail());
-        origCustomer.setFatturatoAnnuale(updtCustomer.getFatturatoAnnuale());
-        origCustomer.setPec(updtCustomer.getPec());
-        origCustomer.setTelefono(updtCustomer.getTelefono());
-        origCustomer.setEmailContatto(updtCustomer.getEmailContatto());
-        origCustomer.setNomeContatto(updtCustomer.getNomeContatto());
-        origCustomer.setCognomeContatto(updtCustomer.getCognomeContatto());
-        origCustomer.setTelefonoContatto(updtCustomer.getTelefonoContatto());
-        origCustomer.setSedeLegale(updtCustomer.getSedeLegale());
-        origCustomer.setIndirizzoOpzionale(updtCustomer.getIndirizzoOpzionale());
-        origCustomer.setTipo(updtCustomer.getTipo());
+    public Customer update(Customer updtCustomer) throws ByIdNotFoundException, ComuneNotFoundException {
+        Customer origCustomer = preUpdate(updtCustomer);
 
         cr.save(origCustomer);
         return origCustomer;
@@ -126,6 +143,7 @@ public class CustomerService {
     public Customer updateLastContact(long id) throws ByIdNotFoundException {
         Customer found = findById(id);
         found.setDataUltimoContatto(LocalDate.now());
+        cr.save(found);
         return found;
     }
 

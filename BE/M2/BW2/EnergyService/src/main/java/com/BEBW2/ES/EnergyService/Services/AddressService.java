@@ -66,6 +66,9 @@ public class AddressService {
 
     }
 
+    /**
+     * Check if the Address given already exists in the database
+     * */
     public Optional<Address> getSameAddress(Address a) {
         return ar.getSameAddress(a.getCap(), a.getVia(), a.getCivico());
     }
