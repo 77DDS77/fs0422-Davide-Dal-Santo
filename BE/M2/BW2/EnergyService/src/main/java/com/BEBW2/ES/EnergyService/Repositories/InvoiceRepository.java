@@ -33,6 +33,9 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
     @Query("select i from Invoice i where i.importo between ?1 and ?2")
     List<Invoice> findByImportoBetween(BigDecimal importoStart, BigDecimal importoEnd);
 
+    @Query("select i from Invoice i where i.numero = ?1")
+    List<Invoice> findByNumero(int numero);
+
 
 
 }

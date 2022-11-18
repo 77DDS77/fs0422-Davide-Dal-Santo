@@ -1,10 +1,8 @@
 package com.BEBW2.ES.EnergyService.Controller;
 
-import com.BEBW2.ES.EnergyService.Entities.Address;
 import com.BEBW2.ES.EnergyService.Entities.Customer;
 import com.BEBW2.ES.EnergyService.Exceptions.ByIdNotFoundException;
 import com.BEBW2.ES.EnergyService.Exceptions.ComuneNotFoundException;
-import com.BEBW2.ES.EnergyService.Services.AddressService;
 import com.BEBW2.ES.EnergyService.Services.CustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,20 +17,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 
 @Slf4j
 @RestController
 @RequestMapping("/api/customers")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CustomerController {
 
     @Autowired
     CustomerService cs;
-
-    @Autowired
-    AddressService as;
 
     //----------------------GET-------------------
     /**
@@ -244,9 +238,9 @@ public class CustomerController {
     }
 
     //Filter by nome contatto or partial of it
-    @GetMapping("/filtered/nome-contatto/{nome}")
+    @GetMapping("/filtered/nome-contatto")
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
-    public ResponseEntity<List<Customer>> findByNomeContatto(@PathVariable(name = "nome") String nomeContatto) {
+    public ResponseEntity<List<Customer>> findByNomeContatto(@RequestParam() String nomeContatto) {
         try {
             return new ResponseEntity<>(cs.findByNomeContattoContainsIgnoreCase(nomeContatto), HttpStatus.OK);
         } catch (Exception e) {

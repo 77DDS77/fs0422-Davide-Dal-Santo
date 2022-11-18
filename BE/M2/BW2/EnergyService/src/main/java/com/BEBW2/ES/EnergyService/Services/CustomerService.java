@@ -34,7 +34,7 @@ public class CustomerService {
      * Process a Customer to persist both its property and its Address values
      * from a single form data input
      */
-    //TODO possibili compiicazioni con form su frontend per il doppio indirizzo
+    //TODO possibili complicazioni con form su frontend per il doppio indirizzo
     public Customer preSave(Customer customer) throws ComuneNotFoundException {
         Optional<Address> newLegalAdd = as.getSameAddress(customer.getSedeLegale());
         Optional<Address> newOperativeAdd = customer.getSedeOperativa() != null ? as.getSameAddress(customer.getSedeOperativa()) : Optional.empty();
@@ -92,6 +92,17 @@ public class CustomerService {
     }
 
     /**
+     * update, takes a Customer object to get the props that we will
+     * assign to the original, now updated, customer.
+     */
+    public Customer update(Customer updtCustomer) throws ByIdNotFoundException, ComuneNotFoundException {
+        Customer origCustomer = preUpdate(updtCustomer);
+
+        cr.save(origCustomer);
+        return origCustomer;
+    }
+
+    /**
      * simple get All customers, return an iterable of customers
      */
     public Iterable<Customer> getAllCustomer() {
@@ -116,16 +127,7 @@ public class CustomerService {
         throw new ByIdNotFoundException("Customer", id);
     }
 
-    /**
-     * update, takes the ID of the "original" customer and a Customer object to get the props that we will
-     * assign to the original, now updated, customer.
-     */
-    public Customer update(Customer updtCustomer) throws ByIdNotFoundException, ComuneNotFoundException {
-        Customer origCustomer = preUpdate(updtCustomer);
 
-        cr.save(origCustomer);
-        return origCustomer;
-    }
 
     /**
      * delete a customer

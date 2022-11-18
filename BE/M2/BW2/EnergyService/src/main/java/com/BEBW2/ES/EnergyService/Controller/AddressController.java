@@ -9,13 +9,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/addresses")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class AddressController {
 
     @Autowired
@@ -29,13 +27,13 @@ public class AddressController {
      * - via Address's ID
      * */
     @GetMapping("")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<Iterable<Address>> getAllAddresses() {
         return new ResponseEntity<>(as.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/pageable")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<Page<Address>> getPageableAddress(Pageable p) {
         Page<Address> foundAll = as.getAllPaginate(p);
 

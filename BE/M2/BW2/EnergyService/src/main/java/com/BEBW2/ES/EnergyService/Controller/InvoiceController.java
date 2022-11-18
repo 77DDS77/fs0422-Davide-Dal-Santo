@@ -1,6 +1,6 @@
 package com.BEBW2.ES.EnergyService.Controller;
 
-import com.BEBW2.ES.EnergyService.Entities.Customer;
+
 import com.BEBW2.ES.EnergyService.Entities.Invoice;
 import com.BEBW2.ES.EnergyService.Entities.InvoiceState;
 import com.BEBW2.ES.EnergyService.Exceptions.ByIdNotFoundException;
@@ -26,6 +26,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/api/invoices")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class InvoiceController {
 
     @Autowired
@@ -83,7 +84,7 @@ public class InvoiceController {
     }
 
     //----------------------PUT-------------------
-    /*
+    /**
      * Endpoint to update an Invoice:
      * - must receive the id of the "Original" Invoice
      * - must receive a complete Invoice obj as Request Body
@@ -91,9 +92,9 @@ public class InvoiceController {
     //TODO vedere se serve @RequestBody sui parametri
     @PutMapping("/update")
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
-    public ResponseEntity<Invoice> updateCustomer(Long id, Invoice UpdatedInvoice){
+    public ResponseEntity<Invoice> updateCustomer(@RequestBody Invoice UpdatedInvoice){
         try {
-            return new ResponseEntity<>(is.update(id, UpdatedInvoice), HttpStatus.OK);
+            return new ResponseEntity<>(is.update(UpdatedInvoice), HttpStatus.OK);
         } catch (ByIdNotFoundException e) {
             log.error("Error updating customer: " + e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -227,6 +228,17 @@ public class InvoiceController {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
+
+    @GetMapping("/filtered/invoice-number")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public ResponseEntity<List<Invoice>> getByInvoiceNumber(@RequestParam("num") int invNum){
+        try{
+           return new ResponseEntity<>(is.findByInvoiceNumber(invNum), HttpStatus.OK) ;
+        }catch(Exception e){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
 
     @GetMapping("/filtered/invoice-state/{state}")
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")

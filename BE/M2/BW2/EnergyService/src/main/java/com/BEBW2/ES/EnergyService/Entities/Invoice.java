@@ -25,6 +25,7 @@ public class Invoice {
 
     private BigDecimal importo;
 
+    @Column(unique = true)
     private int numero;
 
     @ManyToOne

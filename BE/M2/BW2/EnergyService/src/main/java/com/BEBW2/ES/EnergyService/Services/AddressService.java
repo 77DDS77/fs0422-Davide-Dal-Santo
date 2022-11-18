@@ -23,9 +23,9 @@ public class AddressService {
     ComuneService cs;
 
     public Address save(String via, int civico, int cap, String comune) throws ComuneNotFoundException {
-        Optional<Comune> c = cs.getByName(comune);
-        if (c.isPresent()) {
-            Address a = new Address(via, civico, cap, c.get());
+        Comune c = cs.getByName(comune);
+        if (c != null) {
+            Address a = new Address(via, civico, cap, c);
             ar.save(a);
             return a;
         }else{

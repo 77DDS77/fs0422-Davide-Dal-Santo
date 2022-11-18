@@ -54,8 +54,8 @@ public class InvoiceService {
     /**
      * Update method only works for invoices with state either CREATA or RIFIUTATA
      */
-    public Invoice update(Long id, Invoice updtInvoice) throws ByIdNotFoundException, CantModifyInvoiceException {
-        Invoice origInvoice = getById(id);
+    public Invoice update(Invoice updtInvoice) throws ByIdNotFoundException, CantModifyInvoiceException {
+        Invoice origInvoice = getById(updtInvoice.getId());
         InvoiceState statoFatt = origInvoice.getStatoFattura();
         if (statoFatt.equals(InvoiceState.CREATA) || statoFatt.equals(InvoiceState.RIFIUTATA)) {
             origInvoice.setCustomer(updtInvoice.getCustomer());
@@ -139,6 +139,13 @@ public class InvoiceService {
     public List<Invoice> findByCustomerId(Long id) throws ByIdNotFoundException {
         cs.findById(id);
         return ir.findByCustomer_Id(id);
+    }
+
+    /**
+     * BY INVOICE NUMBER
+    * */
+    public List<Invoice> findByInvoiceNumber(int num){
+        return ir.findByNumero(num);
     }
 
     /**
