@@ -1,0 +1,128 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+
+  <main class="form-signin m-auto my-5">
+    <form [formGroup]="form" (submit)="submit()">
+      <h1 class="h3 mb-3 fw-normal">Company data:</h1>
+
+      <!-- RAGIONE SOCIALE -->
+      <div class="form-floating mb-2">
+        <input formControlName="ragioneSociale"
+        type="text" class="form-control"
+        id="floatingInput1" placeholder="Ragione sociale">
+        <label for="floatingInput1">Ragione sociale</label>
+      </div>
+      <!-- PARTITA IVA -->
+      <div class="form-floating mb-2">
+        <input formControlName="partitaIVA"
+        type="text" class="form-control"
+        id="floatingInput2" placeholder="Partita IVA">
+        <label for="floatingInput2">Partita IVA</label>
+      </div>
+      <!-- TIPO AZIENDA [PA, SAS, SPA, SRL] -->
+      <div class="form-check form-check-inline">
+        <input formControlName="tipoAzienda" class="form-check-input" type="radio" name="tipoAzienda" id="PA" value="PA">
+        <label class="form-check-label" for="PA">
+          PA
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input formControlName="tipoAzienda" class="form-check-input" type="radio" name="tipoAzienda" id="SAS" value="SAS">
+        <label class="form-check-label" for="SAS">
+          SAS
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input formControlName="tipoAzienda" class="form-check-input" type="radio" name="tipoAzienda" id="SPA" value="SPA">
+        <label class="form-check-label" for="SPA">
+          SPA
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input formControlName="tipoAzienda" class="form-check-input" type="radio" name="tipoAzienda" id="SRL" value="SRL">
+        <label class="form-check-label" for="SRL">
+          SRL
+        </label>
+      </div>
+      <!-- EMAIL ATTIVITA' -->
+      <div class="form-floating mb-2">
+        <input formControlName="email"
+        type="email" class="form-control"
+        id="floatingInput3" placeholder="Email attivita'">
+        <label for="floatingInput3">Email attivita'</label>
+      </div>
+      <!-- FATTURATO ANNUALE -->
+      <div class="form-floating mb-2">
+        <input formControlName="fatturatoAnnuale"
+        type="number" class="form-control"
+        id="floatingInput4" placeholder="Fatturato annuale">
+        <label for="floatingInput4">Fatturato annuale</label>
+      </div>
+      <!-- PEC -->
+      <div class="form-floating mb-2">
+        <input formControlName="pec"
+        type="email" class="form-control"
+        id="floatingInput5" placeholder="PEC">
+        <label for="floatingInput5">PEC</label>
+      </div>
+      <!-- TELEFONO -->
+      <div class="form-floating mb-2">
+        <input formControlName="telefono"
+        type="tel" class="form-control"
+        id="floatingInput6" placeholder="Telefono azienda">
+        <label for="floatingInput6">Telefono azienda</label>
+      </div>
+      <!-- EMAIL CONTATTO -->
+      <div class="form-floating mb-2">
+        <input formControlName="emailContatto"
+        type="text" class="form-control"
+        id="floatingInput7" placeholder="Email contatto">
+        <label for="floatingInput7">Email contatto</label>
+      </div>
+      <!-- NOME CONTATTO -->
+      <div class="form-floating mb-2">
+        <input formControlName="nomeContatto"
+        type="text" class="form-control"
+        id="name" placeholder="Nome contatto">
+        <label for="name">Nome contatto</label>
+      </div>
+      <!-- COGNOME CONTATTO -->
+      <div class="form-floating mb-2">
+        <input formControlName="cognomeContatto"
+        type="text" class="form-control"
+        id="lastname" placeholder="Congnome contatto">
+        <label for="lastname">Congnome contatto</label>
+      </div>
+      <!-- TELEFONO CONTATTO -->
+      <div class="form-floating mb-2">
+        <input formControlName="telefonoContatto"
+        type="text" class="form-control"
+        id="floatingInput10" placeholder="Telefono contatto">
+        <label for="floatingInput10">Telefono contatto</label>
+      </div>
+
+      <!-- SEDE LEGALE -->
+      <h1 class="h3 mb-3 fw-normal">Sede Legale:</h1>
+      <app-address-form [addressForm]="legaleForm"></app-address-form>
+
+      <!-- OPERATIVA != LEGALE? -->
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (change)="updateOperativa()">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Sede Operativa != Sede Legale</label>
+      </div>
+
+      <!-- SEDE OPERATIVA -->
+      <h1 *ngIf="operativaLegale == true" class="h3 mb-3 fw-normal">Sede Operativa:</h1>
+      <app-address-form *ngIf="operativaLegale == true" [addressForm]="operativaForm"></app-address-form>
+
+      <label *ngIf="formIsValid == false" class="text-danger">*You must fill the form</label>
+      <button #submitBtn
+      class="w-100 btn btn-lg btn-primary" type="submit">Post</button>
+
+    </form>
+  </main>
+
+</div>
+
+

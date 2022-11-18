@@ -1,0 +1,88 @@
+
+  <div [formGroup]="addressForm">
+    <!-- VIA -->
+    <div class="form-floating mb-2">
+      <input
+        formControlName="via"
+        type="text"
+        class="form-control"
+        id="floatingInput11"
+        placeholder="Via"
+      />
+      <label for="floatingInput11">Via</label>
+    </div>
+    <!-- CIVICO -->
+    <div class="form-floating mb-2">
+      <input
+        formControlName="civico"
+        type="number"
+        class="form-control"
+        id="floatingInput12"
+        placeholder="Civico"
+      />
+      <label for="floatingInput12">Civico</label>
+    </div>
+    <!-- CAP -->
+    <div class="form-floating mb-2">
+      <input
+        formControlName="cap"
+        type="number"
+        class="form-control"
+        id="floatingInput13"
+        placeholder="Cap"
+      />
+      <label for="floatingInput13">Cap</label>
+    </div>
+    <!-- PROVINCIA -->
+    <div class="form-floating mb-2">
+      <select
+      (change)="updateComuni()"
+        class="form-select"
+        formControlName="provincia"
+        aria-label=".form-select-lg example"
+        id="floatingInput14"
+        placeholder="Comune"
+      >
+        <option selected value=null>Seleziona provincia</option>
+        <option
+          *ngFor="let provincia of provincie"
+          [value]="provincia.provincia"
+        >
+          {{ provincia.provincia }}
+        </option>
+      </select>
+      <label for="floatingInput14">Provincia</label>
+    </div>
+
+    <!-- PROVINCIA TEST -->
+    <!-- <div class="form-floating mb-2">
+      <input class="form-control" type="text" list="test-datalist" name="" id="">
+      <datalist class="" formControlName="provincia"
+      aria-label=".form-select-lg example" id="test-datalist"
+        placeholder="Comune">
+        <option *ngFor="let provincia of provincie" [value]="provincia.provincia">{{provincia.provincia}}</option>
+      </datalist>
+      <label for="test-datalist">Provincia</label>
+    </div> -->
+
+    <!-- COMUNE -->
+    <div class="form-floating mb-2" >
+      <select
+        class="form-select"
+        formControlName="comune"
+        aria-label=".form-select-lg example"
+        id="floatingInput14"
+        placeholder="Comune"
+      >
+        <option selected value=null>Seleziona comune</option>
+        <option
+          *ngFor="let comune of comuni"
+          [ngValue]="comune"
+        >
+        {{ comune.comune }}
+      </option>
+      </select>
+      <label for="floatingInput14">Comune</label>
+    </div>
+  </div>
+

@@ -1,0 +1,44 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+
+  <div class="card my-3" id="my-card">
+    <div class="card-header">
+      (#{{customer.id}}) {{customer.ragioneSociale}} <span>{{customer.tipo}}</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">P.IVA: {{customer.partitaIVA}}</h5>
+      <p class="card-text">Email contatto: <span>{{customer.email}}</span></p>
+      <p class="card-text">Data inserimento: <span>{{customer.dataInserimento}}</span></p>
+      <p class="card-text">Data ultimo contatto: <span>{{customer.dataUltimoContatto}}</span></p>
+      <p class="card-text">Fatturato annuale: <span>{{customer.fatturatoAnnuale}} $</span></p>
+      <p class="card-text">PEC: <span>{{customer.pec}}</span></p>
+      <p class="card-text">Nome Contatto: <span>{{customer.nomeContatto}}</span></p>
+      <p class="card-text">Cognome contatto: <span>{{customer.cognomeContatto}}</span></p>
+      <p class="card-text">Telefono contatto: <span>{{customer.telefonoContatto}}</span></p>
+      <p class="card-text">Email contatto: <span>{{customer.emailContatto}}</span></p>
+      <p class="card-text">Sede legale:
+        <span>
+          {{customer.sedeLegale.via}}
+          {{customer.sedeLegale.civico}}
+          {{customer.sedeLegale.cap}}
+          {{customer.sedeLegale.comune.comune}}
+          ({{customer.sedeLegale.comune.provincia.sigla}})
+        </span>
+      </p>
+      <p *ngIf="customer.sedeOperativa != null" class="card-text">Sede operativa:
+        <span>
+          {{customer.sedeOperativa.via}}
+          {{customer.sedeOperativa.civico}}
+          {{customer.sedeOperativa.cap}}
+          {{customer.sedeOperativa.comune.comune}}
+          ({{customer.sedeOperativa.comune.provincia.sigla}})
+        </span>
+      </p>
+
+      <a [routerLink]="['/invoices-of/', customer.id]" class="btn btn-primary d-block my-2 d-md-inline mx-md-2">See
+        invoices</a>
+    </div>
+  </div>
+
+</div>

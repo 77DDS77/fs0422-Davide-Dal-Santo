@@ -1,0 +1,54 @@
+
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+
+
+  <form (keyup)="customerSearch(test.value)" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 mt-3" role="search">
+      <input #test type="search" class="form-control" placeholder="Search customer name..." aria-label="Search">
+  </form>
+
+  <div class="card my-3" id="my-card" *ngFor="let c of allCustomers">
+    <div class="card-header">
+      (#{{c.id}}) {{c.ragioneSociale}} <span>{{c.tipo}}</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">P.IVA: {{c.partitaIVA}}</h5>
+      <p class="card-text">Email contatto: <span>{{c.email}}</span></p>
+      <p class="card-text">Data inserimento: <span>{{c.dataInserimento}}</span></p>
+      <p class="card-text">Data ultimo contatto: <span>{{c.dataUltimoContatto}}</span></p>
+      <p class="card-text">Fatturato annuale: <span>{{c.fatturatoAnnuale}} $</span></p>
+      <p class="card-text">PEC: <span>{{c.pec}}</span></p>
+      <p class="card-text">Nome Contatto: <span>{{c.nomeContatto}}</span></p>
+      <p class="card-text">Cognome contatto: <span>{{c.cognomeContatto}}</span></p>
+      <p class="card-text">Telefono contatto: <span>{{c.telefonoContatto}}</span></p>
+      <p class="card-text">Email contatto: <span>{{c.emailContatto}}</span></p>
+      <p class="card-text">Sede legale:
+        <span>
+          {{c.sedeLegale.via}}
+          {{c.sedeLegale.civico}}
+          {{c.sedeLegale.cap}}
+          {{c.sedeLegale.comune.comune}}
+          ({{c.sedeLegale.comune.provincia.sigla}})
+        </span>
+      </p>
+      <p *ngIf="c.sedeOperativa != null" class="card-text">Sede operativa:
+        <span>
+          {{c.sedeOperativa.via}}
+          {{c.sedeOperativa.civico}}
+          {{c.sedeOperativa.cap}}
+          {{c.sedeOperativa.comune.comune}}
+          ({{c.sedeOperativa.comune.provincia.sigla}})
+        </span>
+      </p>
+
+      <a [routerLink]="['/invoices-of/', c.id]" class="btn btn-primary d-block my-2 d-md-inline mx-md-2">See invoices</a>
+      <a [routerLink]="['/customer-details/', c.id]" class="btn btn-primary d-block my-2 d-md-inline mx-md-2">Customer details</a>
+    </div>
+  </div>
+
+
+</div>
+
+
+

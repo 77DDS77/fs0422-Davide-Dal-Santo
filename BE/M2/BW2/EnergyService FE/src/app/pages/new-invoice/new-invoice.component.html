@@ -1,0 +1,58 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+
+  <main class="form-signin m-auto my-5">
+    <form [formGroup]="form" (submit)="submit()">
+      <h1 class="h3 mb-3 fw-normal">Invoice data:</h1>
+
+      <!-- DATA -->
+      <div class="form-floating mb-2">
+        <input formControlName="data"
+        type="text" class="form-control"
+        id="floatingInput1" placeholder="Data" readonly>
+        <label for="floatingInput1">Data</label>
+      </div>
+      <!-- IMPORTO -->
+      <div class="form-floating mb-2">
+        <input formControlName="importo"
+        type="number" class="form-control"
+        id="floatingInput2" placeholder="Importo">
+        <label for="floatingInput2">Importo</label>
+      </div>
+
+      <!-- NUMERO FATTURA -->
+      <div class="form-floating mb-2">
+        <input formControlName="numeroFattura"
+        type="number" class="form-control"
+        id="floatingInput3" placeholder="Numero Fattura">
+        <label for="floatingInput3">Numero Fattura</label>
+      </div>
+      <!-- CUSTOMER -->
+      <div class="form-floating mb-2">
+        <select
+          class="form-select"
+          formControlName="customer"
+          aria-label=".form-select-lg example"
+          id="floatingInput14"
+          placeholder="Comune"
+        >
+          <option selected value=null>Seleziona Customer</option>
+          <option
+            *ngFor="let c of allCustomer"
+            [ngValue]="c"
+          >
+            {{ c.nomeContatto }}
+          </option>
+        </select>
+        <label for="floatingInput14">Customer</label>
+      </div>
+
+      <button #submitBtn
+      class="w-100 btn btn-lg btn-primary" type="submit">Post</button>
+
+    </form>
+  </main>
+
+
+

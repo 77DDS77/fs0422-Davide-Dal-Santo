@@ -1,0 +1,95 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+  <form (keyup)="invoiceSearch(invNum.value)" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 mt-3" role="search">
+    <input #invNum type="number" class="form-control" placeholder="Search by Invoice number..." aria-label="Search" />
+  </form>
+</div>
+
+<div class="container" *ngIf="custInvoices.length > 0 && searchedInvoices.length == 0">
+  <div class="card my-3" *ngFor="let i of custInvoices">
+    <h5 class="card-header">{{ i.customer.ragioneSociale }}</h5>
+    <div class="card-body">
+      <h5 class="card-title mb-3">Invoice N.{{ i.numero }}</h5>
+      <p class="card-text">Importo: {{ i.importo }} $</p>
+      <p class="card-text">Stato: {{ i.statoFattura }}</p>
+      <p class="card-text">{{ i.date }}</p>
+
+      <div class="row">
+        <div class="col">
+          <div class="col text-end text-md-start">
+            <div ngbDropdown placement="top-end" class="d-inline-block">
+              <button *ngIf="i.statoFattura != 'ACCETTATA'" type="button" class="btn btn-outline-primary"
+                id="dropdownBasic2" ngbDropdownToggle>
+                Actions
+              </button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                <button (click)="send(i)" *ngIf="
+                    i.statoFattura == 'CREATA' || i.statoFattura == 'ACCETTATA'
+                  " ngbDropdownItem>
+                  Send
+                </button>
+                <button (click)="accept(i)" *ngIf="i.statoFattura == 'INVIATA'" ngbDropdownItem>
+                  Accept
+                </button>
+                <button (click)="deny(i)" *ngIf="i.statoFattura == 'INVIATA'" ngbDropdownItem>
+                  Deny
+                </button>
+                <button *ngIf="i.statoFattura == 'RIFIUTATA'" ngbDropdownItem>
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="card my-3" *ngFor="let i of searchedInvoices">
+    <h5 class="card-header">{{ i.customer.ragioneSociale }}</h5>
+    <div class="card-body">
+      <h5 class="card-title mb-3">Invoice N.{{ i.numero }}</h5>
+      <p class="card-text">Importo: {{ i.importo }} $</p>
+      <p class="card-text">Stato: {{ i.statoFattura }}</p>
+      <p class="card-text">{{ i.date }}</p>
+
+      <div class="row">
+        <div class="col">
+          <div class="col text-end text-md-start">
+            <div ngbDropdown placement="top-end" class="d-inline-block">
+              <button *ngIf="i.statoFattura != 'ACCETTATA'" type="button" class="btn btn-outline-primary"
+                id="dropdownBasic2" ngbDropdownToggle>
+                Actions
+              </button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                <button (click)="send(i)" *ngIf="
+                      i.statoFattura == 'CREATA' ||
+                      i.statoFattura == 'ACCETTATA'
+                    " ngbDropdownItem>
+                  Send
+                </button>
+                <button (click)="accept(i)" *ngIf="i.statoFattura == 'INVIATA'" ngbDropdownItem>
+                  Accept
+                </button>
+                <button (click)="deny(i)" *ngIf="i.statoFattura == 'INVIATA'" ngbDropdownItem>
+                  Deny
+                </button>
+                <button *ngIf="i.statoFattura == 'RIFIUTATA'" ngbDropdownItem>
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4 text-center" *ngIf="custInvoices.length == 0">
+  <h3>No invoice found for this customer.</h3>
+</div>
