@@ -1,8 +1,8 @@
 package com.BEBW2.ES.EnergyService.Controller;
 
 import com.BEBW2.ES.EnergyService.Entities.Comune;
-import com.BEBW2.ES.EnergyService.Entities.Customer;
 import com.BEBW2.ES.EnergyService.Exceptions.ByIdNotFoundException;
+import com.BEBW2.ES.EnergyService.Exceptions.ComuneNotFoundException;
 import com.BEBW2.ES.EnergyService.Services.ComuneService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -56,5 +58,23 @@ public class ComuneController {
             log.error(e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/comune")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public ResponseEntity<Comune> findByName(@RequestParam() String comune) {
+        try {
+            return new ResponseEntity<>(comS.getByName(comune), HttpStatus.OK);
+        } catch (ComuneNotFoundException e) {
+            log.error(e.getMessage());
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/provincia")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    public ResponseEntity<List<Comune>> findByProvincia(@RequestParam() String provincia) {
+            return new ResponseEntity<>(comS.getByProvincia(provincia), HttpStatus.OK);
+
     }
 }

@@ -3,6 +3,7 @@ package com.BEBW2.ES.EnergyService.Services;
 
 import com.BEBW2.ES.EnergyService.Entities.Comune;
 import com.BEBW2.ES.EnergyService.Exceptions.ByIdNotFoundException;
+import com.BEBW2.ES.EnergyService.Exceptions.ComuneNotFoundException;
 import com.BEBW2.ES.EnergyService.Repositories.ComuneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -34,9 +35,20 @@ public class ComuneService {
         throw new ByIdNotFoundException("Comune", id);
     }
 
-    public Optional<Comune> getByName(String comune) {
-        return cr.findByName(comune);
+    public Comune getByName(String comune) throws ComuneNotFoundException{
+
+        Optional<Comune> found =  cr.findByName(comune);
+
+        if (found.isPresent()) {
+            return found.get();
+        }
+        throw new ComuneNotFoundException(comune);
     }
+
+    public List<Comune> getByProvincia(String provincia){
+        return cr.findByProvincia(provincia);
+    }
+
 
     public void save(Comune c) {
         cr.save(c);
@@ -51,7 +63,7 @@ public class ComuneService {
         if(c.isPresent()) {
             cr.delete(c.get());
         } else {
-            throw new Exception("Utente non trovato");
+            throw new Exception("Comune non trovato");
         }
     }
 
