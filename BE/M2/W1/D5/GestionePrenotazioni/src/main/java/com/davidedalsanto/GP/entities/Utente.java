@@ -1,14 +1,21 @@
 package com.davidedalsanto.GP.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,6 +36,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Utente {
 
 	@Id
@@ -39,6 +48,8 @@ public class Utente {
 	
 	private String email;
 	
+	@Builder.Default
 	@OneToMany(mappedBy = "utente")
-	private Prenotazione prenotazioni;
+	@JsonBackReference
+	private List<Prenotazione> prenotazioni = new ArrayList<>();
 }

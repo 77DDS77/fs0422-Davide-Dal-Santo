@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,6 +20,7 @@ import lombok.ToString;
 
 /**
  * id
+ * nome
  * indirizzo
  * citta
  * */
@@ -23,13 +28,16 @@ import lombok.ToString;
 @Table(name = "edifici")
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Edificio {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	private String nome;
 	
 	//capire se cosi ok o fare entita'
 	private String indirizzo;
@@ -37,5 +45,13 @@ public class Edificio {
 	private String city;
 	
 	@OneToMany(mappedBy = "edificio")
+	@JsonBackReference
 	private List<Postazione> postazioni;
+
+	@Override
+	public String toString() {
+		return "Edificio [id=" + id + ", nome=" + nome + ", indirizzo=" + indirizzo + ", city=" + city + "]";
+	}
+	
+	
 }

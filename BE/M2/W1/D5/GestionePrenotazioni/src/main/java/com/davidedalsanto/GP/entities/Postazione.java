@@ -10,6 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,6 +32,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Postazione {
 
 	@Id
@@ -39,7 +45,10 @@ public class Postazione {
 	@Enumerated(EnumType.STRING)
 	private TipoPostazione tipo;
 	
+	private int maxOccupanti;
+	
 	@ManyToOne
 	@JoinColumn(name = "edificio_id")
+	@JsonManagedReference
 	private Edificio edificio;
 }

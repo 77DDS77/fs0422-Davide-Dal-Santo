@@ -11,6 +11,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,6 +26,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Prenotazione {
 
 	@Id
@@ -29,7 +35,7 @@ public class Prenotazione {
 	private long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "utente_id")
+	@JsonManagedReference
 	private Utente utente;
 	
 	/*
